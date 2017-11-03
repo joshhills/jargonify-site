@@ -22,7 +22,10 @@ module.exports = {
     // Point webpack to external vendor modules.
     modules: ['.', helpers.root('configuration/node_modules')],
     // Create short-form aliases for imports during development.
-    alias: {},
+    alias: {
+      styles: helpers.root('source/styles'),
+      scripts: helpers.root('source/scripts')
+    },
     // Allow omission of '-loader' suffix for ease-of-use.
     moduleExtensions: ['-loader']
   },
@@ -74,7 +77,10 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true
+                sourceMap: true,
+                includePaths: [
+                  helpers.root('source/styles')
+                ]
               }
             }
           ]

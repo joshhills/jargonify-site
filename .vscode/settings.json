@@ -7,6 +7,6 @@
     "scss.validate": false,
     "stylelint.config": {
         // Use the same rules the pipeline uses.
-        "extends": "/Users/avery/Documents/Programming Projects/angular-2-test/configuration/postcss/stylelint.json"
+        "extends": "/Users/avery/Documents/Programming Projects/jargonify-site/configuration/postcss/stylelint.json"
     }
 }

@@ -3,12 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from 
+import { PatternModule } from '../pattern/pattern.module';
+import { PatternComponent } from '../pattern/pattern.component';
+
+import { AppComponent } from  './app.component';
 
 const appRoutes: Routes = [
   {
     path: 'pattern',
     component: PatternComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/'
   }
 ];
 
@@ -18,12 +25,15 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
+    PatternModule,
     BrowserModule,
     FormsModule
   ],
   declarations: [
-    PatternComponent
+    AppComponent
   ],
-  bootstrap: [ ]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

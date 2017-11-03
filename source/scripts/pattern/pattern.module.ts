@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 
-@NgModule({
-  imports: [
-    
-  ],
-  declarations: [
+import { PatternComponent } from './pattern.component';
 
-  ],
-  bootstrap: [ ]
+@NgModule({
+  declarations: [
+    PatternComponent
+  ]
 })
-export class AppModule { }
+export class PatternModule { }

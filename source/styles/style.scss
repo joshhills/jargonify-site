@@ -1,0 +1,17 @@
+// TODO: Fix for globs @ https://www.npmjs.com/package/import-glob-loader
+
+// Configuration
+@import 'vars/colours';
+@import 'vars/fonts';
+@import 'vars/layout';
+
+// General
+@import 'base/normalize';
+@import 'base/root';
+@import 'base/typography';
+
+// Atomic
+@import 'atoms/buttons';
+// @import 'molecules/**/*';
+// @import 'components/**/*';
+// @import 'layouts/**/*';

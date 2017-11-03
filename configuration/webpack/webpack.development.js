@@ -18,7 +18,8 @@ module.exports = webpackMerge(commonConfig, {
     contentBase: 'dist',
     port: 8080,
     host: "0.0.0.0",
-    open: true
+    open: true,
+    historyApiFallback: true
   },
 
   // Define plugin settings.
