@@ -1,0 +1,13 @@
+{
+  // This exists for VSCode Intellisense only!
+  "compilerOptions": {
+    "baseUrl": "source/scripts/",
+    "experimentalDecorators": true,
+    "paths": {
+      "*": [
+        "*",
+        "../../configuration/node_modules/*"
+      ]
+    }
+  }
+}

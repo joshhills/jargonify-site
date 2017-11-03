@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "baseUrl": "../../source/scripts/",
+    "paths": {
+      "*": [
+        "*",
+        "../../configuration/node_modules/*"
+      ]
+    },
+    "rootDirs": [
+      "../",
+      "../../"
+    ]
+  },
+  "include": [
+    "../../source/scripts/**/*.{ts,tsx}"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

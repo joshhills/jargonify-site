@@ -1,0 +1,5 @@
+configuration/node_modules
+build
+production
+./tsconfig.json
+./.vscode
