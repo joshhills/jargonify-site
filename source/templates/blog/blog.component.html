@@ -1,12 +1,17 @@
 <div>
     <!-- Cover w/ Search Bar -->
     <div>
-        Cover...
+        <img src="" alt="Blog image of me writing." />
+        <p>
+            Blog
+        </p>
+        <p>
+            Brief description of the blog.
+        </p>
+        <blog-search></blog-search>
     </div>
     <!-- Featured Post -->
-    <div>
-        Feature...
-    </div>
+    <blog-featured *ngIf="featuredBlogPost" [blogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->
     <div>
         Blog posts, 

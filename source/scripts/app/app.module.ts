@@ -20,6 +20,7 @@ import { SpineModule } from 'spine/spine.module';
 import { PostService } from 'shared/services/post.service';
 
 import { AppComponent } from  'app/app.component';
+import { AppConfiguration } from 'app/app.configuration';
 
 // Configuration
 
@@ -46,6 +47,7 @@ import { AppComponent } from  'app/app.component';
     AppComponent
   ],
   providers: [
+    AppConfiguration,
     PostService
   ],
   bootstrap: [

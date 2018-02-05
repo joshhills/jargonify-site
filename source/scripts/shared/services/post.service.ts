@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { BlogPost } from 'shared/models/blog-post';
+import { AppConfiguration } from 'app/app.configuration';
 
 @Injectable()
 export class PostService {
@@ -11,24 +12,42 @@ export class PostService {
     private baseUrl: string;
     private headers: Headers;
 
-    constructor(private http: Http) {
+    constructor(private appConfiguration: AppConfiguration, private http: Http) {
         // TODO: Use config.
-        this.baseUrl = '/posts/';
+        this.baseUrl = process.env.API_URL;
         this.headers = new Headers();
         this.headers.append('Accept', 'application/json');
     }
 
-    public getBlogPosts(): Observable<BlogPost[]> {
+    public getBlogPosts(
+        page: number = 0,
+        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE
+    ): Observable<BlogPost[]> {
         let blogPosts = this.http
             .get(
-                `${this.baseUrl}/`,
+                `${this.baseUrl}/blog-posts.json`,
                 {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().results.map(this.toBlogPost));
+            .map(res => res.json().map(this.toBlogPost));
             // .catch();
         return blogPosts;
+    }
+
+    public getFeaturedBlogPosts(
+        page: number = 0,
+        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE
+    ): Observable<BlogPost[]> {
+        let featuredBlogPosts = this.http
+            .get(
+                `${this.baseUrl}/featured-blog-posts.json`,
+                {
+                    headers: this.headers
+                }
+            )
+            .map(res => res.json().map(this.toBlogPost));
+        return featuredBlogPosts;
     }
 
     public getBlogPost(id: string): BlogPost {

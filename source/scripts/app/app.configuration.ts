@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppConfiguration {
-    /*
-     This is for things that will change during the course of interacting
-     with the application, such as cookie settings.
-     */
+    // Immutable properties.
+    public readonly MAX_BLOG_POSTS_PER_PAGE: number = 11;
+
+    // Mutable properties.
+    public doTrack: boolean = true;
 }

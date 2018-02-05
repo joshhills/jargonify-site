@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConfiguration } from 'app/app.configuration';
 import { PostService } from 'shared/services/post.service';
 import { BlogPost } from 'shared/models/blog-post';
 
@@ -10,11 +11,30 @@ import { BlogPost } from 'shared/models/blog-post';
   ]
 })
 export class BlogComponent implements OnInit {
-  blogPosts: BlogPost[] = [];
+  featuredBlogPost: BlogPost;
+  blogPosts: BlogPost[];
 
-  constructor(private postService: PostService) {}
+  currentPage: number = 0;
+  inSearchView: boolean = false;
+
+  constructor(
+    private appConfiguration: AppConfiguration,
+    private postService: PostService
+  ) {}
 
   ngOnInit() {
-    // this.blogPosts 
+    this.postService.getBlogPosts(
+      this.currentPage
+    ).subscribe(
+      res => {
+        this.blogPosts = res;
+      }
+    );
+
+    this.postService.getFeaturedBlogPosts(0, 1).subscribe(
+      res => {
+        this.featuredBlogPost = res[0];
+      }
+    );
   }
 }
