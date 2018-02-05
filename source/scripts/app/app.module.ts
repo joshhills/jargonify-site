@@ -1,39 +1,55 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+// Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
-import { PatternModule } from '../pattern/pattern.module';
-import { PatternComponent } from '../pattern/pattern.component';
+// Custom Modules
+import { BlogModule } from 'blog/blog.module';
+import { BlurbModule } from 'blurb/blurb.module';
+import { ContentsModule } from 'contents/contents.module';
+import { ErrorModule } from 'error/error.module';
+import { HomeModule } from 'home/home.module';
+import { PatternModule } from 'pattern/pattern.module';
+import { PortfolioModule } from 'portfolio/portfolio.module';
+import { PostModule } from 'post/post.module';
+import { AppRoutingModule } from 'app/app-routing.module';
+import { SpineModule } from 'spine/spine.module';
 
-import { AppComponent } from  './app.component';
+// Custom services.
+import { PostService } from 'shared/services/post.service';
 
-const appRoutes: Routes = [
-  {
-    path: 'pattern',
-    component: PatternComponent
-  },
-  {
-    path: '**',
-    redirectTo: '/'
-  }
-];
+import { AppComponent } from  'app/app.component';
+
+// Configuration
+
 
 @NgModule({
   imports: [
-    // Enable routing.
-    RouterModule.forRoot(
-      appRoutes
-    ),
-    PatternModule,
+    // Angular Modules
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    // Custom Modules
+    AppRoutingModule,
+    BlogModule,
+    BlurbModule,
+    ContentsModule,
+    ErrorModule,
+    HomeModule,
+    PatternModule,
+    PortfolioModule,
+    PostModule,
+    SpineModule
   ],
   declarations: [
     AppComponent
+  ],
+  providers: [
+    PostService
   ],
   bootstrap: [
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {}

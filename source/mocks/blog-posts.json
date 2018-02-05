@@ -1,0 +1,82 @@
+[
+    {
+        "id": 0,
+        "dateCreated": "1/23/2018",
+        "dateEdited": "1/25/2018",
+        "title": "My First University Project",
+        "summary": "This is some teaser blurb describing the article in short-form to tease readers into clicking on it. I like the unbroken nature of the lines.",
+        "featureImageUrl": "https://i.imgur.com/c7HLHCa.png",
+        "contents": "Contents of the post - example text.",
+        "tags": [
+            "programming",
+            "tutorial",
+            "help"
+        ],
+        "isFeature": true,
+        "isPortfolio": false
+    },
+    {
+        "id": 1,
+        "dateCreated": "1/26/2018",
+        "dateEdited": "1/26/2018",
+        "title": "Are seed projects worth it?",
+        "summary": "There are pros and cons.",
+        "featureImageUrl": "https://www.motherjones.com/wp-content/uploads/2017/08/082117seeds.jpg?w=990",
+        "contents": "Contents of the post - example text.",
+        "tags": [
+            "programming",
+            "opinion",
+            "jagex"
+        ],
+        "isFeature": false,
+        "isPortfolio": false
+    },
+    {
+        "id": 2,
+        "dateCreated": "2/1/2018",
+        "dateEdited": "2/1/2018",
+        "title": "Delivering good lightning talks",
+        "summary": "This is some teaser blurb describing the article in short-form to tease readers into clicking on it. I like the unbroken nature of the lines.",
+        "featureImageUrl": "http://thesoftwarepro.com/wp-content/uploads/2015/01/presentation-tips.jpg",
+        "contents": "Contents of the post - example text.",
+        "tags": [
+            "programming",
+            "tutorial",
+            "help"
+        ],
+        "isFeature": true,
+        "isPortfolio": false
+    },
+    {
+        "id": 3,
+        "dateCreated": "4/1/2018",
+        "dateEdited": "4/1/2018",
+        "title": "Institute of Genetic Medicine",
+        "summary": "This is an overview of some work I recently completed with the institute of genetic medicine.",
+        "featureImageUrl": "https://cdn.images.express.co.uk/img/dynamic/11/590x/secondary/Over-the-counter-medicine-589648.jpg",
+        "contents": "Contents of the post - example text.",
+        "tags": [
+            "database",
+            "research",
+            "academic"
+        ],
+        "isFeature": false,
+        "isPortfolio": false
+    },
+    {
+        "id": 4,
+        "dateCreated": "5/1/2018",
+        "dateEdited": "5/1/2018",
+        "title": "How to start contributing to open source.",
+        "summary": "There are pros and cons.",
+        "featureImageUrl": "",
+        "contents": "Contents of the post - example text.",
+        "tags": [
+            "programming",
+            "open",
+            "source"
+        ],
+        "isFeature": false,
+        "isPortfolio": false
+    }
+]

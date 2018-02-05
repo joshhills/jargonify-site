@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var commonConfig = require('./webpack.common.js');
-var copyRightInfo = require('../copyright.info');
+var copyrightInfo = require('../copyright-info');
 var helpers = require('./helpers');
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -8,8 +8,8 @@ var CompressionPlugin = require('compression-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-// Set the environment.
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
+// Globally define the build type.
+var environment = require('../environments/environment.production');
 
 // Merge this configuration with 'common'.
 module.exports = webpackMerge(commonConfig, {
@@ -23,12 +23,26 @@ module.exports = webpackMerge(commonConfig, {
         // Output files relative to the index.
         publicPath: '',
         // Cache-bust output files.
-        filename: '[name].[hash].js',
-        chunkFilename: '[id].[hash].chunk.js'
+        filename: 'scripts/[name].[hash].js',
+        chunkFilename: 'scripts/[id].[hash].chunk.js'
+    },
+
+    devServer: {
+        contentBase: 'local',
+        port: 8080,
+        host: '0.0.0.0',
+        open: true,
+        historyApiFallback: true,
+        compress: true
     },
 
     // Define plugin settings.
     plugins: [
+        // Environment variables.
+        new webpack.DefinePlugin(
+            environment
+        ),
+
         // Fail if there were any errors.
         new webpack.NoEmitOnErrorsPlugin(),
         
@@ -40,14 +54,7 @@ module.exports = webpackMerge(commonConfig, {
         }),
 
         // Cache-bust stylesheet.
-        new ExtractTextPlugin('app.[hash].css'),
-        
-        // Set the build environment for use in-application.
-        new webpack.DefinePlugin({
-            'process.env': {
-                'ENV': JSON.stringify(ENV)
-            }
-        }),
+        new ExtractTextPlugin('styles/app.[hash].css'),
         
         // Override some loader options to suit production.
         new webpack.LoaderOptionsPlugin({
@@ -63,7 +70,7 @@ module.exports = webpackMerge(commonConfig, {
         new OptimizeCssAssetsPlugin(),
 
         // Add a banner to each file.
-        new webpack.BannerPlugin(copyRightInfo),
+        new webpack.BannerPlugin(copyrightInfo),
 
         // Create additional compressed files.
         new CompressionPlugin(),

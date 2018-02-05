@@ -3,6 +3,7 @@ var helpers = require('./helpers');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   // Define entry points to pipeline.
@@ -112,6 +113,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
     }),
+
+    // Load static assets.
+    new CopyWebpackPlugin([
+      {
+        from: helpers.root('source/images'),
+        to: 'images'
+      }
+    ]),
 
     // Load the single-page-application.
     new HtmlWebpackPlugin({

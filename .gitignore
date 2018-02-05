@@ -1,5 +1,5 @@
 configuration/node_modules
 build
-production
+distribution
 ./tsconfig.json
 ./.vscode
