@@ -13,7 +13,7 @@ import { PostComponent } from 'post/post.component';
 // Define routes in greedy order of precedence.
 const appRoutes: Routes = [
     {
-      path: 'blog',
+      path: 'blog/:page',
       component: BlogComponent
     },
     {

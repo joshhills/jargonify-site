@@ -1,0 +1,23 @@
+<!-- Component is unnecessary if there are no more pages. -->
+<div *ngIf="numPages > 1">
+    <!-- Nagivation Previous -->
+    <a routerLink="previousNavigationEnabled ? '/blog': null">&lt;</a>
+    
+    <!-- First Page (always present) -->
+    <a routerLink="/blog">1</a>
+
+    <p *ngIf="isPreviousGap">...</p>
+
+    <!-- Neighbourhood Grouping -->
+    <a *ngFor="let pageIndex of neighbourhood" routerLink="/blog">
+        {{pageIndex + 1}}
+    </a>
+
+    <p *ngIf="isNextGap">...</p>
+
+    <!-- Last Page (always present) -->
+    <a routerLink="/blog">{{numPages}}</a>
+    
+    <!-- Nagivation Previous -->
+    <a routerLink="nextNavigationEnabled ? '/blog': null">&gt;</a>
+</div>

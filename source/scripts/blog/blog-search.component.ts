@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: '../../templates/blog/blog-search.component.html'
 })
 export class BlogSearchComponent {
-
+  // .
 }

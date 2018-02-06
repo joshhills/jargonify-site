@@ -16,6 +16,7 @@ export class BlogComponent implements OnInit {
   excludedPostIds: string[] = [];
 
   currentPage: number = 0;
+  numPages: number = 1;
   inSearchView: boolean = false;
 
   constructor(
@@ -24,14 +25,23 @@ export class BlogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Blog post meta.
+    this.numPages = Math.floor(
+      (this.postService.getNumBlogPosts() - 1)
+        / this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE
+    );
+
+    // Blog posts.
     this.postService.getBlogPosts(
-      this.currentPage
+      this.currentPage,
+      this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1
     ).subscribe(
       res => {
         this.blogPosts = res;
       }
     );
 
+    // Featured blog posts.
     this.postService.getFeaturedBlogPosts(0, 1).subscribe(
       res => {
         this.featuredBlogPost = res[0];

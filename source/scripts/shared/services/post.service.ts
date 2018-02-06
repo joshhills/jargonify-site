@@ -50,6 +50,10 @@ export class PostService {
         return featuredBlogPosts;
     }
 
+    public getNumBlogPosts(): number {
+        return 50;
+    }
+
     public getBlogPost(id: string): BlogPost {
         return null;
     }
