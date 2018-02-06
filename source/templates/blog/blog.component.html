@@ -1,7 +1,7 @@
 <div>
     <!-- Cover w/ Search Bar -->
     <div>
-        <img src="" alt="Blog image of me writing." />
+        <img src="https://deliveredsocial.com/wp-content/uploads/2017/10/writing-great-blog-post.jpg" alt="Blog image of me writing." />
         <p>
             Blog
         </p>
@@ -11,13 +11,9 @@
         <blog-search></blog-search>
     </div>
     <!-- Featured Post -->
-    <blog-featured *ngIf="featuredBlogPost" [blogPost]="featuredBlogPost"></blog-featured>
+    <blog-featured *ngIf="featuredBlogPost" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->
-    <div>
-        Blog posts, 
-        x5 Normal, 
-        x1 Expanded Feature
-    </div>
+    <blog-list *ngIf="blogPosts" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds"></blog-list>
     <!-- Information -->
     <div>
         <div>

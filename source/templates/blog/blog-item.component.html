@@ -1,0 +1,14 @@
+<div>
+    <p *ngIf="showDate">
+        {{blogPost.dateCreated}}
+    </p>
+    <a href="">
+        {{blogPost.title}}
+    </a>
+    <p *ngIf="isExpanded">
+        {{blogPost.summary}}
+    </p>
+    <a *ngIf="showReadMore" href="">
+        Read more
+    </a>
+</div>

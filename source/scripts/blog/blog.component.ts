@@ -13,6 +13,7 @@ import { BlogPost } from 'shared/models/blog-post';
 export class BlogComponent implements OnInit {
   featuredBlogPost: BlogPost;
   blogPosts: BlogPost[];
+  excludedPostIds: string[] = [];
 
   currentPage: number = 0;
   inSearchView: boolean = false;
@@ -34,6 +35,7 @@ export class BlogComponent implements OnInit {
     this.postService.getFeaturedBlogPosts(0, 1).subscribe(
       res => {
         this.featuredBlogPost = res[0];
+        this.excludedPostIds = [this.featuredBlogPost.id];
       }
     );
   }

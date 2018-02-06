@@ -1,3 +1,5 @@
 <div>
-    
+    <ng-container *ngFor="let blogPost of blogPosts; index as i">
+        <blog-item [blogPost]="blogPosts[i]" [isExpanded]="i == 5"></blog-item>
+    </ng-container>
 </div>

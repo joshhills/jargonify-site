@@ -6,9 +6,5 @@ import { BlogPost } from 'shared/models/blog-post';
   templateUrl: '../../templates/blog/blog-featured.component.html'
 })
 export class BlogFeaturedComponent {
-  @Input() blogPost: BlogPost;
-
-  // Modifiers.
-  @Input() showDate: boolean = false;
-  @Input() showTag: boolean = false;
+  @Input() featuredBlogPost: BlogPost;
 }
