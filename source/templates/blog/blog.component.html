@@ -8,7 +8,7 @@
         <p>
             Brief description of the blog.
         </p>
-        <blog-search></blog-search>
+        <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
     </div>
     <!-- Featured Post -->
     <blog-featured *ngIf="featuredBlogPost" [featuredBlogPost]="featuredBlogPost"></blog-featured>

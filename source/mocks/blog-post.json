@@ -1,0 +1,16 @@
+{
+    "id": 27,
+    "dateCreated": "6/1/2018",
+    "dateEdited": "6/1/2018",
+    "title": "Delivering good lightning talks",
+    "summary": "This is some teaser blurb describing the article in short-form to tease readers into clicking on it. I like the unbroken nature of the lines.",
+    "featureImageUrl": "http://thesoftwarepro.com/wp-content/uploads/2015/01/presentation-tips.jpg",
+    "contents": "Contents of the post - example text.",
+    "tags": [
+        "programming",
+        "tutorial",
+        "help"
+    ],
+    "isFeature": true,
+    "isPortfolio": false
+}

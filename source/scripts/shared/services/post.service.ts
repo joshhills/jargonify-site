@@ -6,14 +6,28 @@ import 'rxjs/add/operator/map';
 import { BlogPost } from 'shared/models/blog-post';
 import { AppConfiguration } from 'app/app.configuration';
 
+export interface PostService {
+    baseUrl: string;
+
+    getBlogPosts(
+        page: number,
+        perPage: number,
+        featuredOnly: boolean,
+        search: string
+    ): Observable<BlogPost[]>;
+
+    getBlogPost(id: string): Observable<BlogPost>;
+
+    getNumBlogPosts(featuredOnly: boolean, search: string): Observable<number>;
+}
+
 @Injectable()
-export class PostService {
+export class MockPostService implements PostService {
     // Store information necessary to make requests.
-    private baseUrl: string;
-    private headers: Headers;
+    baseUrl: string;
+    headers: Headers;
 
     constructor(private appConfiguration: AppConfiguration, private http: Http) {
-        // TODO: Use config.
         this.baseUrl = process.env.API_URL;
         this.headers = new Headers();
         this.headers.append('Accept', 'application/json');
@@ -21,45 +35,58 @@ export class PostService {
 
     public getBlogPosts(
         page: number = 0,
-        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE
+        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE,
+        featuredOnly: boolean = false,
+        search: string = ''
     ): Observable<BlogPost[]> {
+        let requestUrl;
+        if (featuredOnly) {
+            requestUrl = this.baseUrl + '/featured-blog-posts.json';
+        } else if (search !== '') {
+            requestUrl = this.baseUrl + '/search-blog-posts.json';
+        } else {
+            requestUrl = this.baseUrl + '/blog-posts.json';
+        }
+
         let blogPosts = this.http
             .get(
-                `${this.baseUrl}/blog-posts.json`,
+                requestUrl,
                 {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toBlogPost));
+            .map(res => res.json().map(this.toBlogPost).subscribe(
+                data => {
+                    return data.slice(page * perPage, (page * perPage) + perPage + 1);
+                }
+            ));
             // .catch();
         return blogPosts;
     }
 
-    public getFeaturedBlogPosts(
-        page: number = 0,
-        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE
-    ): Observable<BlogPost[]> {
-        let featuredBlogPosts = this.http
+    public getNumBlogPosts(
+        featuredOnly: boolean = false,
+        search: string = ''
+    ): Observable<number> {
+        if (featuredOnly) {
+            return Observable.of(1);
+        }
+        if (search !== '') {
+            return Observable.of(20);
+        }
+        return Observable.of(50);
+    }
+
+    public getBlogPost(id: string): Observable<BlogPost> {
+        let blogPost = this.http
             .get(
-                `${this.baseUrl}/featured-blog-posts.json`,
+                `${this.baseUrl}/blog-post.json`,
                 {
                     headers: this.headers
                 }
             )
             .map(res => res.json().map(this.toBlogPost));
-        return featuredBlogPosts;
-    }
-
-    public getNumBlogPosts(): number {
-        return 50;
-    }
-
-    public getBlogPost(id: string): BlogPost {
-        return null;
-    }
-
-    public searchBlogPosts(searchText: string): Observable<BlogPost[]> {
-        return null;
+        return blogPost;
     }
 
     private toBlogPost(blob: JSON): BlogPost {
