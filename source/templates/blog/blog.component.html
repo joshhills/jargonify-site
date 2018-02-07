@@ -11,7 +11,7 @@
         <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
     </div>
     <!-- Featured Post -->
-    <blog-featured *ngIf="featuredBlogPost" [featuredBlogPost]="featuredBlogPost"></blog-featured>
+    <blog-featured *ngIf="featuredBlogPost && !inSearch" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->
     <blog-list *ngIf="blogPosts" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds"></blog-list>
     <!-- Information -->

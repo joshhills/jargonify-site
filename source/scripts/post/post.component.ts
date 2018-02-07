@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: '../../templates/post/post.component.html'
 })
 export class PostComponent {
+
 }

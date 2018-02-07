@@ -17,7 +17,7 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { SpineModule } from 'spine/spine.module';
 
 // Custom services.
-import { PostService } from 'shared/services/post.service';
+import { MockPostService } from 'shared/services/post.service';
 
 import { AppComponent } from  'app/app.component';
 import { AppConfiguration } from 'app/app.configuration';
@@ -48,7 +48,7 @@ import { AppConfiguration } from 'app/app.configuration';
   ],
   providers: [
     AppConfiguration,
-    PostService
+    MockPostService
   ],
   bootstrap: [
     AppComponent

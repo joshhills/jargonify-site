@@ -66,14 +66,24 @@ export class BlogComponent implements OnInit {
 
   onSearchTermChangedEvent(term: string) {
     this.inSearch = term.trim().length > 0;
+    if (this.inSearch) {
+      // Get blog posts with search term.
+      this.postService.getBlogPosts(
+        0,
+        this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1,
+        false,
+        term
+      ).subscribe(
+        res => this.blogPosts = res
+      );
+    } else {
+      // Get blog posts with search term.
+      this.postService.getBlogPosts(
+        0,
+        this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1,
+        false,
+        term
+    }
 
-    this.postService.getBlogPosts(
-      0,
-      this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1,
-      false,
-      term
-    ).subscribe(
-      res => this.blogPosts = res
-    );
   }
 }

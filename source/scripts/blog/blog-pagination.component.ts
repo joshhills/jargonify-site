@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PostService } from 'shared/services/post.service';
 import { AppConfiguration } from 'app/app.configuration';
 
 @Component({
@@ -21,13 +20,16 @@ export class BlogPaginationComponent implements OnChanges {
   private nextGap: boolean = false;
 
   constructor(
-    private postService: PostService,
     private appConfiguration: AppConfiguration
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    this.currentPage = changes.currentPage.currentValue;
-    this.numPages = changes.numPages.currentValue;
+    if (changes['currentPage']) {
+      this.currentPage = changes.currentPage.currentValue;
+    }
+    if (changes['numPages']) {
+      this.numPages = changes.numPages.currentValue;
+    }
 
     this.determinePageElements();
   }

@@ -55,11 +55,7 @@ export class MockPostService implements PostService {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toBlogPost).subscribe(
-                data => {
-                    return data.slice(page * perPage, (page * perPage) + perPage + 1);
-                }
-            ));
+            .map(res => res.json().map(this.toBlogPost));
             // .catch();
         return blogPosts;
     }
