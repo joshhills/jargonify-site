@@ -41,7 +41,7 @@ export class BlogPaginationComponent implements OnChanges {
     }
 
     this.previousNavigationEnabled = this.currentPage > 0;
-    this.nextNavigationEnabled = this.currentPage < this.numPages;
+    this.nextNavigationEnabled = this.currentPage < this.numPages - 1;
 
     this.neighbourhood = [];
     for (let i = this.currentPage - 1; i <= this.currentPage + 1; i++) {

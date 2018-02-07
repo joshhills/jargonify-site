@@ -7,6 +7,11 @@ import { BlurbComponent } from 'blurb/blurb.component';
 import { ErrorComponent } from 'error/error.component';
 import { HomeComponent } from 'home/home.component';
 import { PatternComponent } from 'pattern/pattern.component';
+import { PatternAtomsComponent } from 'pattern/pattern-atoms.component';
+import { PatternBaseComponent } from 'pattern/pattern-base.component';
+import { PatternComponentsComponent } from 'pattern/pattern-components.component';
+import { PatternLayoutsComponent } from 'pattern/pattern-layouts.component';
+import { PatternMoleculesComponent } from 'pattern/pattern-molecules.component';
 import { PortfolioComponent } from 'portfolio/portfolio.component';
 import { PostComponent } from 'post/post.component';
 
@@ -30,7 +35,29 @@ const appRoutes: Routes = [
     },
     {
       path: 'pattern',
-      component: PatternComponent
+      component: PatternComponent,
+      children: [
+        {
+          path: 'base',
+          component: PatternBaseComponent
+        },
+        {
+          path: 'atoms',
+          component: PatternAtomsComponent
+        },
+        {
+          path: 'components',
+          component: PatternComponentsComponent
+        },
+        {
+          path: 'molecules',
+          component: PatternMoleculesComponent
+        },
+        {
+          path: 'layouts',
+          component: PatternLayoutsComponent
+        }
+      ]
     },
     {
       path: 'portfolio',

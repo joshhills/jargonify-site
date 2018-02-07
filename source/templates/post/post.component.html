@@ -1,5 +1,33 @@
-<div>
-    <p>
-        Post Component
-    </p>
+<div *ngIf="post">
+    <div>
+        <img src="{{post.featureImageUrl}}"/>
+        <div>
+            <div>
+                <p>
+                    {{post.title}}
+                </p>
+                <p>
+                    {{post.dateCreated}}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Pass it around!
+                </p>
+                <a>
+                    Copy Link
+                </a>
+            </div>
+            <div>
+                <ul>
+                    <li *ngFor="let tag of post.tags">
+                        <a>{{tag}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        {{post.contents}}
+    </div>
 </div>

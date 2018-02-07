@@ -1,16 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'blog-search',
   templateUrl: '../../templates/blog/blog-search.component.html'
 })
-export class BlogSearchComponent {
+export class BlogSearchComponent implements OnInit {
   // Create an observable variable.
   private searchTerm: Subject<string> = new Subject<string>();
+  private prePopulatedSearchTerm: string = '';
   @Output() onSearchTermChangedEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
     const searchTermStream = this.searchTerm.debounceTime(300)
       .distinctUntilChanged();
 
@@ -18,5 +22,13 @@ export class BlogSearchComponent {
       input =>
         this.onSearchTermChangedEvent.emit(input)
     );
+  }
+
+  ngOnInit() {
+    this.route.queryParams
+      .filter(params => params['search'])
+      .subscribe(params => {
+        this.prePopulatedSearchTerm = params['search'];
+      });
   }
 }

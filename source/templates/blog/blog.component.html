@@ -10,6 +10,28 @@
         </p>
         <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
     </div>
+    <!-- Search Error Feedback -->
+    <div *ngIf="inSearch && blogPosts && blogPosts.length == 0">
+        <p>
+            Uh-oh, it doesn't look like I've written about that yet.
+        </p>
+        <p>
+            Is {{searchTerm}} something I should look into?
+        </p>
+        <a>
+            Contact
+        </a>
+    </div>
+    <!-- Posts Error Feedback -->
+    <div *ngIf="!inSearch && blogPosts && blogPosts.length == 0">
+        <p>
+            Uh-oh, doesn't look like there are any posts.
+        </p>
+        <p>
+            Something's clearly wrong there.
+        </p>
+    </div>
+
     <!-- Featured Post -->
     <blog-featured *ngIf="featuredBlogPost && !inSearch" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->

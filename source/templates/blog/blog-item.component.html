@@ -1,14 +1,15 @@
 <div>
+    <img src="{{blogPost.featureImageUrl}}" />
     <p *ngIf="showDate">
         {{blogPost.dateCreated}}
     </p>
-    <a href="">
+    <a [routerLink]="['/post', blogPost.id]">
         {{blogPost.title}}
     </a>
     <p *ngIf="isExpanded">
         {{blogPost.summary}}
     </p>
-    <a *ngIf="showReadMore" href="">
+    <a *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
         Read more
     </a>
 </div>
