@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { PatternComponent } from 'pattern/pattern.component';
 import { PatternBaseComponent } from 'pattern/pattern-base.component';
 import { PatternAtomsComponent } from 'pattern/pattern-atoms.component';
-import { PatternComponentsComponent } from 'pattern/pattern-components.component';
+import { PatternOrganismsComponent } from 'pattern/pattern-organisms.component';
 import { PatternMoleculesComponent } from 'pattern/pattern-molecules.component';
 import { PatternLayoutsComponent } from 'pattern/pattern-layouts.component';
 
@@ -16,7 +16,7 @@ import { PatternLayoutsComponent } from 'pattern/pattern-layouts.component';
     PatternComponent,
     PatternBaseComponent,
     PatternAtomsComponent,
-    PatternComponentsComponent,
+    PatternOrganismsComponent,
     PatternMoleculesComponent,
     PatternLayoutsComponent
   ]

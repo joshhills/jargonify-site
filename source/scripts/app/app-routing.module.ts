@@ -9,7 +9,7 @@ import { HomeComponent } from 'home/home.component';
 import { PatternComponent } from 'pattern/pattern.component';
 import { PatternAtomsComponent } from 'pattern/pattern-atoms.component';
 import { PatternBaseComponent } from 'pattern/pattern-base.component';
-import { PatternComponentsComponent } from 'pattern/pattern-components.component';
+import { PatternOrganismsComponent } from 'pattern/pattern-organisms.component';
 import { PatternLayoutsComponent } from 'pattern/pattern-layouts.component';
 import { PatternMoleculesComponent } from 'pattern/pattern-molecules.component';
 import { PortfolioComponent } from 'portfolio/portfolio.component';
@@ -47,7 +47,7 @@ const appRoutes: Routes = [
         },
         {
           path: 'components',
-          component: PatternComponentsComponent
+          component: PatternOrganismsComponent
         },
         {
           path: 'molecules',

@@ -1,0 +1,22 @@
+.o-expand-container {
+    
+    &__title {
+        background-color: $lead;
+    }
+    
+    &__button {
+        float: right;
+
+        &--expanded {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__contents {
+        display: none;
+
+        &--expanded {
+            display: block;
+        }
+    }
+}

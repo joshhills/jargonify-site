@@ -1,17 +1,37 @@
 // TODO: Fix for globs @ https://www.npmjs.com/package/import-glob-loader
-
-// Configuration
-@import 'vars/colours';
-@import 'vars/fonts';
-@import 'vars/layout';
-
-// General
-@import 'base/normalize';
-@import 'base/root';
-@import 'base/typography';
-
-// Atomic
-@import 'atoms/buttons';
 // @import 'molecules/**/*';
 // @import 'components/**/*';
 // @import 'layouts/**/*';
+
+// General Configuration
+@import 'base/normalize';
+@import 'base/root';
+
+@import 'base/animation';
+@import 'base/borders';
+@import 'base/colours';
+@import 'base/fonts';
+@import 'base/spacing';
+
+// Atoms
+@import 'atoms/buttons';
+@import 'atoms/forms';
+@import 'atoms/images';
+@import 'atoms/links';
+@import 'atoms/lists';
+@import 'atoms/tables';
+@import 'atoms/typography';
+
+// Molecules
+@import 'molecules/blog-items';
+@import 'molecules/cover';
+@import 'molecules/image-caption';
+@import 'molecules/insets';
+@import 'molecules/pagination';
+
+// Organisms
+@import 'organisms/contents';
+@import 'organisms/section';
+@import 'organisms/spine';
+
+// Layouts

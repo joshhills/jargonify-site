@@ -14,16 +14,15 @@ import { PatternModule } from 'pattern/pattern.module';
 import { PortfolioModule } from 'portfolio/portfolio.module';
 import { PostModule } from 'post/post.module';
 import { AppRoutingModule } from 'app/app-routing.module';
+import { SharedModule } from 'shared/shared.module';
 import { SpineModule } from 'spine/spine.module';
 
 // Custom services.
-import { MockPostService } from 'shared/services/post.service';
-
-import { AppComponent } from  'app/app.component';
-import { AppConfiguration } from 'app/app.configuration';
+// import { MockPostService } from 'shared/services/post.service';
 
 // Configuration
-
+import { AppComponent } from  'app/app.component';
+import { AppConfiguration } from 'app/app.configuration';
 
 @NgModule({
   imports: [
@@ -41,14 +40,14 @@ import { AppConfiguration } from 'app/app.configuration';
     PatternModule,
     PortfolioModule,
     PostModule,
+    SharedModule,
     SpineModule
   ],
   declarations: [
     AppComponent
   ],
   providers: [
-    AppConfiguration,
-    MockPostService
+    AppConfiguration
   ],
   bootstrap: [
     AppComponent
