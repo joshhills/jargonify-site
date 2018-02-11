@@ -1,0 +1,21 @@
+$spine-width: 6rem;
+
+.o-spine {
+    color: $paper;
+    display: inline-block;
+    background-color: $ink;
+    height: 100vh;
+    overflow: hidden;
+    width: $spine-width;
+
+    &__section-name {
+        @include font-secondary();
+
+        font-size: 95pt;
+        font-weight: bold;
+        left: -7pt;
+        position: relative;
+        top: 360pt;
+        transform: rotate(270deg);
+    }
+}

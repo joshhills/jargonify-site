@@ -1,14 +1,17 @@
 <div>
     <!-- Cover w/ Search Bar -->
-    <div>
-        <img src="https://deliveredsocial.com/wp-content/uploads/2017/10/writing-great-blog-post.jpg" alt="Blog image of me writing." />
-        <p>
-            Blog
-        </p>
-        <p>
-            Brief description of the blog.
-        </p>
-        <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
+    <div class="m-cover">
+        <div class="m-cover__text m-cover__text--right m-cover__text--light">
+            <p class="a-header">
+                Blog
+            </p>
+            <p class="a-subheader">
+                I write about my experience with different aspects of technology.
+                Hopefully you find something useful.
+            </p>
+            <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
+        </div>
+        <img class="m-cover__image" src="/images/covers/cover-blog.jpg" alt="Blog image of me writing." />
     </div>
     <!-- Search Error Feedback -->
     <div *ngIf="inSearch && blogPosts && blogPosts.length == 0">

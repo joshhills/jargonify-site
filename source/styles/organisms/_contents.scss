@@ -1,0 +1,43 @@
+$contents-width: 5.5rem;
+
+.o-contents {
+    background-color: $lead;
+    color: $paper;
+    height: calc(100% - 2rem);
+    overflow: hidden;
+    padding: $spacing-small;
+    width: $contents-width;
+    text-align: center;
+
+    &__links {
+        height: 100%;
+    }
+
+    &__link {
+        @include font-secondary();
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        margin-bottom: $spacing-small;
+        height: 50pt;
+        width: 50pt;
+        border: 8pt solid $paper;
+        border-radius: 100pt;
+        font-size: 50pt;
+        line-height: 1;
+
+        &:hover,
+        &:visited,
+        &:focus,
+        &:active {
+            color: $paper;
+        }
+
+        &--low {
+            line-height: 0.5;
+
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}

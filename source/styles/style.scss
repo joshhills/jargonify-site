@@ -5,7 +5,6 @@
 
 // General Configuration
 @import 'base/normalize';
-@import 'base/root';
 
 @import 'base/animation';
 @import 'base/borders';
@@ -15,6 +14,7 @@
 
 // Atoms
 @import 'atoms/buttons';
+@import 'atoms/bleed';
 @import 'atoms/forms';
 @import 'atoms/images';
 @import 'atoms/links';
@@ -28,9 +28,12 @@
 @import 'molecules/image-caption';
 @import 'molecules/insets';
 @import 'molecules/pagination';
+@import 'molecules/pattern-example';
 
 // Organisms
 @import 'organisms/contents';
+@import 'organisms/expand-container';
+@import 'organisms/publication';
 @import 'organisms/section';
 @import 'organisms/spine';
 

@@ -1,0 +1,25 @@
+.m-pattern-example {
+    &:not(:last-of-type) {
+        margin-bottom: $spacing-small;
+    }
+    
+    > .a-subsubheader {
+        color: $lead;
+        margin-bottom: $spacing-small;
+    }
+    
+    &__visual {
+        background: repeating-linear-gradient(
+            45deg,
+            $chrome,
+            $chrome $border-size,
+            $paper $border-size,
+            $paper $border-size * 2
+        );
+    }
+
+    &__notes {
+        color: $lead;
+        font-style: italic;
+    }
+}

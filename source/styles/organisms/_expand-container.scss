@@ -1,7 +1,13 @@
 .o-expand-container {
-    
+    width: 100%;
+
     &__title {
-        background-color: $lead;
+        background-color: $chrome;
+        padding: $spacing-small;
+
+        .a-subheader {
+            display: inline;
+        }
     }
     
     &__button {
@@ -14,6 +20,7 @@
 
     &__contents {
         display: none;
+        padding: $spacing-small;
 
         &--expanded {
             display: block;

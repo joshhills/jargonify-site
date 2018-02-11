@@ -1,0 +1,15 @@
+$font-raleway: 'Raleway', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+$font-hack: 'Hack', monospace;
+
+@mixin font-primary() {
+    font-family: $font-raleway;
+}
+
+@mixin font-secondary() {
+    font-family: $font-montserrat;
+}
+
+@mixin font-code() {
+    font-family: $font-hack;
+}

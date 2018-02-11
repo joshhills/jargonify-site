@@ -1,0 +1,18 @@
+.a-button {
+    border: $border-size solid;
+    display: inline-block;
+    font-weight: bold;
+    padding: $spacing-small;
+    text-decoration: none;
+
+    &--light {
+        color: $paper;
+        
+        &:hover,
+        &:visited,
+        &:focus,
+        &:active {
+            color: $paper;
+        }
+    }
+}

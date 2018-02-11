@@ -1,7 +1,44 @@
-body {
-    font-family: 'Raleway', sans-serif;
+/* Typography:
+ * Any kind of text displayed by the
+ * browser by default.
+ */
+
+body, p {
+    @include font-primary();
+
+    font-size: 12pt;
 }
 
 h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
+    @include font-secondary();
+}
+
+.a-header {
+    @include font-secondary();
+
+    font-size: 40pt;
+    font-weight: bold;
+}
+
+.a-subheader {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.a-subsubheader {
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+code {
+    @include font-code();
+    // TODO: Add a background?
+}
+
+pre {
+    @include font-code();
+
+    border: $border-size solid $tint;
+    overflow: scroll;
+    padding: $spacing-small;
 }
