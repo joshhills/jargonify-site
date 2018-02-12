@@ -1,7 +1,7 @@
 <div class="m-blog-item-featured">
     <div class="m-blog-item-featured__text m-blog-item-featured__text--right m-blog-item-featured__text--light">
         <p class="a-subsubheader">Featured:</p>
-        <p class="a-subheader">{{featuredBlogPost.title}}</p>
+        <a class="a-subheader" [routerLink]="['/post', featuredBlogPost.id]">{{featuredBlogPost.title}}</a>
         <p>{{featuredBlogPost.summary}}</p>
         <a [routerLink]="['/post', featuredBlogPost.id]">Read more</a>
     </div>

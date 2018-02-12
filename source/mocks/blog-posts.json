@@ -174,37 +174,5 @@
         ],
         "isFeature": true,
         "isPortfolio": false
-    },
-    {
-        "id": 11,
-        "dateCreated": "6/1/2018",
-        "dateEdited": "6/1/2018",
-        "title": "Are seed projects worth it?",
-        "summary": "There are pros and cons.",
-        "featureImageUrl": "https://www.motherjones.com/wp-content/uploads/2017/08/082117seeds.jpg?w=990",
-        "contents": "Contents of the post - example text.",
-        "tags": [
-            "programming",
-            "opinion",
-            "jagex"
-        ],
-        "isFeature": false,
-        "isPortfolio": false
-    },
-    {
-        "id": 12,
-        "dateCreated": "6/1/2018",
-        "dateEdited": "6/1/2018",
-        "title": "Delivering good lightning talks",
-        "summary": "This is some teaser blurb describing the article in short-form to tease readers into clicking on it. I like the unbroken nature of the lines.",
-        "featureImageUrl": "http://thesoftwarepro.com/wp-content/uploads/2015/01/presentation-tips.jpg",
-        "contents": "Contents of the post - example text.",
-        "tags": [
-            "programming",
-            "tutorial",
-            "help"
-        ],
-        "isFeature": true,
-        "isPortfolio": false
     }
 ]

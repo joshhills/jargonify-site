@@ -1,0 +1,33 @@
+.inset {
+    @include container-inset-top($spacing-medium);
+
+    color: $paper;
+    padding: $spacing-large;
+    padding-left: $spacing-small + $spacing-medium;
+    padding-right: $spacing-small + $spacing-medium;
+    position: relative;
+
+    &--dark {
+        background-color: $ink;
+    }
+
+    &--light {
+        background-color: $chrome;
+    }
+
+    &__contents {
+        vertical-align: top;
+
+        &--left {
+            display: inline-block;
+            box-sizing: border-box;
+            padding-right: $spacing-large;
+            width: 66%;
+        }
+
+        &--right {
+            display: inline-block;
+            width: 33%;
+        }
+    }
+}

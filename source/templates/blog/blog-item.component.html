@@ -1,17 +1,20 @@
 <div [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded}">
     <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded}">
+        <p class="a-subsubheader" *ngIf="isExpanded">
+            Alternative Featured:
+        </p>
         <p class="a-subsubheader" *ngIf="showDate">
             {{blogPost.dateCreated}}
         </p>
         <a class="a-subheader" [routerLink]="['/post', blogPost.id]">
             {{blogPost.title}}
         </a>
-        <p *ngIf="isExpanded">
+        <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded">
             {{blogPost.summary}}
         </p>
+        <a [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
+            Read more
+        </a>
     </div>
-    <a [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
-        Read more
-    </a>
     <img [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}" src="{{blogPost.featureImageUrl}}" />
 </div>

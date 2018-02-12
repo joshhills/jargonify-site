@@ -1,11 +1,15 @@
-<div class="o-blog-list o-blog-list--fresh">
+<div class="o-blog-list o-blog-list--fresh" [ngClass]="{'o-blog-list--fresh': fresh}">
     <!-- Construct bespoke ordering for posts. -->
     <ng-container *ngFor="let blogPost of blogPosts; index as i">
-        <blog-item [blogPost]="blogPosts[i]" [isExpanded]="i == 5" [showDate]="i == 1 || i == 6"></blog-item>
+        <blog-item *ngIf="i != 10" [blogPost]="blogPosts[i]" [isExpanded]="i == 5 && fresh" [showDate]="i == 1 || i == 6"></blog-item>
         <!-- Anecdotal insert. -->
-        <div *ngIf="i == 5">
-            <p>7</p>
-            <p>cups of coffee voraciously consumed this week.</p>
+        <div class="m-blog-item-anecdote" *ngIf="i == 5 && fresh">
+            <p class="a-header">
+                7
+            </p>
+            <p>
+                cups of coffee voraciously consumed this week.
+            </p>
         </div>
     </ng-container>
 </div>

@@ -1,16 +1,14 @@
 .o-blog-list {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: $spacing-small;
     padding-left: $spacing-medium;
     padding-right: $spacing-medium;
 
-    display: flex;
-    flex-wrap: wrap;
-
-    > *:nth-child(2) {
-        flex-basis: 40%;
-    }
-
+    // For bespoke design without search.
     &--fresh {
-
+        > *:nth-child(2) {
+            flex-basis: 40%;
+        }
     }
 }
