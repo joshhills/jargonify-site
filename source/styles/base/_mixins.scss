@@ -1,11 +1,23 @@
 /* Layouts */
+// TODO: Refactor these to have prefix 'container-' or 'layout-'.
 
-@mixin container-inset-top {
-    margin-top: -$spacing-medium;
+@mixin container-inset-top($inset) {
+    margin-top: -$inset;
 }
 
-@mixin container-inset-bottom {
-    margin-bottom: -$spacing-bottom;
+@mixin container-inset-bottom($inset) {
+    margin-bottom: -$inset;
+}
+
+@mixin container-section {
+    padding-left: $spacing-large;
+    padding-right: $spacing-large;
+}
+
+@mixin container-full {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
 
 @mixin half-left {

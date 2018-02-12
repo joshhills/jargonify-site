@@ -2,7 +2,6 @@
     align-items: flex-end;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-height: 430pt;
     overflow: hidden;
     position: relative;
@@ -43,5 +42,9 @@
 
     &--full {
         height: 100%;
+    }
+
+    &--center {
+        justify-content: center;
     }
 }

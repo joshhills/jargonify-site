@@ -1,13 +1,58 @@
+$blog-item-size: 200pt;
+
 .m-blog-item {
-    
+    border: $border-size solid $ink;
+    color: $ink;
+    height: $blog-item-size;
+    line-height: 25pt;
+    margin: $spacing-small;
+    overflow: hidden;
+    position: relative;
+    width: $blog-item-size;
+
+    &__image {
+        @include image-cover;
+
+        z-index: -1;
+    }
+
+    &__text {
+        @include container-full;
+
+        padding: $spacing-small;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &__cta {
+        display: block;
+        background-color: $paper;
+        bottom: 0;
+        box-sizing: border-box;
+        padding: $spacing-small;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .a-subheader {
+        color: $ink;
+        text-decoration: none;
+    }
+}
+
+.m-blog-item-expanded {
+
 }
 
 .m-blog-item-featured {
+    @include container-inset-bottom($spacing-large);
+
     align-items: flex-end;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 400pt;
+    min-height: 380pt;
     overflow: hidden;
     position: relative;
 
