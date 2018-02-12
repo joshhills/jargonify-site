@@ -96,7 +96,8 @@ export class MockPostService implements PostService {
             blob['contents'],
             blob['tags'],
             blob['isFeature'],
-            blob['isPortfolio']
+            blob['isPortfolio'],
+            blob['inSeries']
         );
     }
 }

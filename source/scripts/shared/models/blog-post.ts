@@ -8,6 +8,7 @@ export class BlogPost extends Post {
     tags: string[];
     isFeature: boolean;
     isPortfolio: boolean;
+    inSeries: boolean;
 
     constructor(
         id: string,
@@ -19,7 +20,8 @@ export class BlogPost extends Post {
         contents: string,
         tags: string[],
         isFeature: boolean,
-        isPortfolio: boolean
+        isPortfolio: boolean,
+        inSeries: boolean
     ) {
         super(id, dateCreated, dateEdited);
 
@@ -28,5 +30,6 @@ export class BlogPost extends Post {
         this.featureImageUrl = featureImageUrl;
         this.contents = contents;
         this.tags = tags;
+        this.inSeries = inSeries;
     }
 }

@@ -8,8 +8,8 @@ import { BlogPost } from 'shared/models/blog-post';
 export class BlogItem {
   @Input() blogPost: BlogPost;
 
-  // Modifiers.
   @Input() showReadMore: boolean = true;
   @Input() isExpanded: boolean = false;
   @Input() showDate: boolean = false;
+  @Input() showPicture: boolean = false;
 }

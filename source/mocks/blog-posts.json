@@ -13,7 +13,8 @@
             "help"
         ],
         "isFeature": true,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 1,
@@ -29,7 +30,8 @@
             "jagex"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 2,
@@ -45,7 +47,8 @@
             "help"
         ],
         "isFeature": true,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 3,
@@ -61,7 +64,8 @@
             "academic"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 4,
@@ -77,7 +81,8 @@
             "source"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 5,
@@ -93,7 +98,8 @@
             "help"
         ],
         "isFeature": true,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 6,
@@ -109,7 +115,8 @@
             "jagex"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 7,
@@ -125,7 +132,8 @@
             "help"
         ],
         "isFeature": true,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 8,
@@ -141,7 +149,8 @@
             "academic"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 9,
@@ -157,7 +166,8 @@
             "source"
         ],
         "isFeature": false,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": false
     },
     {
         "id": 10,
@@ -173,6 +183,7 @@
             "help"
         ],
         "isFeature": true,
-        "isPortfolio": false
+        "isPortfolio": false,
+        "inSeries": true
     }
 ]

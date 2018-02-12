@@ -10,6 +10,8 @@ export class BlogListComponent implements OnChanges, OnInit {
     @Input() blogPosts: BlogPost[];
     @Input() excludedPostIds: string[];
 
+    private postIndicesToShowPictures: number[] = [+1, +2, +4, +7, +9];
+
     ngOnInit() {
       this.removeExcludedBlogPosts();
     }
