@@ -1,7 +1,9 @@
-<div>
-    <img src="{{featuredBlogPost.featureImageUrl}}" alt="Feature image." />
-    <p>Featured:</p>
-    <p>{{featuredBlogPost.title}}</p>
-    <p>{{featuredBlogPost.summary}}</p>
-    <a routerLink="['/post', featuredBlogPost.id]">Read more</a>
+<div class="m-blog-item-featured">
+    <div class="m-blog-item-featured__text m-blog-item-featured__text--right m-blog-item-featured__text--light">
+        <p class="a-subsubheader">Featured:</p>
+        <p class="a-subheader">{{featuredBlogPost.title}}</p>
+        <p>{{featuredBlogPost.summary}}</p>
+        <a [routerLink]="['/post', featuredBlogPost.id]">Read more</a>
+    </div>
+    <img class="m-blog-item-featured__image" src="{{featuredBlogPost.featureImageUrl}}" alt="Feature image." />
 </div>

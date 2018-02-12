@@ -1,9 +1,11 @@
 $bleed-border: 8pt solid $lead;
 
 .a-bleed {
-    border-top: $bleed-border;
-    border-right: $bleed-border;
     border-bottom: $bleed-border;
+    border-right: $bleed-border;
+    border-top: $bleed-border;
+    box-sizing: border-box;
     flex-grow: 1;
+    height: 100%;
     overflow-x: hidden;
 }

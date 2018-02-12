@@ -1,0 +1,10 @@
+input {
+    @include font-primary();
+
+    &[type='text'] {
+        border: $border-size solid;
+        padding: 0.5rem;
+        font-size: 12pt;
+        background: none;
+    }
+}

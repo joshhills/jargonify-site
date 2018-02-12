@@ -1,0 +1,14 @@
+a {
+    color: $tint;
+    font-weight: bold;
+
+    &:visited,
+    &:active,
+    &:focus {
+        color: $tint;
+    }
+
+    &:hover {
+        color: $tint-light;
+    }
+}

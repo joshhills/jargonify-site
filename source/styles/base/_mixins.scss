@@ -1,0 +1,39 @@
+/* Layouts */
+
+@mixin container-inset-top {
+    margin-top: -$spacing-medium;
+}
+
+@mixin container-inset-bottom {
+    margin-bottom: -$spacing-bottom;
+}
+
+@mixin half-left {
+    float: left;
+    width: 50%;
+}
+
+@mixin half-right {
+    float: right;
+    width: 50%;
+}
+
+@mixin third-left {
+    float: left;
+    width: 33%;
+}
+
+@mixin third-right {
+    float: right;
+    width: 33%;
+}
+
+@mixin two-thirds-left {
+    float: left;
+    width: 66%;
+}
+
+@mixin two-thirds-right {
+    float: right;
+    width: 66%;
+}

@@ -10,6 +10,7 @@
 @import 'base/borders';
 @import 'base/colours';
 @import 'base/fonts';
+@import 'base/mixins';
 @import 'base/spacing';
 
 // Atoms
@@ -29,6 +30,7 @@
 @import 'molecules/insets';
 @import 'molecules/pagination';
 @import 'molecules/pattern-example';
+@import 'molecules/search-bar';
 
 // Organisms
 @import 'organisms/contents';

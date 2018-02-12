@@ -1,0 +1,42 @@
+.m-blog-item {
+    
+}
+
+.m-blog-item-featured {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400pt;
+    overflow: hidden;
+    position: relative;
+
+    &__image {
+        @include image-cover;
+        z-index: -1;
+    }
+
+    &__text {
+        @include two-thirds-left;
+
+        box-sizing: border-box;
+        padding: $spacing-large;
+        z-index: 1;
+
+        &--light {
+            color: $paper;
+        }
+
+        &--right {
+            @include two-thirds-right;
+        }
+    }
+
+    .a-subsubheader {
+        margin-bottom: 0.5rem;
+    }
+
+    .a-subheader, p {
+        margin-bottom: 1rem;
+    }
+}

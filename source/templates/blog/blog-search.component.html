@@ -1,3 +1,4 @@
-<div>
-    <input type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" />
+<div class="m-search-bar">
+    <i class="fa fa-search m-search-bar__icon"></i>
+    <input class="m-search-bar__input" type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" placeholder="find something specific" />
 </div>
