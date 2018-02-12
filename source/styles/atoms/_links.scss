@@ -1,14 +1,22 @@
-a {
+@mixin link($color, $color-highlight) {
     color: $tint;
     font-weight: bold;
 
     &:visited,
     &:active,
     &:focus {
-        color: $tint;
+        color: $color;
     }
 
     &:hover {
-        color: $tint-light;
+        color: $color-highlight;
+    }
+}
+
+a, .a-link {
+    @include link($tint, $tint-light);
+
+    &--light {
+        @include link($paper, $paper);
     }
 }

@@ -1,0 +1,5 @@
+.m-inline-group {
+    > *:not(:last-child) {
+        margin-right: $spacing-medium;
+    }
+}
