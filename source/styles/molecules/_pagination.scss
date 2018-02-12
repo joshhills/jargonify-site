@@ -1,0 +1,29 @@
+.m-pagination {
+    padding: $spacing-medium + $spacing-small;
+
+    &__gap,
+    &__link {
+        color: $ink !important;
+        display: inline;
+        font-size: 26pt;
+        font-weight: bold;
+        margin-right: $spacing-small;
+        text-decoration: none;
+    }
+
+    &__link {
+        &:hover {
+            color: $tint !important;
+        }
+        
+        &--disabled {
+            pointer-events: none;
+            color: $chrome !important;    
+        }
+
+        &--active {
+            color: $tint !important;
+            text-decoration: underline !important;
+        }
+    }
+}

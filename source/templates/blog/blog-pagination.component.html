@@ -1,23 +1,23 @@
 <!-- Component is unnecessary if there are no more pages. -->
-<div *ngIf="show">
+<div class="m-pagination" *ngIf="show">
     <!-- Nagivation Previous -->
-    <a [routerLink]="previousNavigationEnabled ? ['/blog', currentPage] : null" queryParamsHandling="preserve">&lt;</a>
+    <a class="m-pagination__link" [ngClass]="{'m-pagination__link--disabled': !previousNavigationEnabled}" [routerLink]="previousNavigationEnabled ? ['/blog', currentPage] : null" queryParamsHandling="preserve">&lt;</a>
     
     <!-- First Page (always present) -->
-    <a routerLink="/blog/1" queryParamsHandling="preserve">1</a>
+    <a class="m-pagination__link" [ngClass]="{'m-pagination__link--active': currentPage == 0}" routerLink="/blog/1" routerLinkActive="m-pagination__link--active" queryParamsHandling="preserve">1</a>
 
-    <p *ngIf="previousGap">...</p>
+    <p class="m-pagination__gap" *ngIf="previousGap">...</p>
 
     <!-- Neighbourhood Grouping -->
-    <a *ngFor="let pageIndex of neighbourhood" [routerLink]="['/blog', pageIndex + 1]" queryParamsHandling="preserve">
+    <a class="m-pagination__link" *ngFor="let pageIndex of neighbourhood" [routerLink]="['/blog', pageIndex + 1]" routerLinkActive="m-pagination__link--active" queryParamsHandling="preserve">
         {{pageIndex + 1}}
     </a>
 
-    <p *ngIf="nextGap">...</p>
+    <p class="m-pagination__gap" *ngIf="nextGap">...</p>
 
     <!-- Last Page (always present) -->
-    <a [routerLink]="['/blog', numPages]" queryParamsHandling="preserve">{{numPages}}</a>
+    <a class="m-pagination__link" [routerLink]="['/blog', numPages]" routerLinkActive="m-pagination__link--active" queryParamsHandling="preserve">{{numPages}}</a>
     
     <!-- Nagivation Next -->
-    <a [routerLink]="nextNavigationEnabled ? ['/blog', currentPage + 2] : null" queryParamsHandling="preserve">&gt;</a>
+    <a class="m-pagination__link" [ngClass]="{'m-pagination__link--disabled': !nextNavigationEnabled}" [routerLink]="nextNavigationEnabled ? ['/blog', currentPage + 2] : null" queryParamsHandling="preserve">&gt;</a>
 </div>
