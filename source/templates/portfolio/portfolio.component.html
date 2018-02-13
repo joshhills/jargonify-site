@@ -21,6 +21,12 @@
         </div>
         <img class="m-cover__image" src="/images/covers/cover-portfolio.jpg" alt="Portfolio image of me working." />
     </div>
-    <!-- Begin List -->
-
+    <div>
+        <p class="a-header">
+            Professionally
+        </p>
+    </div>
+    <div *ngIf="portfolioPosts.length > 0">
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+    </div>
 </div>

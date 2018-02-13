@@ -52,6 +52,7 @@ export class BlogComponent implements OnInit {
       this.currentPage,
       numPosts,
       false,
+      false,
       this.searchTerm
     ).subscribe(data => this.blogPosts = data);
 

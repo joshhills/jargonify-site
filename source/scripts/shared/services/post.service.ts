@@ -13,6 +13,7 @@ export interface PostService {
         page: number,
         perPage: number,
         featuredOnly: boolean,
+        portfolioOnly: boolean,
         search: string
     ): Observable<BlogPost[]>;
 
@@ -37,11 +38,14 @@ export class MockPostService implements PostService {
         page: number = 0,
         perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE,
         featuredOnly: boolean = false,
+        portfolioOnly: boolean = false,
         search: string = ''
     ): Observable<BlogPost[]> {
         let requestUrl;
         if (featuredOnly) {
             requestUrl = this.baseUrl + '/featured-blog-posts.json';
+        } else if (portfolioOnly) {
+            requestUrl = this.baseUrl + '/portfolio-blog-posts.json';
         } else if (search !== '') {
             requestUrl = this.baseUrl + '/search-blog-posts.json';
         } else {

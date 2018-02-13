@@ -5,7 +5,7 @@ import { BlogPost } from 'shared/models/blog-post';
   selector: 'blog-item',
   templateUrl: '../../templates/blog/blog-item.component.html'
 })
-export class BlogItem {
+export class BlogItemComponent {
   @Input() blogPost: BlogPost;
 
   @Input() showReadMore: boolean = true;
