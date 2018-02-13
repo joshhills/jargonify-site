@@ -1,0 +1,38 @@
+.m-endorsement-item {
+    border: $border-size solid $ink;
+    background-color: $chrome;
+    margin: $spacing-small;
+    position: relative;
+    
+    &__contents {
+        @include half-left;
+
+        box-sizing: border-box;
+        padding: $spacing-medium;
+
+        &--light {
+            color: $paper;
+        }
+
+        &--right {
+            @include half-right;
+        }
+    }
+
+    &__endorsement {
+        margin-bottom: $spacing-small;
+    }
+
+    &__source {
+        &:before {
+            content: '⚬';
+            margin-right: $spacing-small;
+        }
+    }
+
+    &__image {
+        @include image-cover;
+
+        z-index: -1;
+    }
+}

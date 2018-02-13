@@ -1,5 +1,5 @@
-.inset {
-    @include container-inset-top($spacing-medium);
+.m-inset {
+    @include container-inset-top($spacing-small + $spacing-medium);
 
     color: $paper;
     padding: $spacing-large;
@@ -17,6 +17,10 @@
 
     &__contents {
         vertical-align: top;
+
+        > *:not(:last-child) {
+            margin-bottom: 2rem;
+        }
 
         &--left {
             display: inline-block;

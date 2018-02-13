@@ -1,6 +1,6 @@
 import { Post } from 'shared/models/post';
 
-export class TestimonialPost extends Post {
+export class EndorsementPost extends Post {
     endorsement: string;
     personFullName: string;
     personImageUrl: string;

@@ -26,6 +26,7 @@
 // Molecules
 @import 'molecules/blog-items';
 @import 'molecules/cover';
+@import 'molecules/endorsement-item';
 @import 'molecules/image-caption';
 @import 'molecules/inline-group';
 @import 'molecules/insets';
@@ -38,7 +39,7 @@
 @import 'organisms/contents';
 @import 'organisms/expand-container';
 @import 'organisms/publication';
-// @import 'organisms/section'; // TODO: Need to put portfolio back in here.
+@import 'organisms/portfolio-list';
 @import 'organisms/spine';
 
 // Layouts

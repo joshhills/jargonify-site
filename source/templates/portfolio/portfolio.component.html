@@ -21,12 +21,95 @@
         </div>
         <img class="m-cover__image" src="/images/covers/cover-portfolio.jpg" alt="Portfolio image of me working." />
     </div>
-    <div>
+    <div class="o-portfolio-list">
         <p class="a-header">
-            Professionally
+            Professionally...
         </p>
     </div>
-    <div *ngIf="portfolioPosts.length > 0">
+    <div class="o-portfolio-list" *ngIf="portfolioPosts.length > 0">
         <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <div class="m-blog-item-anecdote">
+            <p>
+                I've spent some time in the games industry as a full-stack web systems engineer,
+                provided consultancy and design work for charity initiatives, and assisted
+                research projects in maintenance and data organisation.
+            </p>
+        </div>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+    </div>
+    <div class="m-inset m-inset--dark">
+        <div class="m-inset__contents m-inset__contents--left">
+            <p>
+                This is a bit where I pander to a specific demographic - perhaps there's a header,
+                perhaps I'm simply talking about something that bears relevance to the above or below.
+                Whatever the case, it's intended to give a more personable insight into what I'm doing.
+                Perhaps it simply states my current employment and what I'm seeking.
+            </p>
+            <p>
+                There should be a break, as I'm wont to avoid paragraphs despite my experience typesetting.
+            </p>
+        </div>
+        <div class="m-inset__contents m-inset__contents--right">
+            <p class="a-header">
+                Looking for work.
+            </p>
+        </div>
+    </div>
+    <div class="o-portfolio-list">
+        <p class="a-header">
+            Released Projects
+        </p>
+    </div>
+    <div class="o-portfolio-list" *ngIf="portfolioPosts.length > 0">
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <div class="m-endorsement-item">
+            <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
+                <p class="a-subheader m-endorsement-item__endorsement">
+                    "Josh is a really cool dude and I totally endorse his future endeavours"
+                </p>
+                <p class="m-endorsement-item__source a-subsubheader">
+                    <a href="">Fay Knaym</a>, <a href="">Business Place</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="o-portfolio-list">
+        <p class="a-header">
+            Personally...
+        </p>
+    </div>
+    <div class="o-portfolio-list" *ngIf="portfolioPosts.length > 0">
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <div class="m-blog-item-anecdote">
+            <p>
+                I've spent some time in the games industry as a full-stack web systems engineer,
+                provided consultancy and design work for charity initiatives, and assisted
+                research projects in maintenance and data organisation.
+            </p>
+        </div>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+        <blog-item [blogPost]="portfolioPosts[0]" [showDate]="false" [showPicture]="false"></blog-item>
+    </div>
+    <div class="m-inset m-inset--light">
+        <div class="m-inset__contents">
+            <p class="a-header">
+                I make mistakes...
+            </p>
+            <p>
+                So I'm documenting them on <a routerLink="/blog">my blog</a> in order to learn from them.
+                Most of the peskier ones end up being pretty useful. As I do work, I've been writing anecdotal
+                posts that log my experiences wrestling with new and exciting problems; I also have recurring
+                series'. Whether you came wearing your design, programming or business hat, I think you'll
+                find something useful.
+            </p>
+            <p>
+                I'm currently reading 'Deep Learning' by Ian Goodfellow,
+            </p>
+        </div>
     </div>
 </div>

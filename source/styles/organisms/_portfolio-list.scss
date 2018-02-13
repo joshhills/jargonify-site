@@ -1,0 +1,13 @@
+.o-portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: $spacing-small;
+    padding-left: $spacing-medium;
+    padding-right: $spacing-medium;
+    position: relative;
+    z-index: 1;
+
+    > .a-header {
+        margin: $spacing-small $spacing-small 0 $spacing-small;
+    }
+}

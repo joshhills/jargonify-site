@@ -3,9 +3,10 @@
  * browser by default.
  */
 
-body, p {
+body {
     @include font-primary();
 
+    color: $ink;
     font-size: 15pt;
     line-height: 18pt;
 }
