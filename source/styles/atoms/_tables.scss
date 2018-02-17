@@ -1,0 +1,19 @@
+table {
+    border: $border-size solid $ink;
+    border-collapse: collapse;
+    font-size: 15pt;
+    margin-bottom: $spacing-medium;
+    text-align: left;
+    width: 100%;
+}
+
+th {
+    background-color: $ink;
+    border-bottom: $border-size solid $ink;
+    color: $paper;
+    font-weight: bold;
+}
+
+th, td {
+    padding: $spacing-small;
+}

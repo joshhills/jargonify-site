@@ -26,7 +26,10 @@
         &--light {
             color: $paper;
 
-            .m-search-bar__input {
+            input,
+            textarea,
+            button,
+            a {
                 color: $paper;
 
                 &::placeholder {

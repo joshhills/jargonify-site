@@ -2,4 +2,12 @@
     > *:not(:last-child) {
         margin-right: $spacing-medium;
     }
+
+    &--full {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-right: $spacing-medium;
+    }
 }

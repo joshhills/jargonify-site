@@ -3,5 +3,12 @@
 
     &__contents {
         @include last-no-margin;
+
+        box-sizing: border-box;
+
+        // Have to identify DOM elements here.
+        img {
+            @include image-full;
+        }
     }
 }

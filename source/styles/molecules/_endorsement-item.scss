@@ -2,6 +2,7 @@
     border: $border-size solid $ink;
     background-color: $chrome;
     margin: $spacing-small;
+    max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
     position: relative;
     
     &__contents {
