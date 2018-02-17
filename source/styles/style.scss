@@ -33,11 +33,13 @@
 @import 'molecules/pagination';
 @import 'molecules/pattern-example';
 @import 'molecules/search-bar';
+@import 'molecules/tags';
 
 // Organisms
 @import 'organisms/blog-list';
 @import 'organisms/contents';
 @import 'organisms/expand-container';
+@import 'organisms/post-list';
 @import 'organisms/publication';
 @import 'organisms/portfolio-list';
 @import 'organisms/spine';

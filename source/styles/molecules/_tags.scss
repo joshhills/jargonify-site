@@ -1,0 +1,18 @@
+.m-tags {
+    list-style: none;
+
+    &__item {
+        display: inline;
+        padding: 0;
+
+        &:before {
+            content: none;
+        }
+    }
+
+    &__tag {
+        &:before {
+            content: '#';
+        }
+    }
+}

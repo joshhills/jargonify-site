@@ -1,33 +1,24 @@
 <div *ngIf="post">
-    <div>
-        <img src="{{post.featureImageUrl}}"/>
-        <div>
-            <div>
-                <p>
-                    {{post.title}}
-                </p>
-                <p>
-                    {{post.dateCreated}}
-                </p>
-            </div>
-            <div>
-                <p>
-                    Pass it around!
-                </p>
-                <a>
-                    Copy Link
-                </a>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let tag of post.tags">
-                        <a>{{tag}}</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="m-cover m-cover--center">
+        <div class="m-cover__text m-cover__text--right m-cover__text--light">
+            <p class="a-subsubheader">
+                {{post.dateCreated}}
+            </p>
+            <p class="a-subheader">
+                {{post.title}}
+            </p>
+            <p>
+                {{post.summary}}
+            </p>
+            <ul class="m-tags">
+                <li class="m-tags__item" *ngFor="let tag of post.tags">
+                    <a class="m-tags__tag" routerLink="['/blog']" queryParams="{search: tag}">{{tag}}</a>
+                </li>
+            </ul>
         </div>
+        <img class="m-cover__image" src="{{post.featureImageUrl}}"/>
     </div>
-    <div>
-        {{post.contents}}
+    <div class="o-post-list">
+        <div class="o-post-list__contents" [innerHTML]="post.contents"></div>
     </div>
 </div>

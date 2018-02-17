@@ -46,3 +46,10 @@ pre {
     overflow: scroll;
     padding: $spacing-small;
 }
+
+hr {
+    background-color: $ink;
+    border: none;
+    color: $ink;
+    height: $border-size;
+}

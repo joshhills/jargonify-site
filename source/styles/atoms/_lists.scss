@@ -1,0 +1,15 @@
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        padding-left: 1ch;
+        text-indent: -1ch;
+
+        &:before {
+            content: '⚬';
+            padding-right: 1ch;
+        }
+    }
+}
