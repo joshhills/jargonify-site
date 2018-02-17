@@ -1,12 +1,14 @@
 .o-blog-list {
     display: flex;
     flex-wrap: wrap;
-    padding-top: $spacing-small;
+    padding-top: $spacing-medium;
     padding-left: $spacing-medium;
     padding-right: $spacing-medium;
 
     // For bespoke design without search.
     &--fresh {
+        padding-top: $spacing-small;
+
         > *:nth-child(2) {
             flex-basis: 40%;
         }

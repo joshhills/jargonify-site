@@ -12,8 +12,6 @@
     }
 
     &__text {
-        @include two-thirds-left;
-        
         box-sizing: border-box;
         padding: $spacing-large;
         z-index: 1;
@@ -36,6 +34,10 @@
                     color: $paper;
                 }
             }
+        }
+
+        &--left {
+            @include two-thirds-left;
         }
 
         &--right {
