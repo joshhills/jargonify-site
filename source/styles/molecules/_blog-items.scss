@@ -1,4 +1,4 @@
-$blog-item-size: 200pt;
+$blog-item-size: 17rem;
 
 .m-blog-item {
     position: relative;
@@ -57,6 +57,11 @@ $blog-item-size: 200pt;
     .a-subheader {
         color: $ink;
         text-decoration: none;
+        line-height: 26pt;
+    }
+
+    .a-subsubheader {
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -70,6 +75,10 @@ $blog-item-size: 200pt;
     padding: $spacing-small;
     position: relative;
     width: $blog-item-size + $border-size * 2;
+
+    .a-header {
+        margin-bottom: 0;
+    }
 }
 
 .m-blog-item-expanded {
@@ -79,6 +88,7 @@ $blog-item-size: 200pt;
         border: $border-size solid $tint;
         color: $paper;
         margin: $spacing-small;
+        max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
         overflow: hidden;
         position: relative;
     }

@@ -16,11 +16,9 @@
     }
 
     &__contents {
-        vertical-align: top;
+        @include last-no-margin;
 
-        > *:not(:last-child) {
-            margin-bottom: 2rem;
-        }
+        vertical-align: top;
 
         &--left {
             display: inline-block;

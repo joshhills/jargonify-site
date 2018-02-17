@@ -2,8 +2,6 @@
     padding: $spacing-large;
 
     &__contents {
-        > *:not(:last-child) {
-            margin-bottom: $spacing-medium;
-        }
+        @include last-no-margin;
     }
 }
