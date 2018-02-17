@@ -61,7 +61,8 @@ export class MockPostService implements PostService {
             )
             .map(res => res.json().map(this.toBlogPost));
             // .catch();
-        return blogPosts;
+        // return blogPosts;
+        return Observable.empty<BlogPost[]>();
     }
 
     public getNumBlogPosts(
@@ -72,9 +73,9 @@ export class MockPostService implements PostService {
             return Observable.of(1);
         }
         if (search !== '') {
-            return Observable.of(20);
+            return Observable.of(0);
         }
-        return Observable.of(50);
+        return Observable.of(0);
     }
 
     public getBlogPost(id: string): Observable<BlogPost> {

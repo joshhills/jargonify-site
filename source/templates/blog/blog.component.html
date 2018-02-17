@@ -1,4 +1,4 @@
-<div>
+<div class="l-blog">
     <!-- Cover w/ Search Bar -->
     <div class="m-cover m-cover--center">
         <div class="m-cover__text m-cover__text--right m-cover__text--light">
@@ -14,24 +14,21 @@
         <img class="m-cover__image" src="/images/covers/cover-blog.jpg" alt="Blog image of me writing." />
     </div>
     <!-- Search Error Feedback -->
-    <div *ngIf="inSearch && blogPosts && blogPosts.length == 0">
-        <p>
-            Uh-oh, it doesn't look like I've written about that yet.
+    <div class="l-blog__error" *ngIf="inSearch && blogPosts.length === 0">
+        <p class="a-subheader">
+            It doesn't look like I've written about that yet.
         </p>
         <p>
-            Is {{searchTerm}} something I should look into?
+            Is <em>'{{searchTerm}}'</em> something I should look into?
         </p>
-        <a>
+        <a routerLink="/blurb">
             Contact
         </a>
     </div>
     <!-- Posts Error Feedback -->
-    <div *ngIf="!inSearch && blogPosts && blogPosts.length == 0">
-        <p>
-            Uh-oh, doesn't look like there are any posts.
-        </p>
-        <p>
-            Something's clearly wrong there.
+    <div class="l-blog__error" *ngIf="!inSearch && blogPosts.length === 0">
+        <p class="a-subheader">
+            Uh-oh, doesn't look like there are any posts yet.
         </p>
     </div>
 

@@ -17,7 +17,7 @@ export class BlogComponent implements OnInit {
   private queryParamsSub: any;
 
   featuredBlogPost: BlogPost;
-  blogPosts: BlogPost[];
+  blogPosts: BlogPost[] = [];
   excludedPostIds: string[] = [];
 
   currentPage: number = 0;
