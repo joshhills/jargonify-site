@@ -1,4 +1,4 @@
-import { Post } from 'shared/models/post';
+import { Post, PostType } from 'shared/models/post';
 
 export class BlogPost extends Post {
     title: string;
@@ -11,6 +11,7 @@ export class BlogPost extends Post {
     inSeries: boolean;
 
     constructor(
+        type: PostType,
         id: string,
         dateCreated: string,
         dateEdited: string,
@@ -23,7 +24,7 @@ export class BlogPost extends Post {
         isPortfolio: boolean,
         inSeries: boolean
     ) {
-        super(id, dateCreated, dateEdited);
+        super(type, id, dateCreated, dateEdited);
 
         this.title = title;
         this.summary = summary;
