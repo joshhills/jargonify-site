@@ -26,6 +26,8 @@ export interface PostService {
     getNumBlogPosts(featuredOnly: boolean, search: string): Observable<number>;
 
     getPortfolioLayout(id: string): Observable<PortfolioLayoutPost>;
+
+    toPostListPortfolioSection(blob: JSON): PostListPortfolioSection;
 }
 
 @Injectable()
@@ -93,10 +95,11 @@ export class MockPostService implements PostService {
                 }
             )
             .map(res => res.json().map(this.toBlogPost));
+
         return blogPost;
     }
 
-    public getEndorsementPost(id: string): Observable<EndorseMEntPost> {
+    public getEndorsementPost(id: string): Observable<EndorsementPost> {
         let endorsementPost = this.http
             .get(
                 `${this.baseUrl}/endorsement-post.json`,
@@ -116,7 +119,7 @@ export class MockPostService implements PostService {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toPortfolioLayout));
+            .map(res => res.json().map(this.toPortfolioLayout.bind(this)));
         return portfolioLayout;
     }
 
@@ -137,7 +140,7 @@ export class MockPostService implements PostService {
         );
     }
 
-    private toEndorseMentPost(blob: JSON): EndorsementPost {
+    private toEndorsementPost(blob: JSON): EndorsementPost {
         let contactType: ContactType;
 
         switch (blob['contactType']) {
@@ -170,6 +173,7 @@ export class MockPostService implements PostService {
                 case 'post_list':
                     // Create post list.
                     sections.push(this.toPostListPortfolioSection(section));
+                    break;
                 case 'text_block':
                     // Create text block.
                     sections.push(this.toTextBlockPortfolioSection(section));
@@ -191,7 +195,7 @@ export class MockPostService implements PostService {
         );
     }
 
-    private toPostListPortfolioSection(blob: JSON): PostListPortfolioSection {
+    toPostListPortfolioSection(blob: JSON): PostListPortfolioSection {
         let posts: Post[] = [];
 
         // TODO: There is an ordering problem here unless I preserve the index.
