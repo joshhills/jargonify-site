@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MockPostService } from 'shared/services/post.service';
+import { PostType } from 'shared/models/post';
 import { PortfolioLayoutPost, PortfolioSectionType } from 'shared/models/portfolio-layout-post';
 
 @Component({
@@ -8,6 +9,7 @@ import { PortfolioLayoutPost, PortfolioSectionType } from 'shared/models/portfol
 })
 export class PortfolioComponent implements OnInit {
   private PortfolioSectionType: any = PortfolioSectionType;
+  private PostType: any = PostType;
   private layout: PortfolioLayoutPost;
 
   constructor(

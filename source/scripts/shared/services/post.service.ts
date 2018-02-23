@@ -195,23 +195,25 @@ export class MockPostService implements PostService {
         );
     }
 
+    // TODO: Change to be using observables.
     toPostListPortfolioSection(blob: JSON): PostListPortfolioSection {
         let posts: Post[] = [];
 
-        // TODO: There is an ordering problem here unless I preserve the index.
-        for (let post of blob['posts']) {
+        for (let i = 0; i < blob['posts'].length; i++) {
+            let post: any = blob['posts'][i];
+
             switch (post['type']) {
                 case 'blog':
                     // Get blog post.
                     this.getBlogPost(post['blog']).subscribe(
                         data => {
-                            posts.push(data);
+                            posts.splice(i, 0, data[0]);
                         }
                     );
                     break;
                 case 'anecdote':
                     // Make new anecdote post.
-                    posts.push(
+                    posts.splice(i, 0,
                         new AnecdotePost(
                             PostType.ANECDOTE,
                             '-1', // TODO: This is not applicable here.
@@ -242,17 +244,17 @@ export class MockPostService implements PostService {
 
     private toEndorsementPortfolioSection(blob: JSON): EndorsementPortfolioSection {
         // Get endorsement post. blob['post']
-        let endorsement: EndorsementPost;
+        let endorsements: EndorsementPost[] = [];
 
         this.getEndorsementPost(blob['post']).subscribe(
             data => {
-                endorsement = endorsement;
+                endorsements.push(data[0]);
             }
         );
 
         return new EndorsementPortfolioSection(
             PortfolioSectionType.ENDORSEMENT,
-            endorsement
+            endorsements
         );
     }
 }

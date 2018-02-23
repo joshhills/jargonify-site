@@ -26,6 +26,31 @@
                     {{section.title}}
                 </p>
             </div>
+            <div class="o-blog-list">
+                <ng-container *ngFor="let post of section.posts">
+                    <blog-item *ngIf="post.type == PostType.BLOG" [blogPost]="post" [isExpanded]="false" [showDate]="false" [showPicture]="true"></blog-item>
+                    <div *ngIf="post.type == PostType.ANECDOTE" class="m-blog-item-anecdote" [innerHTML]="post.text"></div>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="section.type === PortfolioSectionType.TEXT_BLOCK">
+            <div class="m-inset" [ngClass]="{'m-inset--dark' : section.theme === 'dark', 'm-inset--light': section.theme === 'light'}">
+                <div *ngFor="let block of section.content" class="m-inset__contents" [ngClass]="{'m-inset__contents--left': block.position === 'left', 'm-inset__contents--right': block.position === 'right'}" [innerHTML]="block.text"></div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="section.type === PortfolioSectionType.ENDORSEMENT">
+            <div class="o-blog-list">
+                <div *ngFor="let endorsement of section.endorsements" class="m-endorsement-item">
+                    <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
+                        <p class="a-subheader m-endorsement-item__endorsement">
+                            {{endorsement.testimonial}}
+                        </p>
+                        <p class="m-endorsement-item__source a-subsubheader">
+                            <a href="{{endorsement.contactType === 'link' ? endorsement.contactDetails : 'mailto:' + endorsement.contactDetails}}" target="_blank">{{endorsement.fullName}}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </ng-container>
     </ng-container>
 </div>

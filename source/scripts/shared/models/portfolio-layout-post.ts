@@ -69,14 +69,14 @@ export class TextBlockPortfolioSection extends PortfolioSection {
 }
 
 export class EndorsementPortfolioSection extends PortfolioSection {
-    public endorsement: EndorsementPost;
+    public endorsements: EndorsementPost[];
 
     constructor(
         type: PortfolioSectionType,
-        endorsement: EndorsementPost
+        endorsements: EndorsementPost[]
     ) {
         super(type);
 
-        this.endorsement = endorsement;
+        this.endorsements = endorsements;
     }
 }
