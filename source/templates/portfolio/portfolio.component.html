@@ -26,7 +26,7 @@
                     {{section.title}}
                 </p>
             </div>
-            <div class="o-blog-list">
+            <div class="o-portfolio-list">
                 <ng-container *ngFor="let post of section.posts">
                     <blog-item *ngIf="post.type == PostType.BLOG" [blogPost]="post" [isExpanded]="false" [showDate]="false" [showPicture]="true"></blog-item>
                     <div *ngIf="post.type == PostType.ANECDOTE" class="m-blog-item-anecdote" [innerHTML]="post.text"></div>
@@ -39,7 +39,7 @@
             </div>
         </ng-container>
         <ng-container *ngIf="section.type === PortfolioSectionType.ENDORSEMENT">
-            <div class="o-blog-list">
+            <div class="o-portfolio-list">
                 <div *ngFor="let endorsement of section.endorsements" class="m-endorsement-item">
                     <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
                         <p class="a-subheader m-endorsement-item__endorsement">
