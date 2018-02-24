@@ -1,6 +1,7 @@
 $bleed-border: 8pt solid $lead;
 
 .a-bleed {
+    background-color: $paper;
     border-bottom: $bleed-border;
     border-right: $bleed-border;
     border-top: $bleed-border;
