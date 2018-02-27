@@ -1,8 +1,8 @@
 <div class="o-contents">
     <nav class="o-contents__links">
-        <a class="o-contents__link" routerLink="/">h</a>
-        <a class="o-contents__link" routerLink="/blog">b</a>
-        <a class="o-contents__link" routerLink="/portfolio">p</a>
-        <a class="o-contents__link o-contents__link--low" routerLink="/blurb">...</a>
+        <a class="o-contents__link" routerLink="/" (mouseover)="over('home')" (mouseleave)="leave()">h</a>
+        <a class="o-contents__link" routerLink="/blog" (mouseover)="over('blog')" (mouseleave)="leave()">b</a>
+        <a class="o-contents__link" routerLink="/portfolio" (mouseover)="over('portfolio')" (mouseleave)="leave()">p</a>
+        <a class="o-contents__link o-contents__link--low" routerLink="/blurb" (mouseover)="over('contact')" (mouseleave)="leave()">...</a>
     </nav>
 </div>

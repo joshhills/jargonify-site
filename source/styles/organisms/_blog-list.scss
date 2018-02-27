@@ -1,9 +1,7 @@
 .o-blog-list {
     display: flex;
     flex-wrap: wrap;
-    padding-top: $spacing-medium;
-    padding-left: $spacing-medium;
-    padding-right: $spacing-medium;
+    padding: $spacing-medium $spacing-medium 0 $spacing-medium;
 
     // For bespoke design without search.
     &--fresh {

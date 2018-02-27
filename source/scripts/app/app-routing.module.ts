@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MetaGuard, MetaModule } from '@ngx-meta/core';
 
 // Components necessary for redirection.
 import { BlogComponent } from 'blog/blog.component';
@@ -16,25 +17,56 @@ import { PortfolioComponent } from 'portfolio/portfolio.component';
 import { PostComponent } from 'post/post.component';
 
 // Define routes in greedy order of precedence.
+// TODO: Add more changes to og properties per-page.
 const appRoutes: Routes = [
     {
+      path: '',
+      component: HomeComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify',
+          description: 'Design and technology by Josh Hills'
+        }
+      }
+    },
+    {
       path: 'blog',
-      component: BlogComponent
+      component: BlogComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Blog',
+          description: 'Personal tech blog by Josh Hills',
+          'og:image': '/images/social/blog-preview.jpg'
+        }
+      }
     },
     {
       path: 'blog/:page',
-      component: BlogComponent
+      component: BlogComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Blog', // TODO: Incorporate page number
+          description: 'Personal tech blog by Josh Hills',
+          'og:image': '/images/social/blog-preview.jpg'
+        }
+      }
     },
     {
       path: 'blurb',
-      component: BlurbComponent
+      component: BlurbComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Contact',
+          description: 'Contact me'
+        }
+      }
     },
     {
-      path: 'home',
-      component: HomeComponent
-    },
-    {
-      path: 'pattern',
+      path: 'pattern', // TODO: Add no scrape here?
       component: PatternComponent,
       children: [
         {
@@ -57,19 +89,45 @@ const appRoutes: Routes = [
           path: 'layouts',
           component: PatternLayoutsComponent
         }
-      ]
+      ],
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Pattern Library',
+          description: 'Atomic design styles for the site'
+        }
+      }
     },
     {
       path: 'portfolio',
-      component: PortfolioComponent
+      component: PortfolioComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Portfolio',
+          description: 'Personal tech portfolio by Josh Hills',
+          'og:image': '/images/social/portfolio-preview.jpg'
+        }
+      }
     },
     {
       path: 'post/:id',
-      component: PostComponent
-    },
-    {
-      path: '',
-      component: HomeComponent
+      component: PostComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Blog Post',
+          description: 'Blog post by Josh Hills',
+          'og:image': '/images/social/blog-preview.jpg',
+          'og:type': 'article'
+          /*
+            TODO: Add
+            <meta name="article:section" content="Technology">
+            <meta name="article:published_time" content="time">
+            <meta name="article:modified_time" content="time">
+          */
+        }
+      }
     },
     {
       path: '**',
@@ -81,7 +139,8 @@ const appRoutes: Routes = [
     imports: [
       RouterModule.forRoot(
         appRoutes
-      )
+      ),
+      MetaModule.forRoot()
     ],
     exports: [
       RouterModule

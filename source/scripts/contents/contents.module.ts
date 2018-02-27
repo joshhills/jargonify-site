@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ContentsComponent } from './contents.component';
+import { ContentsComponent } from 'contents/contents.component';
+import { ContentsService } from 'contents/contents.service';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,9 @@ import { ContentsComponent } from './contents.component';
   ],
   exports: [
     ContentsComponent
+  ],
+  providers: [
+    ContentsService
   ]
 })
 export class ContentsModule { }

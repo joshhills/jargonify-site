@@ -1,16 +1,21 @@
 $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
 
 .m-endorsement-item {
+    background: url('/images/icons/icon-cross.svg') $lead;
+    background-position: center;
+    background-repeat: space;
+    
     border: $border-size solid $ink;
-    background-color: $chrome;
     margin: $spacing-small;
-    width: $endorsement-item-width;
     max-width: $endorsement-item-width;
     position: relative;
+    width: $endorsement-item-width;
     
     &__contents {
         @include half-left;
-
+        @include last-no-margin;
+        
+        background-color: $chrome;
         box-sizing: border-box;
         padding: $spacing-medium;
 

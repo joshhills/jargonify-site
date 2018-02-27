@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^4.4.4",
     "@angular/platform-browser-dynamic": "^4.4.4",
     "@angular/router": "^4.4.6",
+    "@ngx-meta/core": "^5.0.0",
     "es6-shim": "^0.35.3",
     "postcss-reporter": "^5.0.0",
     "reflect-metadata": "^0.1.10",
