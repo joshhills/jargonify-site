@@ -97,13 +97,15 @@ $blog-item-size: 17rem;
         @include half-right;
 
         box-sizing: border-box;
+        position: relative;
         padding: $spacing-large;
+        z-index: 1;
     }
 
     &__image {
         @include image-cover;
 
-        z-index: -1;
+        z-index: 0;
     }
     
     &__cta {
@@ -136,7 +138,7 @@ $blog-item-size: 17rem;
 
     &__image {
         @include image-cover;
-        z-index: -1;
+        z-index: 0;
     }
 
     &__text {

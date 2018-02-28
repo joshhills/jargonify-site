@@ -12,5 +12,6 @@ This is my personal porfolio.
 - Properly commented TS
 - Properly unit tested TS
 - Properly commented SCSS
+- Change underline on pagination to a border?
 
 - Add the 'client experience' to site eventually - like what clients should expect workflow wise

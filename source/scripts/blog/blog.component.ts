@@ -94,9 +94,6 @@ export class BlogComponent implements OnInit {
   }
 
   onSearchTermChangedEvent(term: string): void {
-    // let navArray: any[]
-    //   = this.currentPage === 0 ? ['/blog'] : ['/blog', this.currentPage + 1];
-
     let navArray: any[] = ['/blog'];
 
     let navExtras: {} = {};

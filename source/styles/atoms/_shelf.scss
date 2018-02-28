@@ -1,3 +1,6 @@
 .a-shelf {
-    background-color: $ink;
+    background: url('/images/backgrounds/main-background.svg');
+    background-color: $lead;
+    background-repeat: repeat-y; 
+    background-position: top;
 }
