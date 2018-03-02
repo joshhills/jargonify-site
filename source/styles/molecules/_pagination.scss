@@ -1,6 +1,10 @@
 .m-pagination {
     padding: $spacing-medium + $spacing-small;
 
+    @include breakpoint(phone) {
+        padding: $spacing-medium;
+    }
+
     &__gap,
     &__link {
         color: $ink !important;

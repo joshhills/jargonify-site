@@ -4,4 +4,10 @@
     max-height: 100vh;
     max-width: 1280px;
     overflow: hidden;
+
+    @include breakpoint(phone) {
+        flex-direction: column;
+        max-height: none;
+        overflow: auto;
+    }
 }

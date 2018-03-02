@@ -2,6 +2,7 @@
     @include container-inset-top($spacing-small + $spacing-medium);
 
     color: $paper;
+    overflow: hidden;
     padding: $spacing-large;
     padding-left: $spacing-small + $spacing-medium;
     padding-right: $spacing-small + $spacing-medium;
@@ -21,15 +22,17 @@
         vertical-align: top;
 
         &--left {
-            display: inline-block;
             box-sizing: border-box;
+            position: relative;
             padding-right: $spacing-large;
-            width: 66%;
+            
+            @include two-thirds-left;
         }
 
         &--right {
-            display: inline-block;
-            width: 33%;
+            position: relative;
+
+            @include third-right;
         }
     }
 }

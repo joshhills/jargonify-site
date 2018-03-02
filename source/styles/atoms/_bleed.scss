@@ -1,5 +1,7 @@
 $bleed-border: 8pt solid $lead;
 
+// TODO: Make an organism?...
+// OR make the div both a-bleed and o-something
 .a-bleed {
     background-color: $paper;
     border-bottom: $bleed-border;
@@ -9,4 +11,10 @@ $bleed-border: 8pt solid $lead;
     flex-grow: 1;
     height: 100%;
     overflow-x: hidden;
+
+    @include breakpoint(phone) {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;    
+    }
 }

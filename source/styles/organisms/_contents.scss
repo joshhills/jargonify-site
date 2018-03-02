@@ -1,13 +1,17 @@
-$contents-width: 5.5rem;
-
 .o-contents {
     background-color: $lead;
     color: $paper;
     height: calc(100% - 2rem);
     overflow: hidden;
     padding: $spacing-small;
-    width: $contents-width;
+    width: 5.5rem;
     text-align: center;
+
+    @include breakpoint(phone) {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+    }
 
     &__links {
         height: 100%;

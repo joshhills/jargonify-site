@@ -89,6 +89,7 @@ $blog-item-size: 17rem;
         color: $paper;
         margin: $spacing-small;
         max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
+        min-width: $blog-item-size;
         overflow: hidden;
         position: relative;
     }
@@ -97,9 +98,13 @@ $blog-item-size: 17rem;
         @include half-right;
 
         box-sizing: border-box;
-        position: relative;
         padding: $spacing-large;
+        position: relative;
         z-index: 1;
+
+        @include breakpoint(phone) {
+            padding: $spacing-small;
+        }
     }
 
     &__image {
@@ -146,6 +151,7 @@ $blog-item-size: 17rem;
 
         box-sizing: border-box;
         padding: $spacing-large;
+
         z-index: 1;
 
         &--light {

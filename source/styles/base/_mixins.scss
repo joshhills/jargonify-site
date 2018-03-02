@@ -1,6 +1,24 @@
 /* Layouts */
 // TODO: Refactor these to have prefix 'container-' or 'layout-'.
+// TODO: Take inspiration from this: https://responsivedesign.is/articles/helpful-sass-mixins/
 
+// Responsive design.
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (max-width: 70em) { @content ; }
+    }
+    @else if $point == laptop {
+        @media (max-width: 64em) { @content ; }
+    }
+    @else if $point == tablet {
+        @media (max-width: 50em) { @content ; }
+    }
+    @else if $point == phone {
+        @media (max-width: 37.5em)  { @content ; }
+    }
+}
+
+// General Container Flow
 @mixin container-inset-top($inset) {
     margin-top: -$inset;
 }
@@ -20,32 +38,57 @@
     width: 100%;
 }
 
+// General content flow.
 @mixin half-left {
     float: left;
     width: 50%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
 
 @mixin half-right {
     float: right;
     width: 50%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
 
 @mixin third-left {
     float: left;
     width: 33%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
 
 @mixin third-right {
     float: right;
     width: 33%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
 
 @mixin two-thirds-left {
     float: left;
     width: 66%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
 
 @mixin two-thirds-right {
     float: right;
     width: 66%;
+
+    @include breakpoint(laptop) {
+        width: 100%;
+    }
 }
