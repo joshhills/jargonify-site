@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 // Custom Modules
 import { BlogModule } from 'blog/blog.module';
@@ -41,7 +43,9 @@ import { AppConfiguration } from 'app/app.configuration';
     PortfolioModule,
     PostModule,
     SharedModule,
-    SpineModule
+    SpineModule,
+    // External Modules
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])
   ],
   declarations: [
     AppComponent
