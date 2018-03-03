@@ -3,6 +3,10 @@
     flex-wrap: wrap;
     padding: $spacing-medium $spacing-medium 0 $spacing-medium;
 
+    @include breakpoint(phone) {
+        padding: $spacing-small $spacing-small 0 $spacing-small;
+    }
+
     // For bespoke design without search.
     &--fresh {
         padding-top: $spacing-small;

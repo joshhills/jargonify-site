@@ -23,7 +23,8 @@
 
         @include breakpoint(phone) {
             left: 0;
-            top: 0;
+            font-size: 53pt;
+            top: 0.5rem;
             transform: none;
         }
     }

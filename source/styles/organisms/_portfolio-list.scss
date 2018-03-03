@@ -5,6 +5,10 @@
     position: relative;
     z-index: 1;
 
+    @include breakpoint(phone) {
+        padding: $spacing-small $spacing-small 0 $spacing-small;
+    }
+
     > .a-header {
         margin: $spacing-small $spacing-small 0 $spacing-small;
     }

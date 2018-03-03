@@ -13,8 +13,10 @@ $bleed-border: 8pt solid $lead;
     overflow-x: hidden;
 
     @include breakpoint(phone) {
-        width: 100%;
+        border-top: none;
+        border-left: $bleed-border;
         height: auto;
         overflow-x: hidden;    
+        width: 100%;
     }
 }

@@ -40,6 +40,11 @@ h1,
     font-size: 40pt;
     line-height: 50pt;
     margin-bottom: $spacing-medium;
+
+    @include breakpoint(phone) {
+        font-size: 32pt;
+        line-height: 36pt;
+    }
 }
 
 h2,
