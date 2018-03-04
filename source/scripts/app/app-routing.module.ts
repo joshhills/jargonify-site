@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MetaGuard, MetaModule } from '@ngx-meta/core';
 
 // Components necessary for redirection.
+import { AboutComponent } from 'about/about.component';
 import { BlogComponent } from 'blog/blog.component';
-import { BlurbComponent } from 'blurb/blurb.component';
 import { ErrorComponent } from 'error/error.component';
 import { HomeComponent } from 'home/home.component';
 import { PatternComponent } from 'pattern/pattern.component';
@@ -55,8 +55,8 @@ const appRoutes: Routes = [
       }
     },
     {
-      path: 'blurb',
-      component: BlurbComponent,
+      path: 'about',
+      component: AboutComponent,
       canActivate: [MetaGuard],
       data: {
         meta: {

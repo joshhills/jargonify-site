@@ -7,8 +7,8 @@ import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 // Custom Modules
+import { AboutModule } from 'about/about.module';
 import { BlogModule } from 'blog/blog.module';
-import { BlurbModule } from 'blurb/blurb.module';
 import { ContentsModule } from 'contents/contents.module';
 import { ErrorModule } from 'error/error.module';
 import { HomeModule } from 'home/home.module';
@@ -20,7 +20,6 @@ import { SharedModule } from 'shared/shared.module';
 import { SpineModule } from 'spine/spine.module';
 
 // Custom services.
-// import { MockPostService } from 'shared/services/post.service';
 
 // Configuration
 import { AppComponent } from  'app/app.component';
@@ -32,10 +31,12 @@ import { AppConfiguration } from 'app/app.configuration';
     BrowserModule,
     FormsModule,
     HttpModule,
+    // External Modules
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     // Custom Modules
+    AboutModule,
     AppRoutingModule,
     BlogModule,
-    BlurbModule,
     ContentsModule,
     ErrorModule,
     HomeModule,
@@ -43,9 +44,7 @@ import { AppConfiguration } from 'app/app.configuration';
     PortfolioModule,
     PostModule,
     SharedModule,
-    SpineModule,
-    // External Modules
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])
+    SpineModule
   ],
   declarations: [
     AppComponent

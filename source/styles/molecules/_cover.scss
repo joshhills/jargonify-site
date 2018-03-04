@@ -1,13 +1,13 @@
 .m-cover {
-    align-items: flex-end;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 430pt;
     overflow: hidden;
     position: relative;
 
     @include breakpoint(phone) {
         min-height: 350pt;
+        flex-wrap: wrap;
     }
 
     &__image {
@@ -45,11 +45,19 @@
         }
 
         &--left {
-            @include two-thirds-left;
+            @include third-left;
+
+            padding-right: 0;
+
+            @include breakpoint(phone) {
+                padding-right: $spacing-medium;
+            }
         }
 
         &--right {
             @include two-thirds-right;
+
+            margin-left: auto;
         }
     }
 
@@ -58,6 +66,6 @@
     }
 
     &--center {
-        justify-content: center;
+        align-items: center;
     }
 }
