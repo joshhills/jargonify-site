@@ -1,4 +1,4 @@
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -17,7 +17,6 @@ export interface PostService {
         page: number,
         perPage: number,
         featuredOnly: boolean,
-        portfolioOnly: boolean,
         search: string
     ): Observable<BlogPost[]>;
 
@@ -28,6 +27,273 @@ export interface PostService {
     getPortfolioLayout(id: string): Observable<PortfolioLayoutPost>;
 
     toPostListPortfolioSection(blob: JSON): PostListPortfolioSection;
+}
+
+// TODO: Fail gracefully.
+@Injectable()
+export class WordpressAPIPostService implements PostService {
+    // Store information necessary to make requests.
+    baseUrl: string;
+    headers: Headers;
+
+    constructor(private appConfiguration: AppConfiguration, private http: Http) {
+        this.baseUrl = process.env.API_URL;
+        this.headers = new Headers();
+        this.headers.append('Accept', 'application/json');
+    }
+
+    public getBlogPosts(
+        page: number = 0,
+        perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE,
+        featuredOnly: boolean = false,
+        search: string = ''
+    ): Observable<BlogPost[]> {
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/posts?&`;
+
+        // Define parameters.
+        let params = new URLSearchParams();
+        params.append('per_page', perPage.toString());
+        params.append('page', (page + 1).toString());
+        params.append('search', search);
+        params.append('_embed', 'true');
+
+        // Make request and mapping.
+        let blogPosts = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers,
+                    params: params
+                }
+            )
+            .map(res => res.json().map(this.toBlogPost));
+
+        // Return the observable.
+        return blogPosts;
+    }
+
+    public getNumBlogPosts(
+        featuredOnly: boolean = false,
+        search: string = ''
+    ): Observable<number> {
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/posts`;
+
+        // Define parameters.
+        let params = new URLSearchParams();
+        params.append('per_page', '0');
+        params.append('search', search);
+
+        // Make request and mapping.
+        let numPosts = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers,
+                    params: params
+                }
+            )
+            .map(res => {
+                // Total count is returned as header.
+                return +res.headers.get('x-wp-total');
+            });
+
+        return numPosts;
+    }
+
+    public getBlogPost(id: string): Observable<BlogPost> {
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/posts/${id}?&_embed`;
+
+        // Make request and mapping.
+        let blogPost = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            )
+            .map(res => this.toBlogPost(res.json()));
+
+        return blogPost;
+    }
+
+    public getEndorsementPost(id: string): Observable<EndorsementPost> {
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/endorsements/${id}`;
+
+        // Make request and mapping.
+        let endorsementPost = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            )
+            .map(res => res.json().map(this.toEndorsementPost));
+        return endorsementPost;
+    }
+
+    public getPortfolioLayout(id: string): Observable<PortfolioLayoutPost> {
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/portfolio_layouts/${id}`;
+
+        // Make request and mapping.
+        let portfolioLayout = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            )
+            .map(res => res.json().map(this.toPortfolioLayout.bind(this)));
+        return portfolioLayout;
+    }
+
+    private toPortfolioLayout(blob: JSON): PortfolioLayoutPost {
+        let sections: PortfolioSection[] = [];
+
+        for (let section of blob['acf']['content']) {
+            switch (section['acf_fc_layout']) {
+                case 'post_list':
+                    // Create post list.
+                    sections.push(this.toPostListPortfolioSection(section));
+                    break;
+                case 'text_block':
+                    // Create text block.
+                    sections.push(this.toTextBlockPortfolioSection(section));
+                    break;
+                case 'endorsement':
+                    // Create endorsement.
+                    sections.push(this.toEndorsementPortfolioSection(section));
+                    break;
+            }
+        }
+
+        return new PortfolioLayoutPost(
+            PostType.PORTFOLIO_LAYOUT,
+            blob['id'],
+            blob['date'],
+            blob['modified'],
+            blob['content']['rendered'],
+            sections
+        );
+    }
+
+    // TODO: Change to be using observables.
+    toPostListPortfolioSection(blob: JSON): PostListPortfolioSection {
+        let posts: Post[] = [];
+
+        for (let i = 0; i < blob['posts'].length; i++) {
+            let post: any = blob['posts'][i];
+
+            switch (post['type']) {
+                case 'blog':
+                    // Get blog post.
+                    this.getBlogPost(post['blog']).subscribe(
+                        data => {
+                            posts.splice(i, 0, data[0]);
+                        }
+                    );
+                    break;
+                case 'anecdote':
+                    // Make new anecdote post.
+                    posts.splice(i, 0,
+                        new AnecdotePost(
+                            PostType.ANECDOTE,
+                            '-1', // TODO: This is not applicable here.
+                            '-1',
+                            '-1',
+                            post['anecdote']
+                        )
+                    );
+                    break;
+            }
+        }
+
+        return new PostListPortfolioSection(
+            PortfolioSectionType.POST_LIST,
+            blob['title'],
+            posts
+        );
+    }
+
+    private toTextBlockPortfolioSection(blob: JSON): TextBlockPortfolioSection {
+        // Information already present in JSON, no need for get.
+        return new TextBlockPortfolioSection(
+            PortfolioSectionType.TEXT_BLOCK,
+            blob['theme'],
+            blob['content']
+        );
+    }
+
+    private toEndorsementPortfolioSection(blob: JSON): EndorsementPortfolioSection {
+        // Get endorsement post. blob['post']
+        let endorsements: EndorsementPost[] = [];
+
+        this.getEndorsementPost(blob['post']).subscribe(
+            data => {
+                endorsements.push(data[0]);
+            }
+        );
+
+        return new EndorsementPortfolioSection(
+            PortfolioSectionType.ENDORSEMENT,
+            endorsements
+        );
+    }
+
+    // TODO: Graceful degradation
+    private toBlogPost(blob: JSON): BlogPost {
+        // Get the image.
+        let featureImageUrl: string;
+        if (blob['_embedded']['wp:featuredmedia']) {
+            featureImageUrl = blob['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['full']['source_url'];
+        }
+
+        return new BlogPost(
+            PostType.BLOG,
+            blob['id'],
+            blob['date'],
+            blob['modified'],
+            blob['title']['rendered'],
+            blob['excerpt']['rendered'],
+            featureImageUrl,
+            blob['content']['rendered'],
+            blob['tags'],
+            blob['acf']['is_feature'],
+            blob['acf']['is_portfolio'],
+            false
+        );
+    }
+
+    private toEndorsementPost(blob: JSON): EndorsementPost {
+        let contactType: ContactType;
+        let contactDetails: string;
+
+        switch (blob['acf']['contact_type']) {
+            case 'email':
+                contactType = ContactType.EMAIL;
+                contactDetails = blob['acf']['email'];
+                break;
+            case 'url':
+                contactType = ContactType.URL;
+                contactDetails = blob['acf']['link'];
+        }
+
+        return new EndorsementPost(
+            PostType.ENDORSEMENT,
+            blob['id'],
+            blob['date'],
+            blob['modified'],
+            blob['acf']['full_name'],
+            blob['acf']['testimonial'],
+            blob['acf']['portrait']['url'],
+            contactType,
+            contactDetails
+        );
+    }
 }
 
 @Injectable()
@@ -46,14 +312,11 @@ export class MockPostService implements PostService {
         page: number = 0,
         perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE,
         featuredOnly: boolean = false,
-        portfolioOnly: boolean = false,
         search: string = ''
     ): Observable<BlogPost[]> {
         let requestUrl;
         if (featuredOnly) {
             requestUrl = this.baseUrl + '/featured-blog-posts.json';
-        } else if (portfolioOnly) {
-            requestUrl = this.baseUrl + '/portfolio-blog-posts.json';
         } else if (search !== '') {
             requestUrl = this.baseUrl + '/search-blog-posts.json';
         } else {

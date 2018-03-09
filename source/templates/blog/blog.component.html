@@ -14,19 +14,19 @@
         <img class="m-cover__image" src="/images/covers/cover-blog.jpg" alt="Blog image of me writing." />
     </div>
     <!-- Search Error Feedback -->
-    <div class="l-blog__error" *ngIf="inSearch && blogPosts.length === 0">
+    <div class="l-blog__error" [style.display]="inSearch && blogPosts.length === 0 ? 'block' : 'none'">
         <p class="a-subheader">
             It doesn't look like I've written about that yet.
         </p>
         <p>
             Is <em>'{{searchTerm}}'</em> something I should look into?
         </p>
-        <a routerLink="/blurb">
+        <a routerLink="/about">
             Contact
         </a>
     </div>
     <!-- Posts Error Feedback -->
-    <div class="l-blog__error" *ngIf="!inSearch && blogPosts.length === 0">
+    <div class="l-blog__error" [style.display]="!inSearch && blogPosts.length === 0 ? 'block' : 'none'">
         <p class="a-subheader">
             Uh-oh, doesn't look like there are any posts yet.
         </p>

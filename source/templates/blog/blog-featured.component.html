@@ -2,7 +2,7 @@
     <div class="m-blog-item-featured__text m-blog-item-featured__text--right m-blog-item-featured__text--light">
         <p class="a-subsubheader">Featured:</p>
         <a class="a-subheader" [routerLink]="['/post', featuredBlogPost.id]">{{featuredBlogPost.title}}</a>
-        <p>{{featuredBlogPost.summary}}</p>
+        <p [innerHTML]="featuredBlogPost.summary"></p>
         <a [routerLink]="['/post', featuredBlogPost.id]">Read more</a>
     </div>
     <img class="m-blog-item-featured__image" src="{{featuredBlogPost.featureImageUrl}}" alt="Feature image." />

@@ -31,6 +31,8 @@ export class BlogPost extends Post {
         this.featureImageUrl = featureImageUrl;
         this.contents = contents;
         this.tags = tags;
+        this.isFeature = isFeature;
+        this.isPortfolio = isPortfolio;
         this.inSeries = inSeries;
     }
 }

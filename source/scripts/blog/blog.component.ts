@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppConfiguration } from 'app/app.configuration';
-import { MockPostService } from 'shared/services/post.service';
+import { WordpressAPIPostService } from 'shared/services/post.service';
 import { BlogPost } from 'shared/models/blog-post';
 import { Observable } from '../../../configuration/node_modules/rxjs/Observable';
 
@@ -9,7 +9,7 @@ import { Observable } from '../../../configuration/node_modules/rxjs/Observable'
   selector: 'blog',
   templateUrl: '../../templates/blog/blog.component.html',
   providers: [
-    MockPostService
+    WordpressAPIPostService
   ]
 })
 export class BlogComponent implements OnInit {
@@ -30,7 +30,7 @@ export class BlogComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private appConfiguration: AppConfiguration,
-    private postService: MockPostService
+    private postService: WordpressAPIPostService
   ) {}
 
   setPageProperties(data: any): void {
@@ -50,11 +50,15 @@ export class BlogComponent implements OnInit {
     // Get the individual posts.
     this.postService.getBlogPosts(
       this.currentPage,
-      numPosts,
-      false,
+      this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1,
       false,
       this.searchTerm
-    ).subscribe(data => this.blogPosts = data);
+    ).subscribe(data => {
+      this.blogPosts = data;
+      if (this.currentPage === 0) {
+        this.fetchFeaturedBlogPost();
+      }
+    });
 
     // Get the number of blog posts with this criteria.
     this.postService.getNumBlogPosts(
@@ -67,15 +71,14 @@ export class BlogComponent implements OnInit {
   }
 
   fetchFeaturedBlogPost(): void {
-    // Featured blog posts.
-    this.postService.getBlogPosts(
-      0,
-      1,
-      true
-    ).subscribe(data => {
-      this.featuredBlogPost = data[0];
-      this.excludedPostIds = [this.featuredBlogPost.id];
-    });
+    // Determine featured blog post from current list.
+    for (let post of this.blogPosts) {
+      if (post.isFeature) {
+        this.featuredBlogPost = post;
+        this.excludedPostIds = [post.id];
+        break;
+      }
+    }
   }
 
   ngOnInit() {
@@ -88,7 +91,6 @@ export class BlogComponent implements OnInit {
         this.setSearchProperties(data[1]);
 
         this.fetchBlogPostProperties();
-        this.fetchFeaturedBlogPost();
       }
     );
   }

@@ -10,9 +10,7 @@
             <a class="a-subheader" [routerLink]="['/post', blogPost.id]">
                 {{blogPost.title}}
             </a>
-            <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded">
-                {{blogPost.summary}}
-            </p>
+            <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded" [innerHTML]="blogPost.summary"></p>
             <a [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
                 Read more
             </a>

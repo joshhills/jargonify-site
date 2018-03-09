@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MockPostService } from 'shared/services/post.service';
+import { WordpressAPIPostService } from 'shared/services/post.service';
 import { BlogPost } from 'shared/models/blog-post';
 
 @Component({
   selector: 'post',
-  templateUrl: '../../templates/post/post.component.html'
+  templateUrl: '../../templates/post/post.component.html',
+  providers: [
+    WordpressAPIPostService
+  ]
 })
 export class PostComponent {
   private post: BlogPost;
@@ -13,7 +16,7 @@ export class PostComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: MockPostService
+    private postService: WordpressAPIPostService
   ) {}
 
   ngOnInit() {
@@ -28,7 +31,7 @@ export class PostComponent {
 
   getBlogPost(id: string): void {
     this.postService.getBlogPost(id).subscribe(
-      res => this.post = res[0]
+      res => this.post = res
     );
   }
 }

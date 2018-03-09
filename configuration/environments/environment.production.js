@@ -2,6 +2,6 @@ module.exports = {
     'ENV': "'production",
     'process.env': {
         'ENV': "'production'",
-        'API_URL': "''"
+        'API_URL': "https://jumbledjargon.co.uk/live/cms/wp-json/wp/v2/"
     }
 }
