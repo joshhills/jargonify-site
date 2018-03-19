@@ -131,7 +131,9 @@ export class WordpressAPIPostService implements PostService {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toEndorsementPost));
+            .map(res => {
+                return this.toEndorsementPost(res.json());
+            });
         return endorsementPost;
     }
 
@@ -147,7 +149,9 @@ export class WordpressAPIPostService implements PostService {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toPortfolioLayout.bind(this)));
+            .map(res => {
+                return this.toPortfolioLayout(res.json());
+            });
         return portfolioLayout;
     }
 
@@ -193,7 +197,7 @@ export class WordpressAPIPostService implements PostService {
                     // Get blog post.
                     this.getBlogPost(post['blog']).subscribe(
                         data => {
-                            posts.splice(i, 0, data[0]);
+                            posts.splice(i, 0, data);
                         }
                     );
                     break;
@@ -229,12 +233,12 @@ export class WordpressAPIPostService implements PostService {
     }
 
     private toEndorsementPortfolioSection(blob: JSON): EndorsementPortfolioSection {
-        // Get endorsement post. blob['post']
+        // Get endorsement post.
         let endorsements: EndorsementPost[] = [];
 
         this.getEndorsementPost(blob['post']).subscribe(
             data => {
-                endorsements.push(data[0]);
+                endorsements.push(data);
             }
         );
 
@@ -246,11 +250,49 @@ export class WordpressAPIPostService implements PostService {
 
     // TODO: Graceful degradation
     private toBlogPost(blob: JSON): BlogPost {
-        // Get the image.
-        let featureImageUrl: string;
-        if (blob['_embedded']['wp:featuredmedia']) {
-            featureImageUrl = blob['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['full']['source_url'];
+        // Get the image features (some optional)
+        let featureImage: any = {
+            urlSmall: null,
+            urlMedium: null,
+            urlLarge: null,
+            urlFull: null,
+            srcSet: '',
+            altText: null,
+            title: null,
+            caption: null
+        };
+
+        // Retrieve all of the necessary URLs.
+        if (blob['_embedded'] && blob['_embedded']['wp:featuredmedia']) {
+            let featuredMedia: JSON = blob['_embedded']['wp:featuredmedia'][0];
+
+            // TODO: Put this in an image class.
+            if (featuredMedia['media_details']['sizes']['medium']) {
+                featureImage.urlSmall = featuredMedia['media_details']['sizes']['medium']['source_url'];
+                featureImage.srcSet += `${featureImage.urlSmall} 300w, `;
+            }
+
+            if (featuredMedia['media_details']['sizes']['medium_large']) {
+                featureImage.urlMedium = featuredMedia['media_details']['sizes']['medium_large']['source_url'];
+                featureImage.srcSet += `${featureImage.urlMedium} 400w, `;
+            }
+
+            if (featureImage.urlLarge = featuredMedia['media_details']['sizes']['large']) {
+                featureImage.urlLarge = featuredMedia['media_details']['sizes']['large']['source_url'];
+                featureImage.srcSet += `${featureImage.urlLarge} 1024w, `;
+            }
+
+            if (featuredMedia['media_details']['sizes']['full']) {
+                featureImage.urlFull = featuredMedia['media_details']['sizes']['full']['source_url'];
+                featureImage.srcSet += `${featureImage.urlFull} 1920w`;
+            }
+
+            featureImage.title = featuredMedia['title']['rendered'];
+            featureImage.altText = featuredMedia['alt_text'];
+            featureImage.caption = featuredMedia['caption']['rendered'];
         }
+
+        console.log(`Title: ${blob['title']['rendered']}, srcset: ${featureImage.srcSet}`);
 
         return new BlogPost(
             PostType.BLOG,
@@ -259,7 +301,7 @@ export class WordpressAPIPostService implements PostService {
             blob['modified'],
             blob['title']['rendered'],
             blob['excerpt']['rendered'],
-            featureImageUrl,
+            featureImage,
             blob['content']['rendered'],
             blob['tags'],
             blob['acf']['is_feature'],
@@ -387,6 +429,18 @@ export class MockPostService implements PostService {
     }
 
     private toBlogPost(blob: JSON): BlogPost {
+        // Get the image features (some optional)
+        let featureImage: any = {
+            urlSmall: null,
+            urlLarge: null,
+            urlFull: null,
+            altText: null,
+            title: null,
+            caption: null
+        };
+
+        featureImage.urlSmall = featureImage.urlLarge = featureImage.urlFull = blob['featureImageUrl'];
+
         return new BlogPost(
             PostType.BLOG,
             blob['id'],
@@ -394,7 +448,7 @@ export class MockPostService implements PostService {
             blob['dateEdited'],
             blob['title'],
             blob['summary'],
-            blob['featureImageUrl'],
+            featureImage,
             blob['contents'],
             blob['tags'],
             blob['isFeature'],

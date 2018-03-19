@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { HomeComponent } from './home.component';
 
@@ -8,7 +9,8 @@ import { HomeComponent } from './home.component';
     HomeComponent
   ],
   imports: [
-    RouterModule
+    RouterModule,
+    LazyLoadImageModule
   ]
 })
 export class HomeModule { }

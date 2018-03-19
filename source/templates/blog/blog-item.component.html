@@ -1,11 +1,11 @@
-<div [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.inSeries}">
+<div *ngIf="blogPost" [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.inSeries}">
     <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded}">
         <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded}">
             <p class="a-subsubheader" *ngIf="isExpanded">
                 Alternative Featured:
             </p>
             <p class="a-subsubheader" *ngIf="showDate">
-                {{blogPost.dateCreated}}
+                {{blogPost.dateCreated | date:'shortDate'}}
             </p>
             <a class="a-subheader" [routerLink]="['/post', blogPost.id]">
                 {{blogPost.title}}
@@ -15,6 +15,11 @@
                 Read more
             </a>
         </div>
-        <img *ngIf="showPicture || isExpanded" [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}" src="{{blogPost.featureImageUrl}}" />
+        <img    *ngIf="showPicture || isExpanded"
+                [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}"
+                [defaultImage]="blogPost.featureImage.urlSmall"
+                [lazyLoad]="blogPost.featureImage.srcSet"
+                [useSrcset]="true"
+                alt="{{blogPost.featureImage.altText}}" />
     </div>
 </div>

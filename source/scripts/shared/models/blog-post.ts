@@ -3,7 +3,7 @@ import { Post, PostType } from 'shared/models/post';
 export class BlogPost extends Post {
     title: string;
     summary: string;
-    featureImageUrl: string;
+    featureImage: any;
     contents: string;
     tags: string[];
     isFeature: boolean;
@@ -17,7 +17,7 @@ export class BlogPost extends Post {
         dateEdited: string,
         title: string,
         summary: string,
-        featureImageUrl: string,
+        featureImage: any,
         contents: string,
         tags: string[],
         isFeature: boolean,
@@ -28,7 +28,7 @@ export class BlogPost extends Post {
 
         this.title = title;
         this.summary = summary;
-        this.featureImageUrl = featureImageUrl;
+        this.featureImage = featureImage;
         this.contents = contents;
         this.tags = tags;
         this.isFeature = isFeature;

@@ -11,10 +11,13 @@
             </p>
             <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
         </div>
-        <img class="m-cover__image" src="/images/covers/cover-blog.jpg" alt="Blog image of me writing." />
+        <img    class="m-cover__image"
+                src="/images/covers/cover-blog.jpg"
+                [lazyLoad]="'/images/covers/cover-blog.jpg'"
+                alt="Blog image of me writing." />
     </div>
     <!-- Search Error Feedback -->
-    <div class="l-blog__error" [style.display]="inSearch && blogPosts.length === 0 ? 'block' : 'none'">
+    <div class="l-blog__error" [style.display]="inSearch && noPostsAfterFetch ? 'block' : 'none'">
         <p class="a-subheader">
             It doesn't look like I've written about that yet.
         </p>
@@ -26,11 +29,12 @@
         </a>
     </div>
     <!-- Posts Error Feedback -->
-    <div class="l-blog__error" [style.display]="!inSearch && blogPosts.length === 0 ? 'block' : 'none'">
+    <div class="l-blog__error" [style.display]="!inSearch && noPostsAfterFetch ? 'block' : 'none'">
         <p class="a-subheader">
             Uh-oh, doesn't look like there are any posts yet.
         </p>
     </div>
+
     <!-- Featured Post -->
     <blog-featured *ngIf="featuredBlogPost && !inSearch && currentPage == 0" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->

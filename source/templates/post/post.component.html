@@ -2,7 +2,7 @@
     <div class="m-cover m-cover--center">
         <div class="m-cover__text m-cover__text--light">
             <p class="a-subsubheader">
-                {{post.dateCreated}}
+                {{post.dateCreated | date:'fullDate'}}
             </p>
             <p class="a-header">
                 {{post.title}}
@@ -14,7 +14,12 @@
                 </li>
             </ul>
         </div>
-        <img class="m-cover__image" src="{{post.featureImageUrl}}"/>
+        <img    *ngIf="post.featureImage"
+                class="m-cover__image"
+                src="{{post.featureImage.urlSmall}}"
+                [lazyLoad]="post.featureImage.srcSet"
+                [useSrcset]="true"
+                alt="{{post.featureImage.altText}}" />
     </div>
     <div class="o-post-list">
         <div class="o-post-list__contents" [innerHTML]="post.contents"></div>

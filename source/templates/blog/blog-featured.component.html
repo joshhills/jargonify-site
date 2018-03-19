@@ -5,5 +5,9 @@
         <p [innerHTML]="featuredBlogPost.summary"></p>
         <a [routerLink]="['/post', featuredBlogPost.id]">Read more</a>
     </div>
-    <img class="m-blog-item-featured__image" src="{{featuredBlogPost.featureImageUrl}}" alt="Feature image." />
+    <img    class="m-blog-item-featured__image"
+            src="{{featuredBlogPost.featureImage.urlSmall}}"
+            [lazyLoad]="featuredBlogPost.featureImage.srcSet"
+            [useSrcset]="true" 
+            alt="{{featuredBlogPost.featureImage.altText}}" />
 </div>

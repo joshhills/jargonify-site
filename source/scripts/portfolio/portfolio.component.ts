@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { MockPostService } from 'shared/services/post.service';
+import { WordpressAPIPostService } from 'shared/services/post.service';
 import { PostType } from 'shared/models/post';
 import { PortfolioLayoutPost, PortfolioSectionType } from 'shared/models/portfolio-layout-post';
 
 @Component({
   selector: 'portfolio',
-  templateUrl: '../../templates/portfolio/portfolio.component.html'
+  templateUrl: '../../templates/portfolio/portfolio.component.html',
+  providers: [
+    WordpressAPIPostService
+  ]
 })
 export class PortfolioComponent implements OnInit {
   private PortfolioSectionType: any = PortfolioSectionType;
@@ -13,14 +16,14 @@ export class PortfolioComponent implements OnInit {
   private layout: PortfolioLayoutPost;
 
   constructor(
-    private postService: MockPostService
+    private postService: WordpressAPIPostService
   ) {}
 
   ngOnInit() {
     this.postService.getPortfolioLayout(
-      'default'
+      '81' // TODO: Make this default?
     ).subscribe(data => {
-      this.layout = data[0];
+      this.layout = data;
     });
   }
 }

@@ -12,6 +12,8 @@
 
     &__image {
         @include image-cover;
+        @include image-lazyload;
+
         z-index: 0;
     }
 

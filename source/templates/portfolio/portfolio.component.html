@@ -5,9 +5,7 @@
             <p class="a-header">
                 Portfolio
             </p>
-            <p class="a-subheader">
-                {{layout.headerText}}
-            </p>
+            <div class="a-subheader" [innerHTML]="layout.headerText"></div>
             <div class="m-inline-group">
                 <a class="a-button a-button--light">
                     Printable
@@ -17,7 +15,10 @@
                 </a>
             </div>
         </div>
-        <img class="m-cover__image" src="/images/covers/cover-portfolio.jpg" alt="Portfolio image of me working." />
+        <img    class="m-cover__image"
+                src="/images/covers/cover-portfolio.jpg"
+                [lazyLoad]="'/images/covers/cover-portfolio.jpg'"
+                alt="Portfolio image of me working." />
     </div>
     <ng-container *ngFor="let section of layout.sections">
         <ng-container *ngIf="section.type === PortfolioSectionType.POST_LIST">
@@ -26,7 +27,7 @@
                     {{section.title}}
                 </p>
             </div>
-            <div class="o-portfolio-list">
+            <div *ngIf="section.posts" class="o-portfolio-list">
                 <ng-container *ngFor="let post of section.posts">
                     <blog-item *ngIf="post.type == PostType.BLOG" [blogPost]="post" [isExpanded]="false" [showDate]="false" [showPicture]="true"></blog-item>
                     <div *ngIf="post.type == PostType.ANECDOTE" class="m-blog-item-anecdote" [innerHTML]="post.text"></div>
@@ -42,9 +43,7 @@
             <div class="o-portfolio-list">
                 <div *ngFor="let endorsement of section.endorsements" class="m-endorsement-item">
                     <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
-                        <p class="a-subheader m-endorsement-item__endorsement">
-                            {{endorsement.testimonial}}
-                        </p>
+                        <div class="a-subheader m-endorsement-item__endorsement" [innerHTML]="endorsement.testimonial"></div>
                         <p class="m-endorsement-item__source a-subsubheader">
                             <a href="{{endorsement.contactType === 'link' ? endorsement.contactDetails : 'mailto:' + endorsement.contactDetails}}" target="_blank">{{endorsement.fullName}}</a>
                         </p>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { PatternComponent } from 'pattern/pattern.component';
 import { PatternBaseComponent } from 'pattern/pattern-base.component';
@@ -10,7 +11,8 @@ import { PatternLayoutsComponent } from 'pattern/pattern-layouts.component';
 
 @NgModule({
   imports: [
-    RouterModule
+    RouterModule,
+    LazyLoadImageModule
   ],
   declarations: [
     PatternComponent,

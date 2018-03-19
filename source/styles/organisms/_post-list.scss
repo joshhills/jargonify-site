@@ -1,6 +1,10 @@
 .o-post-list {
     padding: $spacing-large;
 
+    @include breakpoint(phone) {
+        padding: $spacing-medium;
+    }
+
     &__contents {
         @include last-no-margin;
 

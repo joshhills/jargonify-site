@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { PostComponent } from './post.component';
 
@@ -10,7 +11,8 @@ import { PostComponent } from './post.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LazyLoadImageModule
   ]
 })
 export class PostModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { BlogComponent } from './blog.component';
 import { BlogFeaturedComponent } from './blog-featured.component';
@@ -20,7 +21,8 @@ import { BlogSearchComponent } from 'blog/blog-search.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LazyLoadImageModule
   ],
   exports: [
     BlogItemComponent

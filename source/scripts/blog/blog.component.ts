@@ -26,6 +26,8 @@ export class BlogComponent implements OnInit {
   inSearch: boolean = false;
   searchTerm: string = '';
 
+  noPostsAfterFetch: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -55,6 +57,9 @@ export class BlogComponent implements OnInit {
       this.searchTerm
     ).subscribe(data => {
       this.blogPosts = data;
+
+      this.noPostsAfterFetch = this.blogPosts.length === 0;
+
       if (this.currentPage === 0) {
         this.fetchFeaturedBlogPost();
       }

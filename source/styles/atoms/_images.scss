@@ -1,3 +1,5 @@
+$image-blur-amount: 3pt;
+
 @mixin image-cover {
     left: 50%;
     max-height: 110%;
@@ -6,6 +8,14 @@
     object-fit: cover;
     position: absolute;
     transform: translateX(-50%);
+}
+
+@mixin image-lazyload {
+    filter: blur($image-blur-amount);
+
+    &.ng-lazyloaded {
+        animation: remove-filter 1s forwards;
+    }
 }
 
 @mixin image-full {
