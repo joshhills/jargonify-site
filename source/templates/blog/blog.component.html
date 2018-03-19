@@ -14,7 +14,14 @@
         <img    class="m-cover__image"
                 src="/images/covers/cover-blog.jpg"
                 [lazyLoad]="'/images/covers/cover-blog.jpg'"
+                [offset]="100000"
                 alt="Blog image of me writing." />
+    </div>
+    <!-- Posts Error Feedback -->
+    <div class="l-blog__error" [style.display]="!inSearch && noPostsAfterFetch ? 'block' : 'none'">
+        <p class="a-subheader">
+            Uh-oh, doesn't look like there are any posts yet.
+        </p>
     </div>
     <!-- Search Error Feedback -->
     <div class="l-blog__error" [style.display]="inSearch && noPostsAfterFetch ? 'block' : 'none'">
@@ -28,13 +35,12 @@
             Contact
         </a>
     </div>
-    <!-- Posts Error Feedback -->
-    <div class="l-blog__error" [style.display]="!inSearch && noPostsAfterFetch ? 'block' : 'none'">
+    <!-- Search Success Feedback -->
+    <div class="l-blog__feedback" [style.display]="inSearch && !noPostsAfterFetch ? 'block': 'none'">
         <p class="a-subheader">
-            Uh-oh, doesn't look like there are any posts yet.
+            {{numPosts}} results found...
         </p>
     </div>
-
     <!-- Featured Post -->
     <blog-featured *ngIf="featuredBlogPost && !inSearch && currentPage == 0" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->

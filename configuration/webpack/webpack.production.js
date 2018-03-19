@@ -21,7 +21,7 @@ module.exports = webpackMerge(commonConfig, {
         // The output directory.
         path: helpers.root('distribution'),
         // Output files relative to the index.
-        publicPath: '',
+        publicPath: '/backstage/site',
         // Cache-bust output files.
         filename: 'scripts/[name].[hash].js',
         chunkFilename: 'scripts/[id].[hash].chunk.js'
@@ -49,8 +49,14 @@ module.exports = webpackMerge(commonConfig, {
         // Minimise scripts.
         new webpack.optimize.UglifyJsPlugin({
             mangle: {
+                screw_ie8: true,
                 keep_fnames: true
-            }
+            },
+            compress: {
+                warnings: false,
+                screw_ie8: true
+            },
+            comments: false
         }),
 
         // Cache-bust stylesheet.

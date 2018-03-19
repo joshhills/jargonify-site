@@ -30,7 +30,8 @@ $blog-item-size: 17rem;
 
     &__image {
         @include image-cover;
-
+        @include image-lazyload;
+        
         z-index: 1;
     }
 
@@ -109,6 +110,7 @@ $blog-item-size: 17rem;
 
     &__image {
         @include image-cover;
+        @include image-lazyload;
 
         z-index: 0;
     }
@@ -143,6 +145,8 @@ $blog-item-size: 17rem;
 
     &__image {
         @include image-cover;
+        @include image-lazyload;
+
         z-index: 0;
     }
 

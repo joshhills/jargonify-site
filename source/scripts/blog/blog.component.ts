@@ -21,6 +21,7 @@ export class BlogComponent implements OnInit {
   excludedPostIds: string[] = [];
 
   currentPage: number = 0;
+  numPosts: number = 0;
   numPages: number = 1;
 
   inSearch: boolean = false;
@@ -70,6 +71,7 @@ export class BlogComponent implements OnInit {
       false,
       this.searchTerm
     ).subscribe(data => {
+      this.numPosts = data;
       this.numPages = Math.ceil((data - 1) // TODO: Might be incorrect due to featured.
         / (this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1));
     });

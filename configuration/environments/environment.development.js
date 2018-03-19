@@ -3,6 +3,7 @@ module.exports = {
     'process.env': {
         'ENV': "'development'",
         // 'API_URL': "'/mocks'"
-        'API_URL': "'https://jumbledjargon.co.uk/live/cms/wp-json/wp/v2'"
+        'API_URL': "'https://jumbledjargon.co.uk/live/cms/wp-json/wp/v2'",
+        'PUBLIC_PATH': "''"
     }
 }

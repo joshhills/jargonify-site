@@ -5,6 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+var AotPlugin = require('@ngtools/webpack').AotPlugin;
+
 module.exports = {
   // Define entry points to pipeline.
   entry: {
@@ -51,7 +53,7 @@ module.exports = {
             options: {
               configFileName: helpers.root('configuration/typescript/tsconfig.json')
             }
-          } , 'angular2-template-loader'
+          }, 'angular2-template-loader'
         ]
       },
       // Styles.
@@ -125,6 +127,12 @@ module.exports = {
     // Load the single-page-application.
     new HtmlWebpackPlugin({
       template: helpers.root('source/templates/index.html')
+    }),
+
+    // Create ahead-of-time compilation.
+    new AotPlugin({
+      tsConfigPath: helpers.root('configuration/typescript/tsconfig.json'),
+      entryModule: helpers.root('source/app/app.module#AppModule')
     })
   ]
 };

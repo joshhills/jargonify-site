@@ -2,4 +2,11 @@
     &__error {
         padding: $spacing-medium + $spacing-small;
     }
+
+    &__feedback {
+        padding: $spacing-medium + $spacing-small;
+        padding-bottom: 0;
+        
+        @include last-no-margin;
+    }
 }

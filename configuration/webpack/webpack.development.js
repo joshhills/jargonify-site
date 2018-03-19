@@ -9,8 +9,6 @@ var helpers = require('./helpers');
 // Globally define the build type.
 var environment = require('../environments/environment.development');
 
-console.log(environment);
-
 module.exports = webpackMerge(commonConfig, {
   devtool: 'inline-source-map',
 

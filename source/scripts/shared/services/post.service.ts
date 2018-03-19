@@ -292,8 +292,6 @@ export class WordpressAPIPostService implements PostService {
             featureImage.caption = featuredMedia['caption']['rendered'];
         }
 
-        console.log(`Title: ${blob['title']['rendered']}, srcset: ${featureImage.srcSet}`);
-
         return new BlogPost(
             PostType.BLOG,
             blob['id'],
