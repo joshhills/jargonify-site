@@ -13,7 +13,7 @@ import { PortfolioLayoutPost, PortfolioSectionType } from 'shared/models/portfol
 export class PortfolioComponent implements OnInit {
   private PortfolioSectionType: any = PortfolioSectionType;
   private PostType: any = PostType;
-  private layout: PortfolioLayoutPost;
+  layout: PortfolioLayoutPost;
 
   constructor(
     private postService: WordpressAPIPostService

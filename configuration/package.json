@@ -1,8 +1,12 @@
 {
-  "name": "angular-2-test",
-  "version": "1.0.0",
-  "description": "",
+  "name": "jargonify-site",
+  "version": "0.1.0",
+  "description": "Personal tech blog and portfolio of Josh Hills.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshhills/jargonify-site.git"
+  },
   "scripts": {
     "test": "webpack --config webpack/webpack.test.js",
     "development": "webpack-dev-server --config webpack/webpack.development.js",
@@ -16,14 +20,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/common": "^4.4.4",
-    "@angular/compiler": "^4.4.4",
-    "@angular/core": "^4.4.4",
-    "@angular/forms": "^4.4.5",
-    "@angular/http": "^4.0.0",
-    "@angular/platform-browser": "^4.4.4",
-    "@angular/platform-browser-dynamic": "^4.4.4",
-    "@angular/router": "^4.4.6",
+    "@angular/animations": "^5.2.9",
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/compiler-cli": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/http": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/router": "^5.2.9",
     "@ngx-meta/core": "^5.0.0",
     "angulartics2": "^5.1.2",
     "es6-shim": "^0.35.3",
@@ -35,7 +41,7 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^5.2.9",
+    "@angular/cli": "^1.7.3",
     "@ngtools/webpack": "^1.10.2",
     "@types/jasmine": "^2.6.0",
     "@types/node": "^8.0.33",
@@ -66,7 +72,7 @@
     "ts-loader": "^2.3.7",
     "tslint": "^5.7.0",
     "tslint-loader": "^3.5.3",
-    "typescript": "^2.5.3",
+    "typescript": "2.5.3",
     "typings": "^2.1.1",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",

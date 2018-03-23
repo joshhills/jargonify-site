@@ -9,7 +9,7 @@ export class BlogPaginationComponent implements OnChanges {
   @Input() currentPage: number;
   @Input() numPages: number;
 
-  private show: boolean = false;
+  show: boolean = false;
 
   private previousNavigationEnabled: boolean = false;
   private nextNavigationEnabled: boolean = true;

@@ -19,8 +19,6 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { SharedModule } from 'shared/shared.module';
 import { SpineModule } from 'spine/spine.module';
 
-// Custom services.
-
 // Configuration
 import { AppComponent } from  'app/app.component';
 import { AppConfiguration } from 'app/app.configuration';

@@ -7,7 +7,7 @@ import { AppConfiguration } from 'app/app.configuration';
   templateUrl: '../../templates/spine/spine.component.html'
 })
 export class SpineComponent {
-  private title: string;
+  title: string;
 
   constructor(
     private appConfiguration: AppConfiguration,

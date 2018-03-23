@@ -11,7 +11,7 @@ import { BlogPost } from 'shared/models/blog-post';
   ]
 })
 export class PostComponent {
-  private post: BlogPost;
+  post: BlogPost;
   private routeParamsSub: any;
 
   constructor(

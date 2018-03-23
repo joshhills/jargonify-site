@@ -23,6 +23,7 @@
     ]
   },
   "include": [
+    "../../source/scripts/*.ts",
     "../../source/scripts/**/*.{ts,tsx}"
   ],
   "exclude": [

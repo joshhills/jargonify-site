@@ -13,7 +13,11 @@
     }
 }
 
-a, .a-link {
+a {
+    @include link($tint, $tint-light);
+}
+
+.a-link {
     @include link($tint, $tint-light);
 
     &--light {

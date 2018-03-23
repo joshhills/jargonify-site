@@ -8,8 +8,8 @@ import { Subject } from 'rxjs/Subject';
 })
 export class BlogSearchComponent implements OnInit {
   // Create an observable variable.
-  private searchTerm: Subject<string> = new Subject<string>();
-  private prePopulatedSearchTerm: string = '';
+  searchTerm: Subject<string> = new Subject<string>();
+  prePopulatedSearchTerm: string = '';
   @Output() onSearchTermChangedEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(

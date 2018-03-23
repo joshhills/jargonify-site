@@ -76,7 +76,10 @@ module.exports = webpackMerge(commonConfig, {
         new OptimizeCssAssetsPlugin(),
 
         // Add a banner to each file.
-        new webpack.BannerPlugin(copyrightInfo),
+        new webpack.BannerPlugin({
+            banner: copyrightInfo,
+            include: /\.(js|css)$/
+        }),
 
         // Create additional compressed files.
         new CompressionPlugin(),

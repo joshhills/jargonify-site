@@ -67,7 +67,7 @@ export class WordpressAPIPostService implements PostService {
                     params: params
                 }
             )
-            .map(res => res.json().map(this.toBlogPost));
+            .map(res => res.json().map(this.toBlogPost.bind(this)));
 
         // Return the observable.
         return blogPosts;
@@ -292,6 +292,32 @@ export class WordpressAPIPostService implements PostService {
             featureImage.caption = featuredMedia['caption']['rendered'];
         }
 
+        // TODO: Get tags.
+        let tags: string[] = [];
+
+        // Define the full URL.
+        let requestUrl: string = `${this.baseUrl}/tags`;
+
+        // Make request and mapping.
+        let numPosts = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            )
+            .subscribe(res => {
+                let data = JSON.parse(res['_body']);
+                for (let tag of blob['tags']) {
+                    for (let item of data) {
+                        if (tag === item['id']) {
+                            tags.push(item['name']);
+                            break;
+                        }
+                    }
+                }
+            });
+
         return new BlogPost(
             PostType.BLOG,
             blob['id'],
@@ -301,7 +327,7 @@ export class WordpressAPIPostService implements PostService {
             blob['excerpt']['rendered'],
             featureImage,
             blob['content']['rendered'],
-            blob['tags'],
+            tags,
             blob['acf']['is_feature'],
             blob['acf']['is_portfolio'],
             false
@@ -397,7 +423,7 @@ export class MockPostService implements PostService {
                     headers: this.headers
                 }
             )
-            .map(res => res.json().map(this.toBlogPost));
+            .map(res => res.json().map(this.toBlogPost.bind(this)));
 
         return blogPost;
     }
