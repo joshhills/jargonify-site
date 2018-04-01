@@ -111,6 +111,18 @@ const appRoutes: Routes = [
       }
     },
     {
+      path: 'portfolio/:id',
+      component: PortfolioComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Portfolio',
+          description: 'Personal tech portfolio by Josh Hills',
+          'og:image': '/images/social/portfolio-preview.jpg'
+        }
+      }
+    },
+    {
       path: 'post/:id',
       component: PostComponent,
       canActivate: [MetaGuard],
@@ -119,7 +131,9 @@ const appRoutes: Routes = [
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
           'og:image': '/images/social/blog-preview.jpg',
-          'og:type': 'article'
+          'og:type': 'article',
+          'article:section': 'Technology',
+          'article:author': 'Josh Hills'
           /*
             TODO: Add
             <meta name="article:section" content="Technology">

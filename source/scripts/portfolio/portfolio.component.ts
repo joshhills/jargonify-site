@@ -30,19 +30,20 @@ export class PortfolioComponent implements OnInit {
             params['id']
           ).subscribe(data => {
             this.layout = data;
+          },
+          err => {
+            this.getDefaultPortfolioLayout();
           });
         } else {
-          this.postService.getPortfolioLayout(
-            '81'
-          ).subscribe(data => {
-            this.layout = data;
-          });
+          this.getDefaultPortfolioLayout();
         }
       }
     );
+  }
 
+  private getDefaultPortfolioLayout(): void {
     this.postService.getPortfolioLayout(
-      '81' // TODO: Make this default?
+      '81' // TODO: Turn into word as opposed to string ID - something like 'default'.
     ).subscribe(data => {
       this.layout = data;
     });
