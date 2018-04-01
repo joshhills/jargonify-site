@@ -59,12 +59,14 @@ export class BlogComponent implements OnInit {
     ).subscribe(data => {
       this.blogPosts = data;
 
-      console.log(this.blogPosts);
       this.noPostsAfterFetch = this.blogPosts.length === 0;
 
       if (this.currentPage === 0) {
         this.fetchFeaturedBlogPost();
       }
+    },
+    err => {
+      this.noPostsAfterFetch = true;
     });
 
     // Get the number of blog posts with this criteria.

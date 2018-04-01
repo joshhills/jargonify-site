@@ -67,10 +67,6 @@ export class WordpressAPIPostService implements PostService {
                     params: params
                 }
             )
-            .catch((err: any, caught: Observable<any>) => {
-                console.log('shit');
-                return Observable.empty<Response>();
-            })
             .map(res => res.json().map(this.toBlogPost.bind(this)));
 
         // Return the observable.
