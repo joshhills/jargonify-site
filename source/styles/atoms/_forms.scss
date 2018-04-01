@@ -1,3 +1,9 @@
+button:disabled,
+input:disabled {
+    color: $lead !important;
+    border-color: $lead !important;
+}
+
 input, button, textarea {
     &:focus {
         outline: 0;

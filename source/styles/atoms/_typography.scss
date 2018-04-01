@@ -73,6 +73,16 @@ p {
     margin-bottom: $spacing-medium;
 }
 
+.a-small {
+    font-size: 10pt;
+}
+
+.a-error,
+.a-error::placeholder {
+    color: $danger !important;
+    border-color: $danger !important;
+}
+
 code {
     @include font-code();
     // TODO: Add a background?

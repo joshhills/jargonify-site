@@ -1,7 +1,10 @@
 <div *ngIf="post">
-    <div class="m-cover m-cover--center">
+    <div class="m-cover m-cover--center m-cover--tint">
         <div class="m-cover__text m-cover__text--light">
             <p class="a-subsubheader">
+                <a *ngIf="backEnabled" class="a-link a-link--light a-subsubheader a-breadcrumb" [routerLink]="" (click)="back()">
+                    &lt;- Back
+                </a>
                 {{post.dateCreated | date:'fullDate'}}
             </p>
             <p class="a-header">
@@ -10,7 +13,7 @@
             <p class="a-subheader" [innerHTML]="post.summary"></p>
             <ul class="m-tags">
                 <li class="m-tags__item" *ngFor="let tag of post.tags">
-                    <a class="m-tags__tag" routerLink="/blog" [queryParams]="{'search': tag}">{{tag}}</a>
+                    <a class="m-tags__tag a-link a-link--light" routerLink="/blog" [queryParams]="{'search': tag}">{{tag}}</a>
                 </li>
             </ul>
         </div>

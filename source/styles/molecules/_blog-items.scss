@@ -13,6 +13,10 @@ $blog-item-size: 17rem;
         overflow: hidden;
         position: relative;
         width: $blog-item-size;
+
+        &--tint {
+            background-color: $chrome;
+        }
     }
 
     &--series {
@@ -93,6 +97,20 @@ $blog-item-size: 17rem;
         min-width: $blog-item-size;
         overflow: hidden;
         position: relative;
+
+        &:after {
+            position: absolute;
+            content:"";
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 163, 81, 0.35);
+        }
+
+        &--tint {
+            background-color: $chrome;
+        }
     }
 
     &__text {
@@ -126,7 +144,7 @@ $blog-item-size: 17rem;
 
     .a-subheader, &__summary {
         color: $paper;
-        display: inline-block;
+        display: block;
         text-decoration: none;
         margin-bottom: 1rem;
     }
@@ -142,6 +160,16 @@ $blog-item-size: 17rem;
     min-height: 380pt;
     overflow: hidden;
     position: relative;
+    
+    &:after {
+        position: absolute;
+        content:"";
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 163, 81, 0.35);
+    }
 
     &__image {
         @include image-cover;
@@ -164,6 +192,10 @@ $blog-item-size: 17rem;
 
         &--right {
             @include two-thirds-right;
+        }
+
+        @include breakpoint(phone) {
+            padding: $spacing-medium;
         }
     }
 

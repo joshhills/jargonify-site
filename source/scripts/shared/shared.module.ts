@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { MockPostService } from 'shared/services/post.service';
+import { MockPostService, WordpressAPIPostService } from 'shared/services/post.service';
+import { HistoryService } from './services/history.service';
 
 @NgModule({
   providers: [
-    MockPostService
+    MockPostService,
+    WordpressAPIPostService,
+    HistoryService
   ]
 })
 export class SharedModule { }

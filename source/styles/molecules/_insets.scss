@@ -1,6 +1,7 @@
 .m-inset {
     @include container-inset-top($spacing-small + $spacing-medium);
-
+    @include last-no-margin;
+    
     color: $paper;
     overflow: hidden;
     padding: $spacing-large;
@@ -19,6 +20,7 @@
     &__contents {
         @include last-no-margin;
 
+        margin-bottom: $spacing-medium;
         vertical-align: top;
 
         &--left {

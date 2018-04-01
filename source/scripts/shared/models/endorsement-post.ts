@@ -8,7 +8,7 @@ export enum ContactType {
 export class EndorsementPost extends Post {
     public fullName: string;
     public testimonial: string;
-    public portraitImageUrl: string;
+    public portraitImage: any;
     public contactType: ContactType;
     public contactDetails: string;
 
@@ -19,7 +19,7 @@ export class EndorsementPost extends Post {
         dateEdited: string,
         fullName: string,
         testimonial: string,
-        portraitImageUrl: string,
+        portraitImage: string,
         contactType: ContactType,
         contactDetails: string
     ) {
@@ -27,7 +27,7 @@ export class EndorsementPost extends Post {
 
         this.fullName = fullName;
         this.testimonial = testimonial;
-        this.portraitImageUrl = portraitImageUrl;
+        this.portraitImage = portraitImage;
         this.contactType = contactType;
         this.contactDetails = contactDetails;
     }

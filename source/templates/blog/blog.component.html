@@ -12,8 +12,12 @@
             <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
         </div>
         <img    class="m-cover__image"
-                src="/images/covers/cover-blog.jpg"
-                [lazyLoad]="'/images/covers/cover-blog.jpg'"
+                src="/images/covers/cover-blog-small.jpg"
+                [lazyLoad]="'/images/covers/cover-blog-small.jpg 300w,
+                            /images/covers/cover-blog-medium.jpg 400w,
+                            /images/covers/cover-blog-large.jpg 1024w,
+                            /images/covers/cover-blog-full.jpg 1920w'"
+                [useSrcset]="true"
                 [offset]="100000"
                 alt="Blog image of me writing." />
     </div>

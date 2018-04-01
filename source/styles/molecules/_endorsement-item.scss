@@ -2,12 +2,13 @@ $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size
 
 .m-endorsement-item {
     background: url('/images/icons/icon-cross.svg');
-    background-position: center;
-    background-repeat: space;
+    background-position: top left;
+    background-repeat: round;
     
-    border: $border-size solid $ink;
+    border: $border-size solid $tint;
     margin: $spacing-small;
     max-width: $endorsement-item-width;
+    overflow: hidden;
     position: relative;
     width: $endorsement-item-width;
     
@@ -17,7 +18,9 @@ $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size
         
         background-color: $chrome;
         box-sizing: border-box;
+        min-height: 200pt;
         padding: $spacing-medium;
+        position: relative;
 
         &--light {
             color: $paper;
@@ -26,6 +29,14 @@ $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size
         &--right {
             @include half-right;
         }
+    }
+
+    &__image {
+        @include half-left;
+        @include image-cover;
+        @include image-lazyload;
+
+        z-index: 0 !important;
     }
 
     &__endorsement {

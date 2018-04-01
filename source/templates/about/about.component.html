@@ -1,6 +1,6 @@
 <div>
     <!-- Cover w/ Search Bar -->
-    <div class="m-cover">
+    <div class="m-cover m-cover--full">
         <div class="m-cover__text m-cover__text--left m-cover__text--light">
             <p class="a-header">
                 Site
@@ -18,25 +18,7 @@
             </p>
         </div>
         <div class="m-cover__text m-cover__text--right m-cover__text--light">
-            <p class="a-header">
-                Contact
-            </p>
-            <form>
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="Email" />
-                <textarea rows="5" placeholder="Message"></textarea>
-                <div class="m-inline-group m-inline-group--full">
-                    <button class="a-button">Send</button>
-                    <a href="https://linkedin.com/in/joshuahills" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/joshhills" target="_blank">Github</a>
-                    <a href="https://twitter.com/joshmarcushills" target="_blank">Twitter</a>
-                </div>
-            </form>
+            <contact></contact>
         </div>
-        <img    class="m-cover__image"
-                src="/images/covers/cover-home.jpg"
-                [lazyLoad]="'/images/covers/cover-home.jpg'"
-                [offset]="100000"
-                alt="Contact image of me on my phone." />
     </div>
 </div>

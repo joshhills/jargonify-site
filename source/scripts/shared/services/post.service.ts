@@ -67,6 +67,10 @@ export class WordpressAPIPostService implements PostService {
                     params: params
                 }
             )
+            .catch((err: any, caught: Observable<any>) => {
+                console.log('shit');
+                return Observable.empty<Response>();
+            })
             .map(res => res.json().map(this.toBlogPost.bind(this)));
 
         // Return the observable.
@@ -348,6 +352,44 @@ export class WordpressAPIPostService implements PostService {
                 contactDetails = blob['acf']['link'];
         }
 
+        // Get the image features (some optional)
+        let portraitImage: any = {
+            urlSmall: null,
+            urlMedium: null,
+            urlLarge: null,
+            urlFull: null,
+            srcSet: '',
+            altText: null,
+            title: null,
+            caption: null
+        };
+
+        if (blob['acf']['portrait']) {
+            if (blob['acf']['portrait']['sizes']['medium']) {
+                portraitImage.urlSmall = blob['acf']['portrait']['sizes']['medium'];
+                portraitImage.srcSet += `${portraitImage.urlSmall} 300w, `;
+            }
+
+            if (blob['acf']['portrait']['sizes']['medium_large']) {
+                portraitImage.urlMedium = blob['acf']['portrait']['sizes']['medium_large'];
+                portraitImage.srcSet += `${portraitImage.urlMedium} 400w, `;
+            }
+
+            if (blob['acf']['portrait']['sizes']['large']) {
+                portraitImage.urlLarge = blob['acf']['portrait']['sizes']['large'];
+                portraitImage.srcSet += `${portraitImage.urlLarge} 1024w, `;
+            }
+
+            if (blob['acf']['portrait']['url']) {
+                portraitImage.urlFull = blob['acf']['portrait']['url'];
+                portraitImage.srcSet += `${portraitImage.urlFull} 1920w`;
+            }
+        }
+
+        portraitImage.title = blob['acf']['portrait']['title'];
+        portraitImage.altText = blob['acf']['portrait']['alt'];
+        portraitImage.caption = blob['acf']['portrait']['caption'];
+
         return new EndorsementPost(
             PostType.ENDORSEMENT,
             blob['id'],
@@ -355,7 +397,7 @@ export class WordpressAPIPostService implements PostService {
             blob['modified'],
             blob['acf']['full_name'],
             blob['acf']['testimonial'],
-            blob['acf']['portrait']['url'],
+            portraitImage,
             contactType,
             contactDetails
         );
@@ -397,7 +439,6 @@ export class MockPostService implements PostService {
                 }
             )
             .map(res => res.json().map(this.toBlogPost));
-            // .catch();
         return blogPosts;
         // return Observable.empty<BlogPost[]>();
     }

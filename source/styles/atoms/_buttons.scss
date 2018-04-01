@@ -1,19 +1,20 @@
 .a-button {
     background: none;
     border: $border-size solid;
+    color: $tint;
     display: inline-block;
     font-weight: bold;
     padding: $spacing-small;
     text-decoration: none;
 
+    &:hover,
+    &:active {
+        color: $tint-light;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
     &--light {
         color: $paper;
-        
-        &:hover,
-        &:visited,
-        &:focus,
-        &:active {
-            color: $paper;
-        }
     }
 }

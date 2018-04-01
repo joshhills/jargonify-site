@@ -1,6 +1,6 @@
 .m-inline-group {
-    > *:not(:last-child) {
-        margin-right: $spacing-medium;
+    .a-link {
+        margin: $spacing-medium;
     }
 
     &--full {
@@ -8,7 +8,5 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-
-        padding-right: $spacing-medium;
     }
 }

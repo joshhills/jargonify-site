@@ -8,16 +8,20 @@
             <div class="a-subheader" [innerHTML]="layout.headerText"></div>
             <div class="m-inline-group">
                 <a class="a-button a-button--light">
-                    Printable
+                    Download CV
                 </a>
-                <a href="/about" class="a-link--light">
+                <a href="/about" class="a-link a-link--light">
                     Contact Me
                 </a>
             </div>
         </div>
         <img    class="m-cover__image"
-                src="/images/covers/cover-portfolio.jpg"
-                [lazyLoad]="'/images/covers/cover-portfolio.jpg'"
+                src="/images/covers/cover-portfolio-small.jpg"
+                [lazyLoad]="'/images/covers/cover-portfolio-small.jpg 300w
+                            /images/covers/cover-portfolio-medium.jpg 400w,
+                            /images/covers/cover-portfolio-large.jpg 1024w,
+                            /images/covers/cover-portfolio-full.jpg 1920w'"
+                [useSrcset]="true"
                 [offset]="100000"
                 alt="Portfolio image of me working." />
     </div>
@@ -43,6 +47,13 @@
         <ng-container *ngIf="section.type === PortfolioSectionType.ENDORSEMENT">
             <div class="o-portfolio-list">
                 <div *ngFor="let endorsement of section.endorsements" class="m-endorsement-item">
+                    <img    *ngIf="endorsement.portraitImage"
+                            class="m-endorsement-item__image"
+                            src="{{endorsement.portraitImage.urlSmall}}"
+                            [lazyLoad]="endorsement.portraitImage.srcSet"
+                            [useSrcset]="true"
+                            [offset]="100000"
+                            alt="{{endorsement.portraitImage.altText}}" />
                     <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
                         <div class="a-subheader m-endorsement-item__endorsement" [innerHTML]="endorsement.testimonial"></div>
                         <p class="m-endorsement-item__source a-subsubheader">

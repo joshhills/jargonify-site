@@ -1,0 +1,53 @@
+<p *ngIf="!sent" class="a-header">
+    Contact
+</p>
+<div *ngIf="sent">
+    <p class="a-header">
+        Thanks!
+    </p>
+    <p>
+        I'll get back to you shortly. In the meantime, you can try...
+    </p>
+</div>
+<form *ngIf="!sent">
+    <div>
+        <input type="text" [ngClass]="{'a-error': (name.invalid && name.dirty) || errors.name}" placeholder="Name" minlength="2" maxlength="30" name="name" [(ngModel)]="contactDetails.name" required #name="ngModel" />
+        <!-- Client-side error -->
+        <div *ngIf="name.invalid && name.dirty">
+            <p class="a-small a-error" *ngIf="name.errors.required">Name cannot be blank (who are you?)</p>
+            <p class="a-small a-error" *ngIf="name.errors.minlength">Name is too short (try your full name?)</p>
+            <p class="a-small a-error" *ngIf="name.errors.maxlength">Name is too long (try a nickname?)</p>
+        </div>
+        <!-- Server-side error -->
+        <p class="a-small a-error" *ngIf="!name.invalid && errors.name">{{errors.name}}</p>
+        
+        <input type="text" [ngClass]="{'a-error': (email.invalid && email.dirty) || errors.email}" minlength="4" maxlength="30" placeholder="Email" name="email" [(ngModel)]="contactDetails.email" required #email="ngModel" />
+        <!-- Client-side error -->
+        <div *ngIf="email.invalid && email.dirty">
+            <p class="a-small a-error" *ngIf="email.errors.required">Email cannot be blank</p>
+        </div>
+        <!-- Server-side error -->
+        <p class="a-small a-error" *ngIf="!email.invalid && errors.email">{{errors.email}}</p>
+        
+        <textarea [ngClass]="{'a-error': (message.invalid && (message.dirty || message.touched)) || errors.message}" rows="5" placeholder="Message" name="message" minlength="5" maxlength="2000" [(ngModel)]="contactDetails.message" required #message="ngModel"></textarea>
+        <!-- Client-side error -->
+        <div *ngIf="message.invalid && (message.dirty || message.touched)">
+            <p class="a-small a-error" *ngIf="message.errors.required">Message cannot be blank (don't be shy!)</p>
+            <p class="a-small a-error" *ngIf="message.errors.minlength">Message is too short (give me something to work with!)</p>
+            <p class="a-small a-error" *ngIf="message.errors.maxlength">Message is too long (sorry, spam prevention)</p>
+        </div>
+        <!-- Server-side error -->
+        <p class="a-small a-error" *ngIf="!message.invalid && errors.message">{{errors.message}}</p>
+    </div>
+    <div class="m-inline-group m-inline-group--full">
+        <button *ngIf="!sent" [disabled]="name.invalid || email.invalid || message.invalid" class="a-button" (click)="submit()">Send</button>
+        <a href="https://linkedin.com/in/joshuahills" target="_blank">LinkedIn</a>
+        <a href="https://github.com/joshhills" target="_blank">Github</a>
+        <a href="https://twitter.com/joshmarcushills" target="_blank">Twitter</a>
+    </div>
+</form>
+<div *ngIf="sent" class="m-inline-group m-inline-group--full">
+    <a href="https://linkedin.com/in/joshuahills" target="_blank">LinkedIn</a>
+    <a href="https://github.com/joshhills" target="_blank">Github</a>
+    <a href="https://twitter.com/joshmarcushills" target="_blank">Twitter</a>
+</div>

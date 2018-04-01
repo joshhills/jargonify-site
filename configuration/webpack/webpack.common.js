@@ -45,9 +45,20 @@ module.exports = {
           configFile: helpers.root('configuration/typescript/tslint.json')
         }
       },
+      // {
+      //   test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+      //   loader: '@ngtools/webpack'
+      // },
       {
-        test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-        loader: '@ngtools/webpack'
+        test: /\.ts$/,
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              configFileName: helpers.root('configuration/typescript/tsconfig.json')
+            }
+          } , 'angular2-template-loader'
+        ]
       },
       // Styles.
       {
@@ -114,6 +125,14 @@ module.exports = {
       {
         from: helpers.root('source/images'),
         to: 'images'
+      },
+      {
+        from: helpers.root('source/fonts'),
+        to: 'fonts'
+      },
+      {
+        from: helpers.root('source/email'),
+        to: 'email'
       }
     ]),
 
@@ -123,9 +142,9 @@ module.exports = {
     }),
 
     // Create ahead-of-time compilation.
-    new ngToolsWebpack.AngularCompilerPlugin({
-      tsConfigPath: helpers.root('configuration/typescript/tsconfig.json'),
-      entryModule: helpers.root('source/scripts/app/app.module#AppModule')
-    })
+    // new ngToolsWebpack.AngularCompilerPlugin({
+    //   tsConfigPath: helpers.root('configuration/typescript/tsconfig.json'),
+    //   entryModule: helpers.root('source/scripts/app/app.module#AppModule')
+    // })
   ]
 };

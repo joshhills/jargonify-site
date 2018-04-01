@@ -1,6 +1,6 @@
 <div *ngIf="blogPost" [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.inSeries}">
-    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded}">
-        <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded}">
+    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture}">
+        <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded, 'm-blog-item__text--tint': !isExpanded  && showPicture, 'm-blog-item-expanded__text--tint': isExpanded && showPicture}">
             <p class="a-subsubheader" *ngIf="isExpanded">
                 Alternative Featured:
             </p>
@@ -11,7 +11,7 @@
                 {{blogPost.title}}
             </a>
             <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded" [innerHTML]="blogPost.summary"></p>
-            <a [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
+            <a class="a-link" [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
                 Read more
             </a>
         </div>

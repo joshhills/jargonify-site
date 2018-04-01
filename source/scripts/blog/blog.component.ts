@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AppConfiguration } from 'app/app.configuration';
 import { WordpressAPIPostService } from 'shared/services/post.service';
 import { BlogPost } from 'shared/models/blog-post';
-import { Observable } from '../../../configuration/node_modules/rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'blog',
@@ -59,6 +59,7 @@ export class BlogComponent implements OnInit {
     ).subscribe(data => {
       this.blogPosts = data;
 
+      console.log(this.blogPosts);
       this.noPostsAfterFetch = this.blogPosts.length === 0;
 
       if (this.currentPage === 0) {

@@ -3,3 +3,4 @@ build
 distribution
 ./tsconfig.json
 ./.vscode
+config.php

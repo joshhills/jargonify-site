@@ -6,7 +6,19 @@
     overflow: hidden;
     position: relative;
 
-    @include breakpoint(phone) {
+    &--tint {
+        &:after {
+            position: absolute;
+            content:"";
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 163, 81, 0.35);
+        }
+    }
+
+    @include breakpoint(tablet) {
         min-height: 350pt;
         flex-wrap: wrap;
     }
@@ -52,8 +64,9 @@
 
             padding-right: 0;
 
-            @include breakpoint(phone) {
+            @include breakpoint(tablet) {
                 padding-right: $spacing-medium;
+                padding-bottom: 0;
             }
         }
 
@@ -65,7 +78,13 @@
     }
 
     &--full {
-        height: 100%;
+        min-height: 100%;
+
+        @include breakpoint(phone) {
+            // TODO: Clean this heigh calculation.
+            height: auto;
+            min-height: calc(100% - 168px);
+        }
     }
 
     &--center {
