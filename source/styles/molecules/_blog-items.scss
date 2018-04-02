@@ -17,6 +17,10 @@ $blog-item-size: 17rem;
         &--tint {
             background-color: $chrome;
         }
+
+        &--read {
+            border-color: $chrome;
+        }
     }
 
     &--series {

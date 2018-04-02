@@ -1,5 +1,5 @@
 <div *ngIf="blogPost" [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.inSeries}">
-    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture}">
+    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture, 'm-blog-item__wrapper--read': !isExpanded && read, 'm-blog-item-expanded__wrapper--read': isExpanded && read}">
         <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded, 'm-blog-item__text--tint': !isExpanded  && showPicture, 'm-blog-item-expanded__text--tint': isExpanded && showPicture}">
             <p class="a-subsubheader" *ngIf="isExpanded">
                 Alternative Featured:

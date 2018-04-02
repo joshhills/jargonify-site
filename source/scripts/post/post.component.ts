@@ -5,8 +5,10 @@ import { WordpressAPIPostService } from 'shared/services/post.service';
 import { HistoryService } from 'shared/services/history.service';
 import { BlogPost } from 'shared/models/blog-post';
 import { MetaService } from '@ngx-meta/core';
+import { CookieService } from 'ngx-cookie-service';
 
 import 'rxjs/add/operator/filter';
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 @Component({
   selector: 'post',
@@ -29,7 +31,8 @@ export class PostComponent {
     private postService: WordpressAPIPostService,
     private location: Location,
     private historyService: HistoryService,
-    private readonly meta: MetaService
+    private readonly meta: MetaService,
+    private cookieService: CookieService
   ) {
   }
 
@@ -60,6 +63,16 @@ export class PostComponent {
     this.postService.getBlogPost(id).subscribe(
       res => {
         this.post = res;
+
+        // Set cookie.
+        let visited: any[] = [];
+        if (this.cookieService.get('visited')) {
+          visited = JSON.parse(this.cookieService.get('visited'));
+        }
+        if (visited && visited.indexOf(this.post.id) === -1) {
+          visited.push(this.post.id);
+          this.cookieService.set('visited', JSON.stringify(visited));
+        }
 
         // Set meta tags from post.
         // Title overrides.
