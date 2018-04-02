@@ -17,7 +17,6 @@ import { PortfolioComponent } from 'portfolio/portfolio.component';
 import { PostComponent } from 'post/post.component';
 
 // Define routes in greedy order of precedence.
-// TODO: Add more changes to og properties per-page.
 const appRoutes: Routes = [
     {
       path: '',
@@ -134,14 +133,14 @@ const appRoutes: Routes = [
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'
-          /*
-            TODO: Add
-            <meta name="article:section" content="Technology">
-            <meta name="article:published_time" content="time">
-            <meta name="article:modified_time" content="time">
-          */
         }
-      }
+      },
+      children: [
+        {
+          path: '**',
+          component: PostComponent
+        }
+      ]
     },
     {
       path: '**',

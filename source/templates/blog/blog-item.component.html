@@ -7,11 +7,11 @@
             <p class="a-subsubheader" *ngIf="showDate">
                 {{blogPost.dateCreated | date:'shortDate'}}
             </p>
-            <a class="a-subheader" [routerLink]="['/post', blogPost.id]">
+            <a class="a-subheader" [routerLink]="['/post', blogPost.id, slug]">
                 {{blogPost.title}}
             </a>
             <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded" [innerHTML]="blogPost.summary"></p>
-            <a class="a-link" [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id]">
+            <a class="a-link" [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id, slug]">
                 Read more
             </a>
         </div>

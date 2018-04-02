@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { CookieService } from 'ngx-cookie-service';
 
 // Custom Modules
 import { AboutModule } from 'about/about.module';
@@ -48,7 +49,8 @@ import { AppConfiguration } from 'app/app.configuration';
     AppComponent
   ],
   providers: [
-    AppConfiguration
+    AppConfiguration,
+    CookieService
   ],
   bootstrap: [
     AppComponent

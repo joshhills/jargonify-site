@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostType } from 'shared/models/post';
 import { PortfolioLayoutPost, PortfolioSectionType } from 'shared/models/portfolio-layout-post';
 import { Observable } from 'rxjs/Observable';
+import { HistoryService } from 'shared/services/history.service';
 
 @Component({
   selector: 'portfolio',
@@ -19,33 +20,47 @@ export class PortfolioComponent implements OnInit {
 
   constructor(
     private postService: WordpressAPIPostService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private historyService: HistoryService
   ) {}
 
   ngOnInit() {
+    let idToGet: string;
+
+    // TODO: Convert to Observable.zip(...)
     this.route.params.subscribe(
       params => {
-        if (params['id']) {
-          this.postService.getPortfolioLayout(
-            params['id']
-          ).subscribe(data => {
-            this.layout = data;
-          },
-          err => {
-            this.getDefaultPortfolioLayout();
-          });
-        } else {
-          this.getDefaultPortfolioLayout();
-        }
+        this.historyService.getLandedPortfolioLayoutId().subscribe(landedId => {
+          if (params['id']) {
+            if (landedId === null) {
+              idToGet = params['id'];
+              this.historyService.setLandedPortfolioLayoutId(idToGet);
+            } else {
+              idToGet = landedId;
+            }
+
+            this.getPortfolioLayout(idToGet);
+          } else {
+            if (landedId !== null) {
+              idToGet = landedId;
+            } else {
+              idToGet = '81';
+            }
+            this.getPortfolioLayout(idToGet);
+          }
+        });
       }
     );
   }
 
-  private getDefaultPortfolioLayout(): void {
+  private getPortfolioLayout(id: string): void {
     this.postService.getPortfolioLayout(
-      '81' // TODO: Turn into word as opposed to string ID - something like 'default'.
+      id
     ).subscribe(data => {
       this.layout = data;
+    },
+    err => {
+      this.getPortfolioLayout('81');
     });
   }
 }

@@ -53,6 +53,7 @@ export class PostComponent {
     this.meta.removeTag('property="article:modified_time"');
     this.meta.removeTag('property="article:section"');
     this.meta.removeTag('property="article:author"');
+    this.meta.removeTag('property="article:tag"');
   }
 
   getBlogPost(id: string): void {
@@ -84,6 +85,7 @@ export class PostComponent {
         // Additional new tags.
         this.meta.setTag('article:published_time', this.post.dateCreated);
         this.meta.setTag('article:modified_time', this.post.dateCreated);
+        this.meta.setTag('article:tag', this.post.tags.join(' '));
       }
     );
   }
