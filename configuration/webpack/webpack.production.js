@@ -21,7 +21,7 @@ module.exports = webpackMerge(commonConfig, {
         // The output directory.
         path: helpers.root('distribution'),
         // Output files relative to the index.
-        publicPath: '/backstage/site',
+        publicPath: '',
         // Cache-bust output files.
         filename: 'scripts/[name].[hash].js',
         chunkFilename: 'scripts/[id].[hash].chunk.js'

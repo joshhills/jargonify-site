@@ -29,8 +29,7 @@ export class ContactComponent {
     submit() {
         console.log('Submitting: ' + JSON.stringify(this.contactDetails));
 
-        // let requestUrl: string = `${this.baseUrl}/email/send.php'`;
-        let requestUrl: string = `https://www.jumbledjargon.co.uk/backstage/site/email/send.php`;
+        let requestUrl: string = `${this.baseUrl}/live/site/email/send.php`;
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 

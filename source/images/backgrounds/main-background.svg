@@ -1,7 +1,7 @@
 
 <svg width="1920px" height="1080px" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD">
             <g id="Background-SVG" transform="translate(1.000000, 0.000000)">
                 <path d="M322.035401,100.5 L148.999417,100.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M320.024014,194.5 L64.9493343,194.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
@@ -22,62 +22,14 @@
                 <path d="M166.5,550.5 L268.276716,550.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M45.5,605.5 L91.1344168,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M171.5,605.5 L198.004717,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <g id="Group-3" transform="translate(228.000000, 0.000000)">
-                    <path d="M1388.5,5.98586458 L1388.5,1076.00011" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1400.5,0.5 L1400.5,1074.00291" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1412.5,4 L1412.5,1073.00556" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1424.5,1.9989535 L1424.5,1077.01397" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
-                    <g id="Binder" transform="translate(0.000000, 87.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <g id="Binder" transform="translate(0.000000, 250.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <g id="Binder" transform="translate(0.000000, 413.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <g id="Binder" transform="translate(0.000000, 575.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <g id="Binder" transform="translate(0.000000, 738.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <g id="Binder" transform="translate(0.000000, 901.000000)">
-                        <g id="Bind">
-                            <path d="M19,13.3392857 L81.0725382,13.3392857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <path d="M19,70.4017857 L81.0725382,70.4017857" id="Line-4" stroke="#D8D8D8" stroke-width="30" stroke-linecap="square"></path>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 0 0 0 0 27.8895291 82 27.8895291"></polyline>
-                            <polyline id="Path-2" stroke="#222629" stroke-width="12" points="82 54.8392857 0 54.8392857 0 82.7288148 82 82.7288148"></polyline>
-                        </g>
-                    </g>
-                    <path d="M86.5,0.5 L86.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="20" stroke-linecap="square"></path>
-                    <rect id="Rectangle" fill="#222629" x="89" y="0" width="1289" height="1080"></rect>
-                    <path d="M1376.5,0.5 L1376.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
+                <g id="Group-3" transform="translate(313.000000, 0.000000)">
+                    <path d="M1303.5,5.98586458 L1303.5,1076.00011" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
+                    <path d="M1315.5,0.5 L1315.5,1074.00291" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
+                    <path d="M1327.5,4 L1327.5,1073.00556" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
+                    <path d="M1339.5,1.9989535 L1339.5,1077.01397" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
+                    <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="20" stroke-linecap="square"></path>
+                    <rect id="Rectangle" fill="#222629" x="4" y="0" width="1289" height="1080"></rect>
+                    <path d="M1291.5,0.5 L1291.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
                 </g>
                 <g id="Group-2" transform="translate(1742.000000, 479.000000)" stroke-width="12" stroke="#D8D8D8">
                     <polygon id="Path-6" points="0 0 0 131 118 131 118 0"></polygon>
