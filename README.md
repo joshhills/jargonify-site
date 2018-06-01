@@ -4,16 +4,25 @@ This is my personal porfolio.
 
 ### Feature Creep
 
-- RecommendationPost - dashed outline, used to point to useful external sources.
-- Survey monkey
-- Lazy loading of assets (gaussian etc., colour average)
-- Add a 'number found' to search
-- Use cookies to remember what is happening...
+- Flesh out this TODO
+
+Immediate:
+- Inline related articles
+- Estimated read time
+- Last edited (?)
+- Scroll to top
+- SVGs
+    - Background Error
+    - Icons (contents)
+- Fix videos inline
+- Background, try a little gradient going down, and maybe add a tiny bit of film noise
+
+Future:
+- PWA
+- Add photos page
 - Properly commented TS
 - Properly unit tested TS
 - Properly commented SCSS
-- Change underline on pagination to a border?
 - Make names of some things global settings (like 'alternative features')
 
-- Add the 'client experience' to site eventually - like what clients should expect workflow wise
-- Get matching cards
+- Get matching business cards

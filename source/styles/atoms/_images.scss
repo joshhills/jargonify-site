@@ -19,5 +19,5 @@ $image-blur-amount: 3pt;
 
 @mixin image-full {
     height: auto;
-    max-width: 100%;
+    width: 100%;
 }

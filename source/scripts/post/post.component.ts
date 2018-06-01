@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WordpressAPIPostService } from 'shared/services/post.service';
@@ -6,9 +6,10 @@ import { HistoryService } from 'shared/services/history.service';
 import { BlogPost } from 'shared/models/blog-post';
 import { MetaService } from '@ngx-meta/core';
 import { CookieService } from 'ngx-cookie-service';
+import { WindowService } from 'shared/services/window.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 @Component({
   selector: 'post',
@@ -18,10 +19,13 @@ import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
   ]
 })
 export class PostComponent {
+  @ViewChild('cover') cover: ElementRef;
+
   post: BlogPost;
 
   // Control whether back navigation should be enabled.
   backEnabled: boolean = false;
+  copyMsg: string = 'Copy link';
 
   private routeParamsSub: any;
 
@@ -32,9 +36,10 @@ export class PostComponent {
     private location: Location,
     private historyService: HistoryService,
     private readonly meta: MetaService,
-    private cookieService: CookieService
-  ) {
-  }
+    private cookieService: CookieService,
+    private windowService: WindowService,
+    private domSanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -103,11 +108,16 @@ export class PostComponent {
     );
   }
 
+  scrollToTop() {
+    (this.cover.nativeElement).scrollIntoView();
+    return false;
+  }
+
   back() {
     if (window.history.length > 1) {
       this.location.back();
     } else {
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }
   }
 }

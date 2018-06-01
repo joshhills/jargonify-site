@@ -3,4 +3,4 @@ build
 distribution
 ./tsconfig.json
 ./.vscode
-config.php
+email-config.php

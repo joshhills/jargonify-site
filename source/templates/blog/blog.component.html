@@ -41,8 +41,11 @@
     </div>
     <!-- Search Success Feedback -->
     <div class="l-blog__feedback" [style.display]="inSearch && !noPostsAfterFetch ? 'block': 'none'">
-        <p class="a-subheader">
+        <p *ngIf="numPosts > 1" class="a-subheader">
             {{numPosts}} results found...
+        </p>
+        <p *ngIf="numPosts == 1" class="a-subheader">
+            {{numPosts}} result found...
         </p>
     </div>
     <!-- Featured Post -->

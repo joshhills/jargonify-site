@@ -34,6 +34,7 @@
     "angulartics2": "^5.1.2",
     "es6-shim": "^0.35.3",
     "ng-lazyload-image": "^3.4.2",
+    "ngx-clipboard": "^10.0.0",
     "ngx-cookie-service": "^1.0.10",
     "postcss-reporter": "^5.0.0",
     "reflect-metadata": "^0.1.10",

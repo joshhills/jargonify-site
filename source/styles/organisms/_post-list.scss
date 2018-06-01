@@ -1,18 +1,44 @@
 .o-post-list {
-    padding: $spacing-large;
-
-    @include breakpoint(phone) {
-        padding: $spacing-medium;
-    }
-
     &__contents {
         @include last-no-margin;
 
         box-sizing: border-box;
+        padding: $spacing-large;
+
+        @include breakpoint(phone) {
+            padding: $spacing-medium;
+        }
 
         // Have to identify DOM elements here.
         img {
             @include image-full;
         }
+
+        .wp-caption-text {
+            font-style: oblique;
+            padding: $spacing-small;
+            color: $lead;
+            text-align: center;
+            border-top: $border-size solid $lead;
+        }
+    }
+
+    &__footer {
+        @include last-no-margin;
+
+        background-color: $chrome;
+        padding: $spacing-large;
+
+        @include breakpoint(phone) {
+            padding: $spacing-medium;
+        }
+    }
+
+    &__social {
+        float: left;
+    }
+
+    &__scroll {
+        float: right;
     }
 }

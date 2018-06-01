@@ -2,6 +2,7 @@ $blog-item-size: 17rem;
 
 .m-blog-item {
     position: relative;
+    z-index: 1;
 
     &__wrapper {
         background-color: $paper;
@@ -49,6 +50,10 @@ $blog-item-size: 17rem;
         padding: $spacing-small;
         position: absolute;
         z-index: 2;
+
+        &--tint {
+            background: linear-gradient(rgba(255, 162, 80, 0.9), rgba(255, 162, 80, 0.2));
+        }
     }
 
     &__cta {
@@ -95,10 +100,11 @@ $blog-item-size: 17rem;
     
     &__wrapper {
         border: $border-size solid $tint;
+        background-color: $paper;
         color: $paper;
         margin: $spacing-small;
-        max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
         min-width: $blog-item-size;
+        max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
         overflow: hidden;
         position: relative;
 
@@ -124,6 +130,10 @@ $blog-item-size: 17rem;
         padding: $spacing-large;
         position: relative;
         z-index: 1;
+
+        &__title {
+            display: inline-block !important;
+        }
 
         @include breakpoint(phone) {
             padding: $spacing-small;
@@ -167,12 +177,35 @@ $blog-item-size: 17rem;
     
     &:after {
         position: absolute;
-        content:"";
+        content: "";
         height: 100%;
         width: 100%;
         top: 0;
         left: 0;
         background: rgba(255, 163, 81, 0.35);
+    }
+
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: $ink;
+        z-index: 1;
+        clip-path: circle(45% at 65%);
+    }
+
+    @include breakpoint(laptop) {
+        &:before {
+            content: none;
+        }
+    }
+
+    @include breakpoint(phone) {
+        @include container-inset-bottom(0);
     }
 
     &__image {

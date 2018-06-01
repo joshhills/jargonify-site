@@ -1,11 +1,13 @@
 <div *ngIf="post">
-    <div class="m-cover m-cover--center m-cover--tint">
+    <div class="m-cover m-cover--center m-cover--tint" #cover>
         <div class="m-cover__text m-cover__text--light">
             <p class="a-subsubheader">
                 <a *ngIf="backEnabled" class="a-link a-link--light a-subsubheader a-breadcrumb" [routerLink]="" (click)="back()">
                     &lt;- Back
                 </a>
-                {{post.dateCreated | date:'fullDate'}}
+                {{post.dateCreated | date: 'fullDate'}}
+                &#9900;
+                {{post.contents | readtime}} minute(s) read
             </p>
             <p class="a-header">
                 {{post.title}}
@@ -26,6 +28,21 @@
                 alt="{{post.featureImage.altText}}" />
     </div>
     <div class="o-post-list">
-        <div class="o-post-list__contents" [innerHTML]="post.contents"></div>
+        <div *ngIf="post.contents != ''" class="o-post-list__contents" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(post.contents)"></div>
+        <div *ngIf="post.contents == ''" class="o-post-list__contents">
+            <p>
+                This article is under construction! Try again later...
+            </p>
+        </div>
+        <div class="o-post-list__footer">
+            <p class="o-post-list__scroll">
+                <a class="a-link a-link--light" [routerLink]="" (click)="scrollToTop()">
+                    Scroll Up
+                </a>
+            </p>
+            <p class="o-post-list__social">
+                Last edited {{post.dateEdited | date: 'fullDate'}}. Want to share this post? <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
+            </p>
+        </div>
     </div>
 </div>
