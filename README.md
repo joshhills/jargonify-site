@@ -8,13 +8,9 @@ This is my personal porfolio.
 
 Immediate:
 - Inline related articles
-- Estimated read time
-- Last edited (?)
-- Scroll to top
 - SVGs
     - Background Error
     - Icons (contents)
-- Fix videos inline
 - Background, try a little gradient going down, and maybe add a tiny bit of film noise
 
 Future:

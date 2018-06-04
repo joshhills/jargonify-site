@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'shared/shared.module';
 
 import { PostComponent } from './post.component';
+import { BlogModule } from 'blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostComponent } from './post.component';
     ClipboardModule,
     RouterModule,
     LazyLoadImageModule,
-    SharedModule
+    SharedModule,
+    BlogModule
   ]
 })
 export class PostModule { }

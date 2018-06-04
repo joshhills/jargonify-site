@@ -292,31 +292,37 @@ export class WordpressAPIPostService implements PostService {
             featureImage.caption = featuredMedia['caption']['rendered'];
         }
 
-        // TODO: Get tags.
+        // Get tags.
         let tags: string[] = [];
 
         // Define the full URL.
-        let requestUrl: string = `${this.baseUrl}/tags`;
+        let requestUrl: string = `${this.baseUrl}/tags/`;
 
         // Make request and mapping.
-        let numPosts = this.http
+        for (let tag of blob['tags']) {
+            this.http
             .get(
-                requestUrl,
+                requestUrl + tag,
                 {
                     headers: this.headers
                 }
             )
             .subscribe(res => {
                 let data = JSON.parse(res['_body']);
-                for (let tag of blob['tags']) {
-                    for (let item of data) {
-                        if (tag === item['id']) {
-                            tags.push(item['name']);
-                            break;
-                        }
-                    }
-                }
+
+                tags.push(data['name']);
             });
+        }
+
+        // Get related posts.
+        let related: BlogPost[] = [];
+        for (let relatedId of blob['acf']['related_posts']) {
+            this.getBlogPost(relatedId).subscribe(
+                res => {
+                    related.push(res);
+                }
+            );
+        }
 
         return new BlogPost(
             PostType.BLOG,
@@ -330,7 +336,8 @@ export class WordpressAPIPostService implements PostService {
             tags,
             blob['acf']['is_feature'],
             blob['acf']['is_portfolio'],
-            false
+            false,
+            related
         );
     }
 
@@ -514,7 +521,8 @@ export class MockPostService implements PostService {
             blob['tags'],
             blob['isFeature'],
             blob['isPortfolio'],
-            blob['inSeries']
+            blob['inSeries'],
+            []
         );
     }
 

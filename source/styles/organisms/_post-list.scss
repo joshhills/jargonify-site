@@ -14,6 +14,7 @@
             @include image-full;
         }
 
+        // Wordpress specific.
         .wp-caption-text {
             font-style: oblique;
             padding: $spacing-small;
@@ -21,12 +22,30 @@
             text-align: center;
             border-top: $border-size solid $lead;
         }
+
+        .wp-video {
+            // Remove inline styles from code editor.
+            width: auto !important;
+        }
+    }
+
+    &__related {
+        .m-blog-item {
+            display: inline-block;
+        
+            &:first-of-type {
+                .m-blog-item__wrapper {
+                    margin-left: 0;
+                }
+            }
+        }
     }
 
     &__footer {
         @include last-no-margin;
 
         background-color: $chrome;
+        overflow: auto;
         padding: $spacing-large;
 
         @include breakpoint(phone) {
@@ -34,11 +53,13 @@
         }
     }
 
-    &__social {
+    &__scroll {
         float: left;
+        margin-bottom: 0;
     }
 
-    &__scroll {
+    &__social {
         float: right;
+        margin-bottom: 0;
     }
 }

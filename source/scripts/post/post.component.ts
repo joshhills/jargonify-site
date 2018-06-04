@@ -104,6 +104,9 @@ export class PostComponent {
         this.meta.setTag('article:published_time', this.post.dateCreated);
         this.meta.setTag('article:modified_time', this.post.dateCreated);
         this.meta.setTag('article:tag', this.post.tags.join(' '));
+      },
+      err => {
+        this.router.navigate(['/error']);
       }
     );
   }

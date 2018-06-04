@@ -34,6 +34,16 @@
                 This article is under construction! Try again later...
             </p>
         </div>
+        <div *ngIf="post.related.length > 0" class="o-post-list__related m-inset m-inset--dark">
+            <div class="m-inset__contents">
+                <h2>
+                    Related Posts
+                </h2>
+                <ng-container *ngFor="let related of post.related">
+                    <blog-item [blogPost]="related"></blog-item>
+                </ng-container>
+            </div>
+        </div>
         <div class="o-post-list__footer">
             <p class="o-post-list__scroll">
                 <a class="a-link a-link--light" [routerLink]="" (click)="scrollToTop()">
@@ -41,7 +51,7 @@
                 </a>
             </p>
             <p class="o-post-list__social">
-                Last edited {{post.dateEdited | date: 'fullDate'}}. Want to share this post? <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
+                <ng-container *ngIf="post.dateEdited !== dateCreated">Last edited {{post.dateEdited | date: 'fullDate'}}.</ng-container> Want to share this post? <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
             </p>
         </div>
     </div>
