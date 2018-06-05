@@ -8,13 +8,13 @@
     "url": "https://github.com/joshhills/jargonify-site.git"
   },
   "scripts": {
-    "test": "webpack --config webpack/webpack.test.js",
-    "development": "webpack-dev-server --config webpack/webpack.development.js",
-    "development:dashboard": "webpack-dashboard -p 8081 -- webpack-dev-server --config webpack/webpack.development.js",
-    "production": "webpack-dev-server --config webpack/webpack.production.js",
-    "production:dashboard": "webpack-dashboard -p 8081 -- webpack-dev-server --config webpack/webpack.production.js",
-    "build:development": "rimraf ../build && webpack --config webpack/webpack.development.js",
-    "build:production": "rimraf ../distribution && webpack --config webpack/webpack.production.js"
+    "test": "./node_modules/.bin/webpack --config webpack/webpack.test.js",
+    "development": "./node_modules/.bin/webpack-dev-server --config webpack/webpack.development.js",
+    "development:dashboard": "./node_modules/.bin/webpack-dashboard -p 8081 -- ./node_modules/.bin/webpack-dev-server --config webpack/webpack.development.js",
+    "production": "./node_modules/.bin/webpack-dev-server --config webpack/webpack.production.js",
+    "production:dashboard": "./node_modules/.bin/webpack-dashboard -p 8081 -- ./node_modules/.bin/webpack-dev-server --config webpack/webpack.production.js",
+    "build:development": "rimraf ../build && ./node_modules/.bin/webpack --config webpack/webpack.development.js",
+    "build:production": "rimraf ../distribution && ./node_modules/.bin/webpack --config webpack/webpack.production.js"
   },
   "keywords": [],
   "author": "",
