@@ -7,15 +7,15 @@ This is my personal porfolio.
 - Flesh out this TODO
 
 Immediate:
-- Inline related articles
+- Make a PWA
+- Add notifications
 - SVGs
-    - Background Error
     - Icons (contents)
+- Add photos page
+
 - Background, try a little gradient going down, and maybe add a tiny bit of film noise
 
 Future:
-- PWA
-- Add photos page
 - Properly commented TS
 - Properly unit tested TS
 - Properly commented SCSS
