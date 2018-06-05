@@ -22,5 +22,3 @@ Future:
 - Make names of some things global settings (like 'alternative features')
 
 - Get matching business cards
-
-Last time...
