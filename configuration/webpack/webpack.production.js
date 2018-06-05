@@ -85,6 +85,6 @@ module.exports = webpackMerge(commonConfig, {
         new CompressionPlugin(),
 
         // Enable analysis of result.
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ]
 });
