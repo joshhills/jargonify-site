@@ -137,6 +137,10 @@ module.exports = {
       {
         from: helpers.root('source/files'),
         to: 'files'
+      },
+      {
+        from: helpers.root('source/pwa'),
+        to: '.'
       }
     ]),
 

@@ -8,6 +8,8 @@ This is my personal porfolio.
 
 Immediate:
 - Make a PWA
+    - Manifest
+    - Add to home screen
 - Add notifications
 - SVGs
     - Icons (contents)
@@ -17,8 +19,10 @@ Immediate:
 
 Future:
 - Properly commented TS
+- Placeholder when loading
 - Properly unit tested TS
 - Properly commented SCSS
 - Make names of some things global settings (like 'alternative features')
+- Animations
 
 - Get matching business cards
