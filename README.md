@@ -8,8 +8,7 @@ This is my personal porfolio.
 
 Immediate:
 - Make a PWA
-    - Manifest
-    - Add to home screen
+    - Add a context-aware install link
 - Add notifications
 - SVGs
     - Icons (contents)

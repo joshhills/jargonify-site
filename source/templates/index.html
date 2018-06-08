@@ -73,5 +73,16 @@
                 </p>
             </div>
         </app>
+
+        <!-- Service Worker for Caching -->
+        <script type="text/javascript" src="service-worker-registration.js"></script>
+        <!-- Prompt users to install -->
+        <script>
+            let beforeInstallPrompt = null;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Stash the event so the application knows about its state
+                beforeInstallPrompt = e;
+            });
+        </script>
     </body>
 </html>

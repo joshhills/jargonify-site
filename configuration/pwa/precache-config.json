@@ -1,0 +1,44 @@
+{
+    "navigateFallback": "/index.html",
+    "navigateFallbackWhitelist": [],
+    "stripPrefix": "../distribution/",
+    "root": "../distribution",
+    "staticFileGlobs": [
+        "../distribution/index.html",
+        "../distribution/**/*.{js,html,css,png,jpg,svg}"
+    ],
+    "runtimeCaching": [
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2",
+            "handler": "networkFirst"
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/posts*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "maxEntries": 30,
+                    "name": "posts-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/tags*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "posts-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/portfolio_layouts*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "portfolio-cache"
+                }
+            }
+        }
+    ]
+}
