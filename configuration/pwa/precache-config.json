@@ -1,6 +1,11 @@
 {
     "navigateFallback": "/index.html",
-    "navigateFallbackWhitelist": [],
+    "navigateFallbackWhitelist": [
+        "/blog*",
+        "/portfolio*",
+        "/about*",
+        "/live/cms/wp-json*"
+    ],
     "stripPrefix": "../distribution/",
     "root": "../distribution",
     "staticFileGlobs": [

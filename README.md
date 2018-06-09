@@ -9,7 +9,7 @@ This is my personal porfolio.
 Immediate:
 - Make a PWA
     - Add a context-aware install link
-- Add notifications
+    - Add notifications (?)
 - SVGs
     - Icons (contents)
 - Add photos page

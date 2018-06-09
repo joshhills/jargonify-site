@@ -17,6 +17,8 @@
 /* eslint-env browser */
 'use strict';
 
+let serviceWorkerRegistration = null;
+
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
   // precaching requests don't degrade the first visit experience.
@@ -36,6 +38,8 @@ if ('serviceWorker' in navigator) {
         installingWorker.onstatechange = function() {
           switch (installingWorker.state) {
             case 'installed':
+              serviceWorkerRegistration = reg;
+              
               if (navigator.serviceWorker.controller) {
                 // At this point, the old content will have been purged and the fresh content will
                 // have been added to the cache.
