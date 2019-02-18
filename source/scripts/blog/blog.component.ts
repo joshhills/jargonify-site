@@ -39,7 +39,6 @@ export class BlogComponent implements OnInit {
   ) {}
 
   setPageProperties(data: any): void {
-    console.log(data);
     this.currentPage = data['page'] ? +data['page'] - 1 : 0;
   }
 
