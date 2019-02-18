@@ -7,7 +7,9 @@
                 </a>
                 {{post.dateCreated | date: 'fullDate'}}
                 &#9900;
-                {{post.contents | readtime}} minute(s) read
+                <ng-template let-t="t" [ngTemplateOutletContext]="{ t: (post.contents | readtime) }" [ngTemplateOutlet]="self" #self>
+                    {{t}} minute<ng-container *ngIf="t > 1">s</ng-container> read
+                </ng-template>
             </p>
             <p class="a-header">
                 {{post.title}}
