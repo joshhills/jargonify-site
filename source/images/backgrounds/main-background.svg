@@ -8,12 +8,12 @@
                 <path d="M148.999417,192.071183 L148.999417,100.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M64.9994173,286.071183 L64.9994173,194.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M321.047115,288.5 L0,288.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <g id="Group" transform="translate(1769.500000, 194.500000) scale(-1, 1) translate(-1769.500000, -194.500000) translate(1626.000000, 99.000000)" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square">
-                    <path d="M266,1.5 L138.999417,1.5" id="Line"></path>
-                    <path d="M286.004869,95.5 L54.9493343,95.5" id="Line"></path>
-                    <path d="M138.999417,93.0711825 L138.999417,1.5" id="Line"></path>
-                    <path d="M54.9994173,187.071183 L54.9994173,95.5" id="Line"></path>
-                    <path d="M285.000439,189.5 L0,189.5" id="Line"></path>
+                <g id="Group" transform="translate(1756.000000, 194.500000) scale(-1, 1) translate(-1756.000000, -194.500000) translate(1595.000000, 99.000000)" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square">
+                    <path d="M322,1.5 L151.087973,1.5" id="Line"></path>
+                    <path d="M310.91945,95.5 L60.0308222,95.5" id="Line"></path>
+                    <path d="M150.999417,93.0711825 L150.999417,1.5" id="Line"></path>
+                    <path d="M59.9994173,187.071183 L59.9994173,95.5" id="Line"></path>
+                    <path d="M309.913064,189.5 L0,189.5" id="Line"></path>
                 </g>
                 <polyline id="Path-4" stroke="#D8D8D8" stroke-width="12" points="93.4341501 839.872846 160.731619 839.872846 160.731619 878.554043 93.4341501 878.554043 93.4341501 473.70056 127.082885 404.622573 160.731619 473.70056 160.731619 925.765803 93.4341501 925.765803 93.4341501 878.554043"></polyline>
                 <path d="M95.6785174,502.83123 L158.861293,502.83123" id="Path-5" stroke="#D8D8D8" stroke-width="12"></path>
@@ -22,14 +22,13 @@
                 <path d="M166.5,550.5 L268.276716,550.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M45.5,605.5 L91.1344168,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
                 <path d="M171.5,605.5 L198.004717,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <g id="Group-3" transform="translate(313.000000, 0.000000)">
-                    <path d="M1303.5,5.98586458 L1303.5,1076.00011" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1315.5,0.5 L1315.5,1074.00291" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1327.5,4 L1327.5,1073.00556" id="Line-4" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1339.5,1.9989535 L1339.5,1077.01397" id="Line-4" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
-                    <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="20" stroke-linecap="square"></path>
-                    <rect id="Rectangle" fill="#222629" x="4" y="0" width="1289" height="1080"></rect>
-                    <path d="M1291.5,0.5 L1291.5,1077.00105" id="Line-3" stroke="#222629" stroke-width="12" stroke-linecap="square"></path>
+                <g id="Group-3" transform="translate(313.000000, 0.000000)" stroke="#222629" stroke-width="20" stroke-linecap="square">
+                    <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3"></path>
+                </g>
+                <g id="Group-4" transform="translate(1602.500000, 539.000000) scale(-1, 1) translate(-1602.500000, -539.000000) translate(1601.000000, 0.000000)" stroke-linecap="square" stroke-width="20" stroke="#222629">
+                    <g id="Group-3">
+                        <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3"></path>
+                    </g>
                 </g>
                 <g id="Group-2" transform="translate(1742.000000, 479.000000)" stroke-width="12" stroke="#D8D8D8">
                     <polygon id="Path-6" points="0 0 0 131 118 131 118 0"></polygon>
