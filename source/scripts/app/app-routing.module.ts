@@ -17,6 +17,7 @@ import { PortfolioComponent } from 'portfolio/portfolio.component';
 import { PostComponent } from 'post/post.component';
 
 // Define routes in greedy order of precedence.
+// TODO: Constants in app.configuration
 const appRoutes: Routes = [
     {
       path: '',
@@ -28,6 +29,11 @@ const appRoutes: Routes = [
           description: 'Design and technology by Josh Hills'
         }
       }
+    },
+    {
+      path: 'home',
+      component: HomeComponent,
+      redirectTo: ''
     },
     {
       path: 'blog',
