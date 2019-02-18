@@ -158,8 +158,12 @@ const appRoutes: Routes = [
       }
     },
     {
-      path: '**',
+      path: 'error',
       component: ErrorComponent
+    }
+    {
+      path: '**',
+      redirectTo: '/error'
     }
   ];
 
