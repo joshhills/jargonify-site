@@ -1,4 +1,4 @@
-<div *ngIf="post">
+<div *ngIf="post" class="l-post">
     <div class="m-cover m-cover--center m-cover--tint" #cover>
         <div class="m-cover__text m-cover__text--light">
             <p class="a-subsubheader">
@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <img    *ngIf="post.featureImage"
+        <img    *ngIf="post.featureImage.urlFull"
                 class="m-cover__image"
                 src="{{post.featureImage.urlSmall}}"
                 [lazyLoad]="post.featureImage.srcSet"

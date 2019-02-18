@@ -32,7 +32,26 @@
             "handler": "fastest",
             "options": {
                 "cache": {
-                    "name": "posts-cache"
+                    "name": "tags-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/categories*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "categories-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/pages*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "maxEntries": 10,
+                    "name": "pages-cache"
                 }
             }
         },
