@@ -1,4 +1,4 @@
-<div class="o-blog-list o-blog-list--fresh" [ngClass]="{'o-blog-list--fresh': fresh}">
+<div class="o-blog-list o-blog-list--fresh" [ngClass]="{'o-blog-list--fresh': fresh}" #blogList>
     <!-- Construct bespoke ordering for posts. -->
     <ng-container *ngFor="let blogPost of blogPosts; index as i">
         <blog-item *ngIf="i !== 10" [blogPost]="blogPosts[i]" [isExpanded]="i == 5 && fresh" [showDate]="i === 1 || i === 6" [showPicture]="postIndicesToShowPictures.indexOf(i) !== -1 || !fresh"></blog-item>

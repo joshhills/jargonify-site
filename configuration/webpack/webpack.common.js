@@ -124,19 +124,23 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: helpers.root('source/images'),
-        to: 'images'
+        to: 'static/images'
       },
       {
         from: helpers.root('source/fonts'),
-        to: 'fonts'
+        to: 'static/fonts'
       },
       {
         from: helpers.root('source/email'),
-        to: 'email'
+        to: 'static/email'
       },
       {
         from: helpers.root('source/files'),
-        to: 'files'
+        to: 'static/files'
+      },
+      {
+        from: helpers.root('source/pwa'),
+        to: '.'
       }
     ]),
 

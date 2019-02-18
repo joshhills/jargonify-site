@@ -18,14 +18,20 @@ export class ContentsService {
         this.fallback = appConfiguration.HOME_TEXT;
         this.pathText = this.getFirstPath();
 
-        this.textSource.next(this.pathText);
+        this.setText(this.pathText);
 
         // Subscribe to navigational changes.
         this.router.events.subscribe(
             data => {
                 if (data instanceof NavigationEnd) {
-                    this.pathText = this.getFirstPath(data.url);
-                    this.setText(this.pathText);
+                    // Catch semantic error.
+                    if (data.urlAfterRedirects === '/error') {
+                        this.pathText = this.fallback;
+                        this.setText(this.pathText);
+                    } else {
+                        this.pathText = this.getFirstPath(data.url);
+                        this.setText(this.pathText);
+                    }
                 }
             }
         );

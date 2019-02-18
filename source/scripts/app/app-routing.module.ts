@@ -17,6 +17,7 @@ import { PortfolioComponent } from 'portfolio/portfolio.component';
 import { PostComponent } from 'post/post.component';
 
 // Define routes in greedy order of precedence.
+// TODO: Constants in app.configuration
 const appRoutes: Routes = [
     {
       path: '',
@@ -30,6 +31,11 @@ const appRoutes: Routes = [
       }
     },
     {
+      path: 'home',
+      component: HomeComponent,
+      redirectTo: ''
+    },
+    {
       path: 'blog',
       component: BlogComponent,
       canActivate: [MetaGuard],
@@ -37,7 +43,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog',
           description: 'Personal tech blog by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg'
+          'og:image': '/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -49,7 +55,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog', // TODO: Incorporate page number
           description: 'Personal tech blog by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg'
+          'og:image': '/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -64,39 +70,39 @@ const appRoutes: Routes = [
         }
       }
     },
-    {
-      path: 'pattern', // TODO: Add no scrape here?
-      component: PatternComponent,
-      children: [
-        {
-          path: 'base',
-          component: PatternBaseComponent
-        },
-        {
-          path: 'atoms',
-          component: PatternAtomsComponent
-        },
-        {
-          path: 'components',
-          component: PatternOrganismsComponent
-        },
-        {
-          path: 'molecules',
-          component: PatternMoleculesComponent
-        },
-        {
-          path: 'layouts',
-          component: PatternLayoutsComponent
-        }
-      ],
-      canActivate: [MetaGuard],
-      data: {
-        meta: {
-          title: 'Jargonify - Pattern Library',
-          description: 'Atomic design styles for the site'
-        }
-      }
-    },
+    // {
+    //   path: 'pattern', // TODO: Add no scrape here?
+    //   component: PatternComponent,
+    //   children: [
+    //     {
+    //       path: 'base',
+    //       component: PatternBaseComponent
+    //     },
+    //     {
+    //       path: 'atoms',
+    //       component: PatternAtomsComponent
+    //     },
+    //     {
+    //       path: 'components',
+    //       component: PatternOrganismsComponent
+    //     },
+    //     {
+    //       path: 'molecules',
+    //       component: PatternMoleculesComponent
+    //     },
+    //     {
+    //       path: 'layouts',
+    //       component: PatternLayoutsComponent
+    //     }
+    //   ],
+    //   canActivate: [MetaGuard],
+    //   data: {
+    //     meta: {
+    //       title: 'Jargonify - Pattern Library',
+    //       description: 'Atomic design styles for the site'
+    //     }
+    //   }
+    // },
     {
       path: 'portfolio',
       component: PortfolioComponent,
@@ -105,7 +111,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Portfolio',
           description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/images/social/portfolio-preview.jpg'
+          'og:image': '/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -117,7 +123,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Portfolio',
           description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/images/social/portfolio-preview.jpg'
+          'og:image': '/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -129,22 +135,35 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg',
+          'og:image': '/static/images/social/blog-preview.jpg',
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'
         }
-      },
-      children: [
-        {
-          path: '**',
-          component: PostComponent
+      }
+    },
+    {
+      path: 'post/:id/:slug',
+      component: PostComponent,
+      canActivate: [MetaGuard],
+      data: {
+        meta: {
+          title: 'Jargonify - Blog Post',
+          description: 'Blog post by Josh Hills',
+          'og:image': '/static/images/social/blog-preview.jpg',
+          'og:type': 'article',
+          'article:section': 'Technology',
+          'article:author': 'Josh Hills'
         }
-      ]
+      }
+    },
+    {
+      path: 'error',
+      component: ErrorComponent
     },
     {
       path: '**',
-      component: ErrorComponent
+      redirectTo: '/error'
     }
   ];
 

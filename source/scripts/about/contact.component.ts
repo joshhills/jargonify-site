@@ -29,7 +29,7 @@ export class ContactComponent {
     submit() {
         console.log('Submitting: ' + JSON.stringify(this.contactDetails));
 
-        let requestUrl: string = `${this.baseUrl}/live/site/email/send.php`;
+        let requestUrl: string = `${this.baseUrl}/live/site/static/email/send.php`;
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 

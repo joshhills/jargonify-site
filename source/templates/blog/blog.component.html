@@ -1,6 +1,6 @@
 <div class="l-blog">
     <!-- Cover w/ Search Bar -->
-    <div class="m-cover m-cover--center">
+    <div class="m-cover m-cover--center" #cover>
         <div class="m-cover__text m-cover__text--right m-cover__text--light">
             <p class="a-header">
                 Blog
@@ -12,11 +12,11 @@
             <blog-search (onSearchTermChangedEvent)="onSearchTermChangedEvent($event)"></blog-search>
         </div>
         <img    class="m-cover__image"
-                src="/images/covers/cover-blog-small.jpg"
-                [lazyLoad]="'/images/covers/cover-blog-small.jpg 300w,
-                            /images/covers/cover-blog-medium.jpg 400w,
-                            /images/covers/cover-blog-large.jpg 1024w,
-                            /images/covers/cover-blog-full.jpg 1920w'"
+                src="/static/images/covers/cover-blog-small.jpg"
+                [lazyLoad]="'/static/images/covers/cover-blog-small.jpg 300w,
+                            /static/images/covers/cover-blog-medium.jpg 400w,
+                            /static/images/covers/cover-blog-large.jpg 1024w,
+                            /static/images/covers/cover-blog-full.jpg 1920w'"
                 [useSrcset]="true"
                 [offset]="100000"
                 alt="Blog image of me writing." />
@@ -51,7 +51,7 @@
     <!-- Featured Post -->
     <blog-featured *ngIf="featuredBlogPost && !inSearch && currentPage == 0" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->
-    <blog-list *ngIf="blogPosts" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds" [fresh]="currentPage == 0 && !inSearch"></blog-list>
+    <blog-list *ngIf="blogPosts" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds" [currentPage]="currentPage" [fresh]="currentPage == 0 && !inSearch"></blog-list>
     <!-- Information -->
     <div class="m-inset m-inset--dark">
         <div class="m-inset__contents m-inset__contents--left">
