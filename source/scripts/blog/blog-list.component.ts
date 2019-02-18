@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { BlogPost } from 'shared/models/blog-post';
 
 @Component({
@@ -9,6 +9,9 @@ export class BlogListComponent implements OnChanges, OnInit {
     @Input() fresh: boolean = true;
     @Input() blogPosts: BlogPost[];
     @Input() excludedPostIds: string[];
+    @Input() currentPage: number = 0;
+
+    @ViewChild('blogList') blogList: ElementRef;
 
     private postIndicesToShowPictures: number[] = [+1, +2, +4, +7, +9];
 
@@ -32,6 +35,15 @@ export class BlogListComponent implements OnChanges, OnInit {
       if (changes['excludedPostIds']) {
         this.excludedPostIds = changes.excludedPostIds.currentValue;
       }
+      if (changes['currentPage']) {
+        if (changes.currentPage.currentValue !== 0) {
+          this.scrollToTopOfBlogList();
+        }
+      }
       this.removeExcludedBlogPosts();
+    }
+
+    scrollToTopOfBlogList(): void {
+      this.blogList.nativeElement.scrollIntoView();
     }
 }

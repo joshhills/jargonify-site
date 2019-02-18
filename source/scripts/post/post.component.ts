@@ -111,12 +111,12 @@ export class PostComponent {
     );
   }
 
-  scrollToTop() {
+  scrollToTop(): boolean {
     (this.cover.nativeElement).scrollIntoView();
     return false;
   }
 
-  back() {
+  back(): void {
     if (window.history.length > 1) {
       this.location.back();
     } else {

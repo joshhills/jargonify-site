@@ -43,7 +43,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog',
           description: 'Personal tech blog by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg'
+          'og:image': '/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog', // TODO: Incorporate page number
           description: 'Personal tech blog by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg'
+          'og:image': '/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -111,7 +111,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Portfolio',
           description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/images/social/portfolio-preview.jpg'
+          'og:image': '/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -123,7 +123,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Portfolio',
           description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/images/social/portfolio-preview.jpg'
+          'og:image': '/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -135,7 +135,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg',
+          'og:image': '/static/images/social/blog-preview.jpg',
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'
@@ -150,7 +150,7 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
-          'og:image': '/images/social/blog-preview.jpg',
+          'og:image': '/static/images/social/blog-preview.jpg',
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'
@@ -160,7 +160,7 @@ const appRoutes: Routes = [
     {
       path: 'error',
       component: ErrorComponent
-    }
+    },
     {
       path: '**',
       redirectTo: '/error'

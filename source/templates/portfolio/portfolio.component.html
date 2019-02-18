@@ -7,7 +7,7 @@
             </p>
             <div class="a-subheader" [innerHTML]="layout.headerText"></div>
             <div class="m-inline-group">
-                <a class="a-button a-button--light" href="/files/cv.pdf" target="_blank" rel="noopener">
+                <a class="a-button a-button--light" href="/static/files/cv.pdf" target="_blank" rel="noopener">
                     Download CV
                 </a>
                 <a href="/about" class="a-link a-link--light">
@@ -16,11 +16,11 @@
             </div>
         </div>
         <img    class="m-cover__image"
-                src="/images/covers/cover-portfolio-small.jpg"
-                [lazyLoad]="'/images/covers/cover-portfolio-small.jpg 300w,
-                            /images/covers/cover-portfolio-medium.jpg 400w,
-                            /images/covers/cover-portfolio-large.jpg 1024w,
-                            /images/covers/cover-portfolio-full.jpg 1920w'"
+                src="/static/images/covers/cover-portfolio-small.jpg"
+                [lazyLoad]="'/static/images/covers/cover-portfolio-small.jpg 300w,
+                            /static/images/covers/cover-portfolio-medium.jpg 400w,
+                            /static/images/covers/cover-portfolio-large.jpg 1024w,
+                            /static/images/covers/cover-portfolio-full.jpg 1920w'"
                 [useSrcset]="true"
                 [offset]="100000"
                 alt="Portfolio image of me working." />

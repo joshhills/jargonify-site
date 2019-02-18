@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppConfiguration } from 'app/app.configuration';
 import { WordpressAPIPostService } from 'shared/services/post.service';
@@ -15,6 +15,8 @@ import { Observable } from 'rxjs/Observable';
 export class BlogComponent implements OnInit {
   private routeParamsSub: any;
   private queryParamsSub: any;
+
+  @ViewChild('cover') cover: ElementRef;
 
   featuredBlogPost: BlogPost;
   blogPosts: BlogPost[] = [];
@@ -37,6 +39,7 @@ export class BlogComponent implements OnInit {
   ) {}
 
   setPageProperties(data: any): void {
+    console.log(data);
     this.currentPage = data['page'] ? +data['page'] - 1 : 0;
   }
 
@@ -100,6 +103,10 @@ export class BlogComponent implements OnInit {
         this.setPageProperties(data[0]);
         this.setSearchProperties(data[1]);
 
+        if (this.currentPage === 0) {
+          this.scrollToTopOfPage();
+        }
+
         this.fetchBlogPostProperties();
       }
     );
@@ -119,5 +126,9 @@ export class BlogComponent implements OnInit {
     }
 
     this.router.navigate(navArray, navExtras);
+  }
+
+  scrollToTopOfPage(): void {
+    this.cover.nativeElement.scrollIntoView();
   }
 }

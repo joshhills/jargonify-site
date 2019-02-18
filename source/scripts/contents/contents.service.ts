@@ -15,8 +15,6 @@ export class ContentsService {
         private appConfiguration: AppConfiguration,
         private router: Router
     ) {
-        console.log('initialising');
-
         this.fallback = appConfiguration.HOME_TEXT;
         this.pathText = this.getFirstPath();
 
