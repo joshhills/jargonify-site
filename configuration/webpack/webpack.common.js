@@ -2,7 +2,7 @@
 var helpers = require('./helpers');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var ngToolsWebpack = require('@ngtools/webpack');
@@ -63,35 +63,35 @@ module.exports = {
       // Styles.
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                config: {
-                  path: helpers.root('configuration/postcss/postcss.config.js')
-                }
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                includePaths: [
-                  helpers.root('source/styles')
-                ]
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: helpers.root('configuration/postcss/postcss.config.js')
               }
             }
-          ]
-        })
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [
+                helpers.root('source/styles')
+              ]
+            }
+          }
+        ]
       },
       // Templates.
       {
@@ -114,11 +114,6 @@ module.exports = {
       helpers.root('source'),
       {} // Routes.
     ),
-
-    // Reduce redundancy in imports.
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
 
     // Load static assets.
     new CopyWebpackPlugin([

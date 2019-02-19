@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var DashboardPlugin = require('webpack-dashboard/plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
@@ -10,6 +10,8 @@ var helpers = require('./helpers');
 var environment = require('../environments/environment.development');
 
 module.exports = webpackMerge(commonConfig, {
+  mode: 'development',
+
   devtool: 'inline-source-map',
 
   output: {
@@ -43,8 +45,7 @@ module.exports = webpackMerge(commonConfig, {
     ]),
 
     // Split styles into separate file.
-    new ExtractTextPlugin({
-      allChunks: true,
+    new MiniCssExtractPlugin({
       filename: 'styles/app.css'
     }),
         

@@ -3,7 +3,7 @@ var commonConfig = require('./webpack.common.js');
 var copyrightInfo = require('../copyright-info');
 var helpers = require('./helpers');
 var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CompressionPlugin = require('compression-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -13,6 +13,8 @@ var environment = require('../environments/environment.production');
 
 // Merge this configuration with 'common'.
 module.exports = webpackMerge(commonConfig, {
+    mode: 'production',
+
     // Don't include source-maps.
     devtool: 'eval',
 
@@ -43,24 +45,10 @@ module.exports = webpackMerge(commonConfig, {
             environment
         ),
 
-        // Fail if there were any errors.
-        new webpack.NoEmitOnErrorsPlugin(),
-        
-        // Minimise scripts.
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                screw_ie8: true,
-                keep_fnames: true
-            },
-            compress: {
-                warnings: false,
-                screw_ie8: true
-            },
-            comments: false
-        }),
-
         // Cache-bust stylesheet.
-        new ExtractTextPlugin('styles/app.[hash].css'),
+        new MiniCssExtractPlugin({
+            filename: 'styles/app.[hash].css'
+        }),
         
         // Override some loader options to suit production.
         new webpack.LoaderOptionsPlugin({
