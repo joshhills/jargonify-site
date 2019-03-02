@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <!-- Angular Meta -->
+        <base href="/">
+
+        <!-- Default Meta -->
+        <meta charset="utf-8">
+        <title>Jargonify</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Search Engine -->
+        <meta name="description" content="Design and technology by Josh Hills">
+        <meta name="author" content="Josh Hills">
+        <meta name="image" content="/static/images/social/site-preview.jpg">
+        <!-- Schema.org for Google -->
+        <meta itemprop="name" content="Jargonify">
+        <meta itemprop="description" content="Design and technology by Josh Hills">
+        <meta itemprop="image" content="/static/images/social/site-preview.jpg">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Jargonify">
+        <meta name="twitter:description" content="Design and technology by Josh Hills">
+        <meta name="twitter:site" content="joshmarcushills">
+        <meta name="twitter:creator" content="joshmarcushills">
+        <meta name="twitter:image:src" content="/static/images/social/site-preview-slim.jpg">
+        <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+        <meta property="og:title" content="Jargonify">
+        <meta property="og:description" content="Design and technology by Josh Hills">
+        <meta property="og:image" content="/static/images/social/site-preview.jpg">
+        <meta property="og:url" content="/">
+        <meta property="og:site_name" content="Jargonify">
+        <meta property="og:type" content="website">
+
+        <!-- Icons -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/images/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/static/images/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/images/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/images/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/images/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/static/images/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/images/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/static/images/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/static/images/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/static/images/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/static/pwa/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffa351">
+        <meta name="msapplication-TileImage" content="/static/images/favicons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffa351">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Raleway:400,400i,700,700i">
+        <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.2.0/build/web/hack.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="a-shelf">
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            
+            ga('create', 'UA-134918865-1', 'auto');
+        </script>
+
+        <!-- Angular Application -->
+        <app>
+            <div class="o-loading">
+                <p class="a-header">
+                    Loading...
+                </p>
+            </div>
+        </app>
+
+        <!-- Service Worker for Caching -->
+        <script type="text/javascript" src="static/pwa/service-worker-registration.js"></script>
+        <!-- Prompt users to install -->
+        <script>
+            let beforeInstallPrompt = null;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Stash the event so the application knows about its state
+                beforeInstallPrompt = e;
+            });
+        </script>
+    </body>
+</html>

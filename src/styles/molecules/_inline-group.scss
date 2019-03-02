@@ -1,0 +1,17 @@
+.m-inline-group {
+    .a-link {
+        margin: $spacing-medium;
+        display: inline-block;
+    }
+
+    &--full {        
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .a-link {
+            margin: $spacing-small;
+        }
+    }
+}

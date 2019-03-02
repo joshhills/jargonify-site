@@ -1,0 +1,68 @@
+{
+    "navigateFallback": "/index.html",
+    "navigateFallbackWhitelist": [
+        "/blog*",
+        "/portfolio*",
+        "/about*",
+        "/live/cms/wp-json*"
+    ],
+    "stripPrefix": "dist/",
+    "root": "dist",
+    "staticFileGlobs": [
+        "dist/index.html",
+        "dist/**/*.{js,html,css,png,jpg,svg}"
+    ],
+    "runtimeCaching": [
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2",
+            "handler": "networkFirst"
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/posts*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "maxEntries": 30,
+                    "name": "posts-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/tags*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "tags-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/categories*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "categories-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/pages*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "maxEntries": 10,
+                    "name": "pages-cache"
+                }
+            }
+        },
+        {
+            "urlPattern": "/live/cms/wp-json/wp/v2/portfolio_layouts*",
+            "handler": "fastest",
+            "options": {
+                "cache": {
+                    "name": "portfolio-cache"
+                }
+            }
+        }
+    ]
+}

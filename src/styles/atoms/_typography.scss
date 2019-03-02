@@ -1,0 +1,111 @@
+/* Typography:
+ * Any kind of text displayed by the
+ * browser by default.
+ */
+
+@mixin paragraph {
+    @include font-primary();
+}
+
+@mixin header {
+    @include font-secondary();
+
+    font-weight: bold;
+}
+
+@mixin subheader {
+    @include font-primary();
+
+    font-weight: bold;
+}
+
+@mixin subsubheader {
+    @include font-primary;
+
+    font-weight: bold;
+}
+
+body {
+    @include paragraph;
+
+    color: $ink;
+    font-size: 15pt;
+    line-height: 18pt;
+}
+
+h1,
+.a-header {
+    @include header;
+
+    font-size: 40pt;
+    line-height: 50pt;
+    margin-bottom: $spacing-medium;
+
+    @include breakpoint(phone) {
+        font-size: 32pt;
+        line-height: 36pt;
+    }
+}
+
+h2,
+.a-subheader {
+    @include subheader;
+
+    font-size: 26pt;
+    line-height: 30pt;
+    margin-bottom: $spacing-medium;
+}
+
+h3,
+.a-subsubheader {
+    @include subsubheader;
+
+    font-size: 15pt;
+    line-height: 18pt;
+    margin-bottom: $spacing-small;
+}
+
+p {
+    @include paragraph;
+
+    font-size: 15pt;
+    line-height: 18pt;
+    margin-bottom: $spacing-medium;
+}
+
+.a-small {
+    font-size: 10pt;
+}
+
+.a-error,
+.a-error::placeholder {
+    color: $danger !important;
+    border-color: $danger !important;
+
+    &--close {
+        margin-top: -$spacing-small;
+    }
+}
+
+code {
+    @include font-code();
+    // TODO: Add a background?
+}
+
+pre {
+    @include font-code();
+
+    border: $border-size solid $tint;
+    font-size: 12pt;
+    margin-bottom: $spacing-medium;
+    overflow: scroll;
+    padding: $spacing-small;
+}
+
+hr {
+    background-color: $ink;
+    border: none;
+    color: $ink;
+    height: $border-size;
+    margin-bottom: $spacing-medium;
+}

@@ -1,0 +1,64 @@
+$endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
+
+.m-endorsement-item {
+    background-color: $tint;
+    
+    border: $border-size solid $tint;
+    margin: 0 $spacing-small;
+    max-width: $endorsement-item-width;
+    overflow: hidden;
+    position: relative;
+    width: $endorsement-item-width;
+    
+    &__contents {
+        @include half-left;
+        @include last-no-margin;
+        
+        background-color: $chrome;
+        box-sizing: border-box;
+        min-height: 200pt;
+        padding: $spacing-medium;
+        position: relative;
+
+        &--light {
+            color: $paper;
+        }
+
+        &--right {
+            @include half-right;
+        }
+    }
+
+    &__image {
+        @include image-lazyload;
+
+        float: left;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: 0 !important;
+    }
+
+    &__endorsement {
+        margin-bottom: $spacing-small;
+        font-style: italic;
+
+        p {
+            &:before,
+            &:after {
+                content: '"';
+            }
+        }
+    }
+
+    &__source {
+        display: -webkit-box;
+        width: calc(100% - 1rem - 1ch);
+
+        &:before {
+            content: '⚬';
+            margin-right: $spacing-small;
+            display: block;
+        }
+    }
+}

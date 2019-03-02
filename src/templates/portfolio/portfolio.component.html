@@ -1,0 +1,74 @@
+<div *ngIf="layout" class="l-portfolio">
+    <!-- Cover -->
+    <div class="m-cover m-cover--center">
+        <div class="m-cover__text m-cover__text--right m-cover__text--light">
+            <p class="a-header">
+                Portfolio
+            </p>
+            <div class="a-subheader" [innerHTML]="layout.headerText"></div>
+            <div class="m-inline-group">
+                <a class="a-button a-button--light" href="/static/files/cv.pdf" target="_blank" rel="noopener">
+                    Download CV
+                </a>
+                <a routerLink="/about" routerLinkActive="active" class="a-link a-link--light">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+        <img    class="m-cover__image"
+                src="/static/images/covers/cover-portfolio-small.jpg"
+                [lazyLoad]="'/static/images/covers/cover-portfolio-small.jpg 300w,
+                            /static/images/covers/cover-portfolio-medium.jpg 400w,
+                            /static/images/covers/cover-portfolio-large.jpg 1024w,
+                            /static/images/covers/cover-portfolio-full.jpg 1920w'"
+                [useSrcset]="true"
+                [offset]="100000"
+                alt="Portfolio image of me working." />
+    </div>
+    <ng-container *ngFor="let section of layout.sections">
+        <ng-container *ngIf="section.type === PortfolioSectionType.POST_LIST">
+            <div *ngIf="section.title" class="o-portfolio-list">
+                <p class="a-header">
+                    {{section.title}}
+                </p>
+            </div>
+            <div *ngIf="section.posts" class="o-portfolio-list">
+                <ng-container *ngFor="let postWithOptions of section.posts">
+                    <blog-item *ngIf="postWithOptions.post.type == PostType.BLOG" [blogPost]="postWithOptions.post" [isExpanded]="false" [showDate]="false" [showPicture]="true" [showRoleDate]="postWithOptions.showRoleDate" [showRoleTitle]="postWithOptions.showRoleTitle" [showRoleOrganisation]="postWithOptions.showRoleOrganisation"></blog-item>
+                    <div *ngIf="postWithOptions.post.type == PostType.ANECDOTE" class="m-blog-item-anecdote">
+                        {{postWithOptions.post.text}}
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="section.type === PortfolioSectionType.TEXT_BLOCK">
+            <div class="m-inset" [ngClass]="{'m-inset--dark' : section.theme === 'dark', 'm-inset--light': section.theme === 'light'}">
+                <div *ngFor="let block of section.content" class="m-inset__contents" [ngClass]="{'m-inset__contents--left': block.position === 'left', 'm-inset__contents--right': block.position === 'right'}" [innerHTML]="block.text"></div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="section.type === PortfolioSectionType.ENDORSEMENT">
+            <div class="o-portfolio-list">
+                <div *ngFor="let endorsement of section.endorsements" class="m-endorsement-item">
+                    <img    *ngIf="endorsement.portraitImage"
+                            class="m-endorsement-item__image"
+                            src="{{endorsement.portraitImage.urlSmall}}"
+                            [lazyLoad]="endorsement.portraitImage.srcSet"
+                            [useSrcset]="true"
+                            [offset]="100000"
+                            alt="{{endorsement.portraitImage.altText}}" />
+                    <div class="m-endorsement-item__contents m-endorsement-item__contents--right m-endorsement-item__contents--light">
+                        <div class="m-endorsement-item__endorsement" [innerHTML]="endorsement.testimonial"></div>
+                        <p class="m-endorsement-item__source a-subsubheader">
+                            <a href="{{endorsement.contactType === 'link' ? endorsement.contactDetails : 'mailto:' + endorsement.contactDetails}}" target="_blank" rel="noopener">{{endorsement.fullName}}</a>
+                            <ng-container *ngIf="endorsement.title">, {{endorsement.title}} </ng-container>
+                            <ng-container *ngIf="endorsement.organisation"> @ {{endorsement.organisation}} </ng-container>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="section.type === PortfolioSectionType.IMAGE_CAROUSEL">
+            <portfolio-carousel [imageCarousel]="section.imageCarousel"></portfolio-carousel>
+        </ng-container>
+    </ng-container>
+</div>

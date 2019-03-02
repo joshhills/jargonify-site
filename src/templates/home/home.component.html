@@ -1,0 +1,27 @@
+<div class="m-cover m-cover--full">
+    <div class="m-cover__text m-cover__text--right m-cover__text--light">
+        <p class="a-header">
+            Hi
+        </p>
+        <p class="a-header">
+            I'm Josh, I design and build STUFF.
+        </p>
+        <div class="m-inline-group">
+            <a class="a-button a-button--light" routerLink="/portfolio" routerLinkActive="active">
+                Like what?
+            </a>
+            <a class="a-link a-link--light" routerLink="/about" routerLinkActive="active">
+                Let's talk
+            </a>
+        </div>
+    </div>
+    <img    class="m-cover__image"
+            src="/static/images/covers/cover-home-small.jpg"
+            [lazyLoad]="'/static/images/covers/cover-home-small.jpg 300w,
+                        /static/images/covers/cover-home-medium.jpg 400w,
+                        /static/images/covers/cover-home-large.jpg 1024w,
+                        /static/images/covers/cover-home-full.jpg 1920w'"
+            [useSrcset]="true"
+            [offset]="100000"
+            alt="Home image of me at a whiteboard." />
+</div>

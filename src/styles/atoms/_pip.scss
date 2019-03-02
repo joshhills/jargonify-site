@@ -1,0 +1,35 @@
+.a-pip {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: $spacing-small;
+    border: 8pt solid $chrome;
+    border-radius: 100pt;
+    height: 50pt;
+    overflow: hidden;
+    position: relative;
+    width: 50pt;
+    min-height: 50pt;
+    min-width: 50pt;
+
+    @include breakpoint(phone) {
+        border: 6pt solid $chrome;
+        height: 40pt;
+        min-height: 40pt;
+        min-width: 40pt;
+        width: 40pt;
+    }
+
+    &--active {
+        cursor: default;
+        border-color: $tint !important;
+        border-style: dashed;
+    }
+
+    &__image {
+        @include image-cover;
+    }
+
+    &:hover {
+        border-color: $tint-light;
+    }
+}

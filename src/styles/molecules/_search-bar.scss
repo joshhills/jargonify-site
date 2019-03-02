@@ -1,0 +1,18 @@
+.m-search-bar {
+    position: relative;
+
+    &__icon {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+    }
+
+    &__input {
+        padding-left: 2rem !important;
+        width: calc(100% - 3.5rem) !important;
+
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.l-blog {
+    &__error {
+        display: block;
+        padding: $spacing-medium + $spacing-small;
+
+        + .m-inset {
+            margin-top: 0;
+        }
+    }
+
+    &__feedback {
+        display: block;
+        padding: $spacing-medium + $spacing-small;
+        padding-bottom: 0;
+        
+        @include last-no-margin;
+    }
+}

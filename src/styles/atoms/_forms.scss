@@ -1,0 +1,41 @@
+button:disabled,
+input:disabled {
+    color: $lead !important;
+    border-color: $lead !important;
+}
+
+input, button, textarea {
+    &:focus {
+        outline: 0;
+    }
+}
+
+button {
+    font-size: 15pt;
+}
+
+textarea {
+    background: none;
+    border: $border-size solid;
+    font-size: 15pt;
+    margin-bottom: $spacing-medium;
+    padding: 0.5rem;
+    resize: none;
+    width: calc(100% - 2rem);
+}
+
+input {
+    @include font-primary();
+
+    display: block;
+    margin-bottom: $spacing-medium;
+    width: 100%;
+
+    &[type='text'] {
+        background: none;
+        width: calc(100% - 2rem);
+        border: $border-size solid;
+        font-size: 15pt;
+        padding: 0.5rem;
+    }
+}

@@ -1,1 +1,0 @@
-module.exports = '© Josh Hills, ' + new Date().getFullYear();

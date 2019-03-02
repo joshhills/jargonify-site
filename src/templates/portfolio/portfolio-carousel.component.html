@@ -1,0 +1,30 @@
+<div class="m-portfolio-carousel">
+    <div class="m-portfolio-carousel__progress-bar" [style.display]="imageCarousel.isAnimated ? 'block' : 'none'" #progressBar></div>
+    <img    class="m-portfolio-carousel__active-item"
+            [defaultImage]="imageCarousel.items[index].image.urlSmall"
+            [lazyLoad]="imageCarousel.items[index].image.srcSet"
+            [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
+            [useSrcset]="true"
+            [offset]="100"
+            alt="{{imageCarousel.items[index].image.altText}}" />
+    <div class="m-portfolio-carousel__image-wrapper">
+    </div>
+    <div class="m-portfolio-carousel__content-wrapper">
+        <div class="m-portfolio-carousel__pips">
+            <ng-container *ngFor="let item of imageCarousel.items; index as i">
+                <div class="a-pip" [ngClass]="{'a-pip--active': index === i}" (click)="setIndex(i, true)">
+                    <img    class="a-pip__image"
+                            *ngIf="index !== i"
+                            [defaultImage]="item.image.urlSmall"
+                            [lazyLoad]="item.image.srcSet"
+                            [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
+                            [useSrcset]="true"
+                            [offset]="100"
+                            alt="{{item.image.altText}}" />
+                </div>
+            </ng-container>
+        </div>
+        <div *ngIf="imageCarousel.items[index].caption" class="m-portfolio-carousel__caption" [innerHTML]="imageCarousel.items[index].caption">
+        </div>
+    </div>
+</div>

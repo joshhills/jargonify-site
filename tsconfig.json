@@ -1,13 +1,22 @@
 {
-  // This exists for VSCode Intellisense only!
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "source/scripts/",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "paths": {
-      "*": [
-        "*",
-        "../../configuration/node_modules/*"
-      ]
-    }
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   }
 }

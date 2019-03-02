@@ -1,0 +1,35 @@
+<div *ngIf="blogPost" [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.classification.isCollection}">
+    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture, 'm-blog-item__wrapper--read': !isExpanded && read, 'm-blog-item-expanded__wrapper--read': isExpanded && read}">
+        <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded, 'm-blog-item__text--tint': !isExpanded  && showPicture, 'm-blog-item-expanded__text--tint': isExpanded && showPicture}">
+            <p class="a-subsubheader" *ngIf="isExpanded">
+                Alternative Featured:
+            </p>
+            <p class="a-subsubheader" *ngIf="showDate && (!showRoleDate || !blogPost.roleMetadata.startDate)">
+                {{blogPost.dateCreated | date:'shortDate'}}
+            </p>
+            <p class="a-subsubheader" *ngIf="showRoleDate && blogPost.roleMetadata.isCurrent && blogPost.roleMetadata.startDate">
+                Since {{blogPost.roleMetadata.startDate}}
+            </p>
+            <p class="a-subsubheader" *ngIf="showRoleDate && !blogPost.roleMetadata.isCurrent && blogPost.roleMetadata.startDate">
+                {{blogPost.roleMetadata.startDate}} <ng-container *ngIf="blogPost.roleMetadata.endDate">- {{blogPost.roleMetadata.endDate}}</ng-container>
+            </p>
+            <a [ngClass]="{'m-blog-item__text__title': !isExpanded, 'm-blog-item-expanded__text__title': isExpanded, 'a-subheader': true}" [routerLink]="['/post', blogPost.id, slug]" [innerHTML]="showRoleTitle && blogPost.roleMetadata.title ? domSanitizer.bypassSecurityTrustHtml(blogPost.roleMetadata.title) : domSanitizer.bypassSecurityTrustHtml(blogPost.title)">
+            </a>
+            <p class="a-subsubheader" *ngIf="showRoleOrganisation && blogPost.roleMetadata.organisation">
+                {{blogPost.roleMetadata.organisation}}
+            </p>
+            <p [ngClass]="{'m-blog-item__summary': !isExpanded, 'm-blog-item-expanded__summary': isExpanded}" *ngIf="isExpanded" [innerHTML]="blogPost.summary"></p>
+            <a class="a-link" [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id, slug]">
+                Read more
+            </a>
+        </div>
+        <img    *ngIf="showPicture || isExpanded"
+                [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}"
+                [defaultImage]="blogPost.featureImage.urlSmall"
+                [lazyLoad]="blogPost.featureImage.srcSet"
+                [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
+                [useSrcset]="true"
+                [offset]="100"
+                alt="{{blogPost.featureImage.altText}}" />
+    </div>
+</div>

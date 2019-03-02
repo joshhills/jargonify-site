@@ -1,0 +1,8 @@
+@keyframes remove-filter {
+    to { filter: none; }
+}
+
+@keyframes grow-width {
+    from { width: 0%; }
+    to { width: 100%; }
+}

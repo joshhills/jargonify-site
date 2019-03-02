@@ -1,0 +1,97 @@
+.o-contents {
+    background-color: $lead;
+    box-sizing: border-box;
+    color: $paper;
+    height: 100%;
+    overflow: hidden;
+    padding: $spacing-small;
+    width: 7.5rem;
+    text-align: center;
+
+    @include breakpoint(phone) {
+        height: auto;
+        width: 100%;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        @include breakpoint(phone) {
+            flex-direction: row;
+            height: auto;
+            justify-content: space-between;
+        }
+    }
+
+    &__link-wrapper {
+        border: 8pt solid $paper;
+        border-radius: 100pt;
+        height: 50pt;
+        overflow: hidden;
+        width: 50pt;
+        min-height: 50pt;
+        min-width: 50pt;
+
+        @include breakpoint(phone) {
+            border: 6pt solid $paper;
+            height: 40pt;
+            min-height: 40pt;
+            min-width: 40pt;
+            width: 40pt;
+        }
+        
+        &:not(:last-child) {
+            margin-bottom: $spacing-small;
+
+            @include breakpoint(phone) {
+                margin-bottom: 0;
+                margin-right: $spacing-small;
+            }
+        }
+
+        &:last-child {
+            margin-top: auto;
+            
+            @include breakpoint(phone) {
+                margin-top: 0;
+                margin-left: auto;
+            }
+        }
+    }
+
+    &__link {
+        @include font-secondary();
+        
+        color: $paper;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 50pt;
+        line-height: 1;
+
+        @include breakpoint(phone) {
+            font-size: 40pt;
+        }
+
+        &:visited,
+        &:focus,
+        &:active {
+            color: $paper;
+        }
+
+        &:hover {
+            border-color: $tint-light;
+        }
+
+        &--active {
+            border-color: $tint;
+        }
+
+        &--low-character {
+            bottom: 0;
+            line-height: 0.5;
+        }
+    }
+}
