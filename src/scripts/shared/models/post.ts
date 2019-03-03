@@ -1,6 +1,7 @@
-export abstract class Post {
+import { Entity } from './entity';
+
+export abstract class Post extends Entity {
     public type: PostType;
-    public id: string;
     public dateCreated: string;
     public dateEdited: string;
 
@@ -10,8 +11,8 @@ export abstract class Post {
         dateCreated: string,
         dateEdited: string
     ) {
+        super(id);
         this.type = type;
-        this.id = id;
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
     }

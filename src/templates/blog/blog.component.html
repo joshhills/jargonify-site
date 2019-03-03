@@ -30,9 +30,9 @@
     <!-- Search Error Feedback -->
     <div class="l-blog__error" *ngIf="inSearch && noPostsAfterFetch">
         <p class="a-subheader">
-            It doesn't look like I've written about that yet.
+            It doesn't look like I've written about that yet<ng-container *ngIf="tag !== ''"> with that tag</ng-container>.
         </p>
-        <p>
+        <p *ngIf="searchTerm !== ''">
             Is <em>'{{searchTerm}}'</em> something I should look into?
         </p>
         <a routerLink="/about">

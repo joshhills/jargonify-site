@@ -3,8 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AppConfiguration } from '../app/app.configuration';
 import { WordpressAPIPostService } from '../shared/services/post.service';
 import { BlogPost } from '../shared/models/blog-post';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Subscription, Observable, forkJoin } from 'rxjs';
 import { WindowService } from '../shared/services/window.service';
+import { Tag } from '../shared/models/tag';
+import { Category } from '../shared/models/category';
 
 @Component({
   selector: 'blog',
@@ -29,6 +31,8 @@ export class BlogComponent implements OnInit {
 
   inSearch = false;
   searchTerm = '';
+  tag: any = '';
+  category = '';
 
   noPostsAfterFetch = false;
 
@@ -46,7 +50,9 @@ export class BlogComponent implements OnInit {
 
   setSearchProperties(data: any): void {
     this.searchTerm = data['search'] ? data['search'] : '';
-    this.inSearch = this.searchTerm.trim().length > 0;
+    this.tag = data['tag'] ? data['tag'] : '';
+    this.category = data['category'] ? data['category'] : '';
+    this.inSearch = this.searchTerm.trim().length > 0 || this.tag !== '' || this.category !== '';
   }
 
   fetchBlogPostProperties(): void {
@@ -54,11 +60,24 @@ export class BlogComponent implements OnInit {
       ? this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1
       : this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE;
 
+    // Get the number of blog posts with this criteria.
+    this.postService.getNumBlogPosts(
+      this.searchTerm,
+      [this.tag],
+      [this.category]
+    ).subscribe(data => {
+      this.numPosts = data;
+      this.numPages = Math.ceil((data - 1) // TODO: Might be incorrect due to featured.
+        / (this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1));
+    });
+
     // Get the individual posts.
     this.postService.getBlogPosts(
       this.currentPage,
       this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1,
-      this.searchTerm
+      this.searchTerm,
+      [this.tag],
+      [this.category]
     ).subscribe(data => {
       this.blogPosts = data;
 
@@ -70,15 +89,6 @@ export class BlogComponent implements OnInit {
     },
     err => {
       this.noPostsAfterFetch = true;
-    });
-
-    // Get the number of blog posts with this criteria.
-    this.postService.getNumBlogPosts(
-      this.searchTerm
-    ).subscribe(data => {
-      this.numPosts = data;
-      this.numPages = Math.ceil((data - 1) // TODO: Might be incorrect due to featured.
-        / (this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1));
     });
   }
 
@@ -106,7 +116,47 @@ export class BlogComponent implements OnInit {
           this.scrollToTopOfPage();
         }
 
-        this.fetchBlogPostProperties();
+        const tagAndCategoryOperations: any[] = [];
+
+        if (this.tag !== '' && isNaN(parseInt(this.tag, 10))) {
+          tagAndCategoryOperations.push(this.postService.getTag(this.tag));
+        }
+
+        if (this.category !== '' && isNaN(parseInt(this.category, 10))) {
+          tagAndCategoryOperations.push(this.postService.getCategory(this.category));
+        }
+
+        if (tagAndCategoryOperations.length > 0) {
+          forkJoin(tagAndCategoryOperations).subscribe((d) => {
+            console.log(d);
+            for (const response of d) {
+              if (response instanceof Tag) {
+                console.log('yeah');
+                this.tag = response.id;
+              }
+              if (response instanceof Category) {
+                console.log('no');
+                this.category = response.id;
+              }
+            }
+
+            console.log(this.tag);
+            console.log(this.category);
+
+            if (this.tag !== '' && isNaN(parseInt(this.tag, 10))
+            || this.category !== '' && isNaN(parseInt(this.category, 10))) {
+              console.log('shouldn');
+              this.numPosts = 0;
+              this.noPostsAfterFetch = true;
+              this.numPages = 0;
+              return;
+            }
+
+            this.fetchBlogPostProperties();
+          });
+        } else {
+          this.fetchBlogPostProperties();
+        }
       }
     );
   }

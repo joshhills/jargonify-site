@@ -5,11 +5,12 @@
                 <a *ngIf="backEnabled" class="a-link a-link--light a-subsubheader a-breadcrumb" [routerLink]="" (click)="back()">
                     &lt;- Back
                 </a>
-                {{post.dateCreated | date: 'fullDate'}}
+                Posted {{post.dateCreated | date: 'fullDate'}} 
+                <ng-container *ngIf="post.categories.length > 0">
+                    under <a class="a-link a-link--light" routerLink="/blog" [queryParams]="{'category': post.categories[0].name.toLowerCase()}">{{post.categories[0].name | lowercase}}</a>
+                </ng-container>
                 &#9900;
-                <ng-template let-t="t" [ngTemplateOutletContext]="{ t: (post.contents | readtime) }" [ngTemplateOutlet]="self" #self>
-                    {{t}} minute<ng-container *ngIf="t > 1">s</ng-container> read
-                </ng-template>
+                {{ post.contents | readtime }} minute read
             </p>
             <p class="a-header">
                 {{post.title}}
@@ -17,7 +18,7 @@
             <p class="a-subheader" [innerHTML]="post.summary"></p>
             <ul class="m-tags">
                 <li class="m-tags__item" *ngFor="let tag of post.tags">
-                    <a class="m-tags__tag a-link a-link--light" routerLink="/blog" [queryParams]="{'search': tag}">{{tag}}</a>
+                    <a class="m-tags__tag a-link a-link--light" routerLink="/blog" [queryParams]="{'tag': tag.name}">{{tag.name}}</a>
                 </li>
             </ul>
         </div>

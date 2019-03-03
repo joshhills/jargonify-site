@@ -1,7 +1,7 @@
 <div class="o-blog-list o-blog-list--fresh" [ngClass]="{'o-blog-list--fresh': fresh}" #blogList>
     <!-- Construct bespoke ordering for posts. -->
     <ng-container *ngFor="let blogPost of blogPosts; index as i">
-        <blog-item *ngIf="i !== 10" [blogPost]="blogPosts[i]" [isExpanded]="i == 5 && fresh" [showDate]="i === 1 || i === 6 || currentPage > 0" [showPicture]="postIndicesToShowPictures.indexOf(i) !== -1 || !fresh"></blog-item>
+        <blog-item [blogPost]="blogPosts[i]" [isExpanded]="i == 5 && fresh" [showDate]="i === 1 || i === 6 || currentPage > 0 || !fresh" [showPicture]="postIndicesToShowPictures.indexOf(i) !== -1 || !fresh"></blog-item>
         <!-- Anecdotal insert. -->
         <div class="m-blog-item-anecdote" *ngIf="i === 5 && fresh">
             <p class="a-header">

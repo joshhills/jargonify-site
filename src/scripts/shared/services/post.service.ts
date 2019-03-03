@@ -20,6 +20,8 @@ import { AnecdotePost } from '../models/anecdote-post';
 import { Classification } from '../models/classification';
 import { RoleMetadata } from '../models/role-metadata';
 import { ImageCarousel, ImageWithCaption } from '../models/image-carousel';
+import { Tag } from '../models/tag';
+import { Category } from '../models/category';
 
 export interface PostService {
     baseUrl: string;
@@ -27,16 +29,28 @@ export interface PostService {
     getBlogPosts(
         page: number,
         perPage: number,
-        search: string
+        search: string,
+        tags: string[],
+        categories: string[]
     ): Observable<BlogPost[]>;
 
     getBlogPost(id: string): Observable<BlogPost>;
 
-    getNumBlogPosts(search: string): Observable<number>;
+    getNumBlogPosts(
+        search: string,
+        tags: string[],
+        categories: string[]
+    ): Observable<number>;
 
     getPortfolioLayout(id: string): Observable<PortfolioLayoutPost>;
 
     toPostListPortfolioSection(blob: JSON): PostListPortfolioSection;
+
+    getTag(name: string): Observable<Tag>;
+    toTag(blob: JSON): Tag;
+
+    getCategory(name: string): Observable<Category>;
+    toCategory(blob: JSON): Category;
 }
 
 // TODO: Fail gracefully.
@@ -51,22 +65,83 @@ export class WordpressAPIPostService implements PostService {
         this.headers = new HttpHeaders().set('Accept', 'application/json');
     }
 
+    public toCategory(blob: JSON): Tag {
+        return new Category(
+            blob['id'],
+            blob['slug']
+        );
+    }
+
+    public getCategory(name: string): Observable<Category> {
+        const requestUrl = `${this.baseUrl}/categories?&slug=${name}`;
+
+        const category: Observable<Category> = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            ).pipe(
+                map((data: any) => {
+                    if (data.length !== 0) {
+                        return this.toCategory(data[0]);
+                    }
+                }));
+
+        return category;
+    }
+
+    public toTag(blob: JSON): Tag {
+        return new Tag(
+            blob['id'],
+            blob['slug']
+        );
+    }
+
+    public getTag(name: string): Observable<Tag> {
+        const requestUrl = `${this.baseUrl}/tags?&slug=${name}`;
+
+        const tag: Observable<Tag> = this.http
+            .get(
+                requestUrl,
+                {
+                    headers: this.headers
+                }
+            ).pipe(
+                map((data: any) => {
+                    if (data.length !== 0) {
+                        return this.toTag(data[0]);
+                    }
+                }));
+
+        return tag;
+    }
+
     public getBlogPosts(
         page: number = 0,
         perPage: number = this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE,
-        search: string = ''
+        search: string = '',
+        tags: string[] = [],
+        categories: string[] = []
     ): Observable<BlogPost[]> {
         // Define the full URL.
         const requestUrl = `${this.baseUrl}/posts?&`;
 
         // Define parameters.
-        const params = new HttpParams()
+        let params = new HttpParams()
             .set('per_page', perPage.toString())
             .set('page', (page + 1).toString())
             .set('search', search)
             .set('_embed', 'true')
             .set('filter[meta_key]', 'portfolio_only')
             .set('filter[meta_value]', '0');
+
+        if (tags.length > 0 && tags[0] !== '') {
+            params = params.set('tags', tags.join(','));
+        }
+        if (categories.length > 0 && categories[0] !== '') {
+            params = params.set('categories', categories.join(','));
+        }
 
         // Make request and mapping.
         const blogPosts: Observable<BlogPost[]> = this.http
@@ -84,15 +159,26 @@ export class WordpressAPIPostService implements PostService {
     }
 
     public getNumBlogPosts(
-        search: string = ''
+        search: string = '',
+        tags: string[] = [],
+        categories: string[] = []
     ): Observable<number> {
         // Define the full URL.
-        const requestUrl = `${this.baseUrl}/posts`;
+        const requestUrl = `${this.baseUrl}/posts?&`;
 
         // Define parameters.
-        const params = new HttpParams()
-            .set('per_page', '0')
+        let params = new HttpParams()
+            .set('per_page', '1')
+            .set('filter[meta_key]', 'portfolio_only')
+            .set('filter[meta_value]', '0')
             .set('search', search);
+
+        if (tags.length > 0 && tags[0] !== '') {
+            params = params.set('tags', tags.join(','));
+        }
+        if (categories.length > 0 && categories[0] !== '') {
+            params = params.set('categories', categories.join(','));
+        }
 
         // Make request and mapping.
         const numPosts = this.http
@@ -390,25 +476,64 @@ export class WordpressAPIPostService implements PostService {
             featureImage.caption = featuredMedia['caption']['rendered'];
         }
 
-        // TODO: Check if tags are already embedded!..
         // Get tags.
-        const tags: string[] = [];
+        const tags: Tag[] = [];
 
         // Define the full URL.
-        const requestUrl = `${this.baseUrl}/tags/`;
+        const tagRequestUrl = `${this.baseUrl}/tags/`;
 
         // Make request and mapping.
-        for (const tag of blob['tags']) {
-            this.http
-            .get(
-                requestUrl + tag,
-                {
-                    headers: this.headers
+        if (!blob['_embedded']) {
+            for (const tag of blob['tags']) {
+                this.http
+                .get(
+                    tagRequestUrl + tag,
+                    {
+                        headers: this.headers
+                    }
+                )
+                .subscribe(res => {
+                    tags.push(new Tag(res['id'], res['name']));
+                });
+            }
+        } else {
+            for (const term of blob['_embedded']['wp:term']) {
+                for (const tag of term) {
+                    if (tag['taxonomy'] === 'post_tag') {
+                        tags.push(new Tag(tag['id'], tag['name']));
+                    }
                 }
-            )
-            .subscribe(res => {
-                tags.push(res['name']);
-            });
+            }
+        }
+
+        // Get categories.
+        const categories: Category[] = [];
+
+        // Define the full URL
+        const categoryRequestUrl = `${this.baseUrl}/categories/`;
+
+        // Make request and mapping.
+        if (!blob['_embedded']) {
+            for (const category of blob['categories']) {
+                this.http
+                .get(
+                    categoryRequestUrl + category,
+                    {
+                        headers: this.headers
+                    }
+                )
+                .subscribe(res => {
+                    tags.push(new Category(res['id'], res['name']));
+                });
+            }
+        } else {
+            for (const term of blob['_embedded']['wp:term']) {
+                for (const category of term) {
+                    if (category['taxonomy'] === 'category') {
+                        categories.push(new Category(category['id'], category['name']));
+                    }
+                }
+            }
         }
 
         // Get related posts.
@@ -457,6 +582,7 @@ export class WordpressAPIPostService implements PostService {
             featureImage,
             blob['content']['rendered'],
             tags,
+            categories,
             related,
             classification,
             roleMetadata

@@ -15,10 +15,6 @@ $blog-item-size: 17rem;
         position: relative;
         width: $blog-item-size;
 
-        &--tint {
-            // background-color: $chrome;
-        }
-
         &--read {
             border-color: $chrome;
         }
@@ -174,17 +170,6 @@ $blog-item-size: 17rem;
     min-height: 380pt;
     overflow: hidden;
     position: relative;
-    
-    &:after {
-        position: absolute;
-        content: "";
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(255, 163, 81, 0.35);
-    }
-
 
     &:before {
         position: absolute;
@@ -196,6 +181,16 @@ $blog-item-size: 17rem;
         background: $ink;
         z-index: 1;
         clip-path: circle(45% at 65%);
+    }
+
+    &:after {
+        position: absolute;
+        content:"";
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(34, 38, 41, 0.65);
     }
 
     @include breakpoint(laptop) {
