@@ -73,7 +73,7 @@ export class PostComponent implements OnInit, OnDestroy {
           visited = JSON.parse(this.cookieService.get('visited'));
         }
         if (visited && visited.indexOf(this.post.id) === -1) {
-          visited.push(this.post.id);
+          visited.push({id: this.post.id, date: Date.now()});
           this.cookieService.set('visited', JSON.stringify(visited));
         }
 

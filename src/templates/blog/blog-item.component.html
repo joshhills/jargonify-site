@@ -1,5 +1,5 @@
 <div *ngIf="blogPost" [ngClass]="{'m-blog-item': !isExpanded, 'm-blog-item-expanded': isExpanded, 'm-blog-item--series': blogPost.classification.isCollection}">
-    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture, 'm-blog-item__wrapper--read': !isExpanded && read, 'm-blog-item-expanded__wrapper--read': isExpanded && read}">
+    <div [ngClass]="{'m-blog-item__wrapper': !isExpanded, 'm-blog-item-expanded__wrapper': isExpanded, 'm-blog-item__wrapper--tint': !isExpanded && showPicture, 'm-blog-item-expanded__wrapper--tint': isExpanded && showPicture, 'm-blog-item__wrapper--read': !isExpanded && read, 'm-blog-item-expanded__wrapper--read': isExpanded && read, 'm-blog-item__wrapper--challenge': !isExpanded && blogPost.categories[0].name.toLowerCase() === 'challenge', 'm-blog-item-expanded__wrapper--challenge': isExpanded && blogPost.categories[0].name.toLowerCase() === 'challenge'}">
         <div [ngClass]="{'m-blog-item__text': !isExpanded, 'm-blog-item-expanded__text': isExpanded, 'm-blog-item__text--tint': !isExpanded  && showPicture, 'm-blog-item-expanded__text--tint': isExpanded && showPicture}">
             <p class="a-subsubheader" *ngIf="isExpanded">
                 Alternative Featured:
@@ -22,6 +22,9 @@
             <a class="a-link" [ngClass]="{'m-blog-item__cta': !isExpanded, 'm-blog-item-expanded__cta': isExpanded}" *ngIf="showReadMore" [routerLink]="['/post', blogPost.id, slug]">
                 Read more
             </a>
+            <div *ngIf="editedSinceLastRead" [ngClass]="{'m-blog-item__updated': !isExpanded, 'm-blog-item-expanded__updated': isExpanded}">
+                <small>updated</small>
+            </div>
         </div>
         <img    *ngIf="showPicture || isExpanded"
                 [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}"

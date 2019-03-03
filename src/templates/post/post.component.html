@@ -12,9 +12,7 @@
                 &#9900;
                 {{ post.contents | readtime }} minute read
             </p>
-            <p class="a-header">
-                {{post.title}}
-            </p>
+            <p class="a-header" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(post.title)"></p>
             <p class="a-subheader" [innerHTML]="post.summary"></p>
             <ul class="m-tags">
                 <li class="m-tags__item" *ngFor="let tag of post.tags">

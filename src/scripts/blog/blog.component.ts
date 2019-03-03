@@ -128,20 +128,14 @@ export class BlogComponent implements OnInit {
 
         if (tagAndCategoryOperations.length > 0) {
           forkJoin(tagAndCategoryOperations).subscribe((d) => {
-            console.log(d);
             for (const response of d) {
               if (response instanceof Tag) {
-                console.log('yeah');
                 this.tag = response.id;
               }
               if (response instanceof Category) {
-                console.log('no');
                 this.category = response.id;
               }
             }
-
-            console.log(this.tag);
-            console.log(this.category);
 
             if (this.tag !== '' && isNaN(parseInt(this.tag, 10))
             || this.category !== '' && isNaN(parseInt(this.category, 10))) {

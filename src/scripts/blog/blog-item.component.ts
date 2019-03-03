@@ -19,6 +19,7 @@ export class BlogItemComponent implements OnInit {
   @Input() showRoleTitle = false;
   @Input() showRoleOrganisation = false;
   read = false;
+  editedSinceLastRead = false;
 
   slug = '';
 
@@ -37,7 +38,24 @@ export class BlogItemComponent implements OnInit {
     if (this.cookieService.get('visited')) {
       visited = JSON.parse(this.cookieService.get('visited'));
     }
-    this.read = visited.indexOf(this.blogPost.id) !== -1;
+
+    this.read = false;
+    for (let i = 0; i < visited.length; i++) {
+      if (visited[i].id === this.blogPost.id) {
+        // Found an entry. Now check the date.
+        if (new Date(visited[i].date) < new Date(this.blogPost.dateEdited)) {
+          visited.splice(i, 1);
+          this.editedSinceLastRead = true;
+        } else {
+          this.read = true;
+        }
+        break;
+      }
+    }
+
+    if (this.editedSinceLastRead) {
+      this.cookieService.set('visited', JSON.stringify(visited));
+    }
   }
 
   toSlug(str: string): string {
