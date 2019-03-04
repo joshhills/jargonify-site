@@ -8,11 +8,35 @@
     }
 
     &__input {
+        display: inline-block;
         padding-left: 2rem !important;
-        width: calc(100% - 3.5rem) !important;
+        margin-right: $spacing-small;
+        width: calc(60% - 2.5rem) !important;
 
         &::placeholder {
             opacity: 1;
+        }
+
+        @include breakpoint(tablet) {
+            display: block;
+            width: calc(100% - 3.5rem) !important;
+        }
+    }
+
+    &__category {
+        @include font-primary();
+        appearance: none;
+        background: none;
+        border: $border-size solid $paper;
+        color: $paper;
+        padding: 0.5rem;
+        border-radius: 0;
+        font-size: 15pt;
+        width: calc(40% - 2.5rem) !important;
+
+        @include breakpoint(tablet) {
+            display: block;
+            width: 100% !important;
         }
     }
 }

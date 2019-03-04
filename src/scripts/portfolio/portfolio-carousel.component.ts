@@ -15,7 +15,7 @@ export class PortfolioCarouselComponent implements OnInit {
         this.windowService = windowService;
     }
 
-    public TIMER_DURATION = 5000;
+    public TIMER_DURATION = 7000;
     private ELEMENT_STYLE = 'grow-width ' + this.TIMER_DURATION + 'ms infinite linear';
 
     @Input() imageCarousel: ImageCarousel;

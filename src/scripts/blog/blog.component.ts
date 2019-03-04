@@ -32,6 +32,7 @@ export class BlogComponent implements OnInit {
   inSearch = false;
   searchTerm = '';
   tag: any = '';
+  categoryName = '';
   category = '';
 
   noPostsAfterFetch = false;
@@ -51,7 +52,8 @@ export class BlogComponent implements OnInit {
   setSearchProperties(data: any): void {
     this.searchTerm = data['search'] ? data['search'] : '';
     this.tag = data['tag'] ? data['tag'] : '';
-    this.category = data['category'] ? data['category'] : '';
+    this.category = data['category'] && data['category'] !== 'all' ? data['category'] : '';
+    this.categoryName = this.category;
     this.inSearch = this.searchTerm.trim().length > 0 || this.tag !== '' || this.category !== '';
   }
 
@@ -134,12 +136,12 @@ export class BlogComponent implements OnInit {
               }
               if (response instanceof Category) {
                 this.category = response.id;
+                this.categoryName = response.name;
               }
             }
 
             if (this.tag !== '' && isNaN(parseInt(this.tag, 10))
             || this.category !== '' && isNaN(parseInt(this.category, 10))) {
-              console.log('shouldn');
               this.numPosts = 0;
               this.noPostsAfterFetch = true;
               this.numPages = 0;
@@ -158,14 +160,34 @@ export class BlogComponent implements OnInit {
   searchTermChangedEvent(term: string): void {
     const navArray: any[] = ['/blog'];
 
-    let navExtras: {} = {};
+    const navExtras = {
+      queryParams: {}
+    };
 
     if (term.trim().length > 0) {
-      navExtras = {
-        queryParams: {
-          search: term
-        }
-      };
+      navExtras.queryParams['search'] = term;
+    }
+
+    if (this.categoryName !== '') {
+      navExtras.queryParams['category'] = this.categoryName;
+    }
+
+    this.router.navigate(navArray, navExtras);
+  }
+
+  categoryChangedEvent(term: string): void {
+    const navArray: any[] = ['/blog'];
+
+    const navExtras = {
+      queryParams: {}
+    };
+
+    if (term.trim().length > 0) {
+      navExtras.queryParams['category'] = term;
+    }
+
+    if (this.searchTerm !== '') {
+      navExtras.queryParams['search'] = this.searchTerm;
     }
 
     this.router.navigate(navArray, navExtras);

@@ -9,7 +9,7 @@
                     Technological tattle, design documents and miscellaneous musings written during
                     various projects.
             </p>
-            <blog-search (searchTermChangedEvent)="searchTermChangedEvent($event)"></blog-search>
+            <blog-search (searchTermChangedEvent)="searchTermChangedEvent($event)" (categoryChangedEvent)="categoryChangedEvent($event)"></blog-search>
         </div>
         <img    class="m-cover__image"
                 src="/static/images/covers/cover-blog-small.jpg"

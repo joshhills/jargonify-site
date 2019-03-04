@@ -1,17 +1,20 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'blog-search',
   templateUrl: '../../templates/blog/blog-search.component.html'
 })
 export class BlogSearchComponent implements OnInit {
-  // Create an observable variable.
   searchTerm: Subject<string> = new Subject<string>();
   prePopulatedSearchTerm = '';
   @Output() searchTermChangedEvent: EventEmitter<string> = new EventEmitter<string>();
+
+  category: Subject<string> = new Subject<string>();
+  prePopulatedCategory = '';
+  @Output() categoryChangedEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private route: ActivatedRoute
@@ -22,14 +25,21 @@ export class BlogSearchComponent implements OnInit {
       input =>
         this.searchTermChangedEvent.emit(input)
     );
+
+    const categoryStream = this.category.pipe(debounceTime(300)).pipe(distinctUntilChanged());
+
+    categoryStream.subscribe(
+      input => {
+        this.categoryChangedEvent.emit(input);
+      }
+    );
   }
 
   ngOnInit() {
     this.route.queryParams
-      .pipe(
-        filter(params => params['search']))
       .subscribe(params => {
         this.prePopulatedSearchTerm = params['search'];
+        this.prePopulatedCategory = params['category'];
       });
   }
 }

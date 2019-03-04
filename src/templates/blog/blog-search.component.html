@@ -1,4 +1,21 @@
 <div class="m-search-bar">
     <i class="fa fa-search m-search-bar__icon"></i>
-    <input class="m-search-bar__input" type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" placeholder="find something" />
+    <input class="m-search-bar__input" type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" placeholder="Find something in..." />
+    <select class="m-search-bar__category" (change)="category.next($event.target.value)">
+        <option value="all">
+            All
+        </option>
+        <option value="professional" [selected]="prePopulatedCategory && prePopulatedCategory.toLowerCase() === 'professional'">
+            Professional
+        </option>
+        <option value="project" [selected]="prePopulatedCategory && prePopulatedCategory.toLowerCase() === 'project'">
+            Project
+        </option>
+        <option value="challenge" [selected]="prePopulatedCategory && prePopulatedCategory.toLowerCase() === 'challenge'">
+            Challenge
+        </option>
+        <option value="miscellaneous" [selected]="prePopulatedCategory && prePopulatedCategory.toLowerCase() === 'miscellaneous'">
+            Misc.
+        </option>
+    </select>
 </div>
