@@ -5,10 +5,12 @@
     overflow: hidden;
     position: relative;
     width: 6rem;
+    border-left: $bleed-border;
 
     @include breakpoint(phone) {
         height: auto;
         width: 100%;
+        border-left: none;
     }
 
     &__wrapper {

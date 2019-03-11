@@ -23,14 +23,14 @@ export class BlogSearchComponent implements OnInit {
 
     searchTermStream.subscribe(
       input =>
-        this.searchTermChangedEvent.emit(input)
+        this.searchTermChangedEvent.emit(input.trim())
     );
 
     const categoryStream = this.category.pipe(debounceTime(300)).pipe(distinctUntilChanged());
 
     categoryStream.subscribe(
       input => {
-        this.categoryChangedEvent.emit(input);
+        this.categoryChangedEvent.emit(input.trim());
       }
     );
   }

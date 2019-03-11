@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PostComponent } from './post.component';
 import { BlogModule } from '../blog/blog.module';
+import { PortfolioCarouselComponent } from '../portfolio/portfolio-carousel.component';
+import { PortfolioModule } from '../portfolio/portfolio.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { BlogModule } from '../blog/blog.module';
     RouterModule,
     LazyLoadImageModule,
     SharedModule,
-    BlogModule
+    BlogModule,
+    PortfolioModule
   ]
 })
 export class PostModule { }

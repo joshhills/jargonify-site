@@ -8,6 +8,7 @@ import { MetaService } from '@ngx-meta/core';
 import { CookieService } from 'ngx-cookie-service';
 import { WindowService } from '../shared/services/window.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PostSectionType } from '../shared/models/post';
 
 @Component({
   selector: 'post',
@@ -18,6 +19,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PostComponent implements OnInit, OnDestroy {
   @ViewChild('cover') cover: ElementRef;
+
+  private PostSectionType: any = PostSectionType;
 
   post: BlogPost;
 

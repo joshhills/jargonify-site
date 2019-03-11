@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
   templateUrl: '../../templates/about/contact.component.html'
 })
 export class ContactComponent {
+    submitted = false;
+
     contactDetails: any = {
         name: null,
         email: null,
@@ -28,6 +30,10 @@ export class ContactComponent {
     }
 
     submit() {
+        if (this.submitted) { return; }
+
+        this.submitted = true;
+
         const requestUrl = `${this.baseUrl}/live/site/static/email/send.php`;
         const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 

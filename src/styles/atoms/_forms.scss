@@ -15,6 +15,7 @@ button {
 }
 
 textarea {
+    @include font-primary();
     background: none;
     border: $border-size solid;
     font-size: 15pt;
@@ -32,9 +33,11 @@ input {
     width: 100%;
 
     &[type='text'] {
+        appearance: none;
         background: none;
         width: calc(100% - 2rem);
         border: $border-size solid;
+        border-radius: 0;
         font-size: 15pt;
         padding: 0.5rem;
     }

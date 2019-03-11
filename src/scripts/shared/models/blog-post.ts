@@ -1,4 +1,4 @@
-import { Post, PostType } from './post';
+import { Post, PostType, PostSection } from './post';
 import { Classification } from './classification';
 import { RoleMetadata } from './role-metadata';
 import { Tag } from './tag';
@@ -8,7 +8,7 @@ export class BlogPost extends Post {
     title: string;
     summary: string;
     featureImage: any;
-    contents: string;
+    contents: PostSection[];
     tags: Tag[];
     categories: Category[];
     related: BlogPost[];
@@ -23,7 +23,7 @@ export class BlogPost extends Post {
         title: string,
         summary: string,
         featureImage: any,
-        contents: string,
+        contents: PostSection[],
         tags: Tag[],
         categories: Category[],
         related: BlogPost[],

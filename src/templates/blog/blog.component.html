@@ -29,23 +29,32 @@
     </div>
     <!-- Search Error Feedback -->
     <div class="l-blog__error" *ngIf="inSearch && noPostsAfterFetch">
-        <p class="a-subheader">
-            It doesn't look like I've written about that yet<ng-container *ngIf="tag !== ''"> with that tag</ng-container>.
-        </p>
-        <p *ngIf="searchTerm !== ''">
-            Is <em>'{{searchTerm}}'</em> something I should look into?
-        </p>
-        <a routerLink="/about">
-            Contact
-        </a>
+        <ng-container>
+            <p class="a-subheader">
+                It doesn't look like I've written
+                <ng-container *ngIf="searchTerm !== ''"> about that</ng-container>
+                <ng-container *ngIf="searchTerm === ''"> anything</ng-container> yet
+                <ng-container *ngIf="categoryName !== ''"> under category <em>'{{categoryName}}'</em></ng-container>
+                <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>
+            </p>
+            <p>
+                Is <em>'{{searchTerm}}'</em> something I should look into?
+            </p>
+            <a routerLink="/about">
+                Contact
+            </a>&nbsp;
+            <a routerLink="/blog">
+                Clear
+            </a>
+        </ng-container>
     </div>
     <!-- Search Success Feedback -->
     <div class="l-blog__feedback" *ngIf="inSearch && !noPostsAfterFetch">
-        <p *ngIf="numPosts > 1" class="a-subheader">
-            {{numPosts}} results found...
-        </p>
-        <p *ngIf="numPosts == 1" class="a-subheader">
-            {{numPosts}} result found...
+        <p class="a-subheader">
+            {{numPosts}} result<ng-container *ngIf="numPosts > 1">s</ng-container> found
+            <ng-container *ngIf="searchTerm.trim() !== ''"> for <em>'{{searchTerm}}''</em></ng-container>
+            <ng-container *ngIf="categoryName !== ''"> under category <em>'{{categoryName}}'</em></ng-container>
+            <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>...
         </p>
     </div>
     <!-- Featured Post -->

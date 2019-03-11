@@ -1,10 +1,18 @@
 .m-search-bar {
     position: relative;
 
-    &__icon {
+    &__search-icon {
         position: absolute;
+        pointer-events: none;
         left: 1rem;
         top: 1rem;
+    }
+
+    &__category-icon {
+        pointer-events: none;
+        position: absolute;
+        top: 1.1rem;
+        right: 1.1rem;
     }
 
     &__input {
@@ -23,20 +31,30 @@
         }
     }
 
-    &__category {
-        @include font-primary();
-        appearance: none;
-        background: none;
-        border: $border-size solid $paper;
-        color: $paper;
-        padding: 0.5rem;
-        border-radius: 0;
-        font-size: 15pt;
+    &__category-wrapper {
+        display: inline-block;
+        position: relative;
         width: calc(40% - 2.5rem) !important;
 
         @include breakpoint(tablet) {
             display: block;
             width: 100% !important;
+        }
+    }
+
+    &__category {
+        @include font-primary();
+        padding: 0.5rem;
+        width: 100%;
+        appearance: none;
+        background: none;
+        border: $border-size solid $paper;
+        color: $paper;
+        border-radius: 0;
+        font-size: 15pt;
+
+        option {
+            color: $ink;
         }
     }
 }

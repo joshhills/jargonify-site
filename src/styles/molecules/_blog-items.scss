@@ -184,12 +184,14 @@ $blog-item-size: 17rem;
 
     .a-subsubheader {
         display: inline-block;
+        width: 100%;
         margin-bottom: 0.5rem;
     }
 
     .a-subheader, &__summary {
         color: $paper;
         display: inline-block;
+        width: 100%;
         text-decoration: none;
         margin-bottom: 1rem;
     }

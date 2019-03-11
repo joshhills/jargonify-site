@@ -30,12 +30,31 @@
                 alt="{{post.featureImage.altText}}" />
     </div>
     <div class="o-post-list">
-        <div *ngIf="post.contents != ''" class="o-post-list__contents" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(post.contents)"></div>
-        <div *ngIf="post.contents == ''" class="o-post-list__contents">
-            <p>
-                This article is under construction! Try again later...
-            </p>
-        </div>
+        <ng-container *ngFor="let section of post.contents" class="o-post-list__contents">
+            <ng-container *ngIf="section.type === PostSectionType.TEXT">
+                <div *ngIf="section.content.trim() != ''" class="o-post-list__contents" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(section.content)"></div>
+                <div *ngIf="section.content.trim() == ''" class="o-post-list__contents">
+                    <p>
+                        This article is under construction! Try again later...
+                    </p>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="section.type === PostSectionType.IMAGE">
+                <div class="o-post-list__contents">
+                    <img    src="{{section.image.urlSmall}}"
+                            [lazyLoad]="section.image.srcSet"
+                            [useSrcset]="true"
+                            [offset]="100"
+                            [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
+                            alt="{{section.image.altText}}" />
+                </div>
+            </ng-container>
+            <ng-container *ngIf="section.type === PostSectionType.IMAGE_CAROUSEL">
+                <div class="o-post-list__contents">
+                    <portfolio-carousel [imageCarousel]="section.imageCarousel"></portfolio-carousel>
+                </div>
+            </ng-container>
+        </ng-container>
         <div *ngIf="post.related.length > 0" class="o-post-list__related m-inset m-inset--dark">
             <div class="m-inset__contents">
                 <h2>

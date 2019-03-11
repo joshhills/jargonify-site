@@ -1,45 +1,48 @@
 
 <svg width="1920px" height="1080px" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
     <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD">
+        <g id="Desktop-HD" stroke="#D8D8D8">
             <g id="Background-SVG" transform="translate(1.000000, 0.000000)">
-                <path d="M322.035401,100.5 L148.999417,100.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M320.024014,194.5 L64.9493343,194.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M148.999417,192.071183 L148.999417,100.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M64.9994173,286.071183 L64.9994173,194.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M321.047115,288.5 L0,288.5" id="Line" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <g id="Group" transform="translate(1756.000000, 194.500000) scale(-1, 1) translate(-1756.000000, -194.500000) translate(1595.000000, 99.000000)" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square">
+                <path d="M322.035401,100.5 L148.999417,100.5" id="Line" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M320.024014,194.5 L64.9493343,194.5" id="Line" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M148.999417,192.071183 L148.999417,100.5" id="Line" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M64.9994173,286.071183 L64.9994173,194.5" id="Line" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M321.047115,288.5 L0,288.5" id="Line" stroke-width="12" stroke-linecap="square"></path>
+                <g id="Group" transform="translate(1756.000000, 194.500000) scale(-1, 1) translate(-1756.000000, -194.500000) translate(1595.000000, 99.000000)" stroke-width="12" stroke-linecap="square">
                     <path d="M322,1.5 L151.087973,1.5" id="Line"></path>
                     <path d="M310.91945,95.5 L60.0308222,95.5" id="Line"></path>
                     <path d="M150.999417,93.0711825 L150.999417,1.5" id="Line"></path>
                     <path d="M59.9994173,187.071183 L59.9994173,95.5" id="Line"></path>
                     <path d="M309.913064,189.5 L0,189.5" id="Line"></path>
                 </g>
-                <polyline id="Path-4" stroke="#D8D8D8" stroke-width="12" points="93.4341501 839.872846 160.731619 839.872846 160.731619 878.554043 93.4341501 878.554043 93.4341501 473.70056 127.082885 404.622573 160.731619 473.70056 160.731619 925.765803 93.4341501 925.765803 93.4341501 878.554043"></polyline>
-                <path d="M95.6785174,502.83123 L158.861293,502.83123" id="Path-5" stroke="#D8D8D8" stroke-width="12"></path>
-                <path d="M45.5,430.5 L105.533324,430.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M45.5,550.5 L91.1344168,550.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M166.5,550.5 L268.276716,550.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M45.5,605.5 L91.1344168,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M171.5,605.5 L198.004717,605.5" id="Line-2" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <g id="Group-3" transform="translate(313.000000, 0.000000)" stroke="#222629" stroke-width="20" stroke-linecap="square">
+                <polyline id="Path-4" stroke-width="12" points="93.4341501 839.872846 160.731619 839.872846 160.731619 878.554043 93.4341501 878.554043 93.4341501 473.70056 127.082885 404.622573 160.731619 473.70056 160.731619 925.765803 93.4341501 925.765803 93.4341501 878.554043"></polyline>
+                <path d="M95.6785174,502.83123 L158.861293,502.83123" id="Path-5" stroke-width="12"></path>
+                <path d="M45.5,430.5 L105.533324,430.5" id="Line-2" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M45.5,550.5 L91.1344168,550.5" id="Line-2" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M166.5,550.5 L268.276716,550.5" id="Line-2" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M45.5,605.5 L91.1344168,605.5" id="Line-2" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M171.5,605.5 L198.004717,605.5" id="Line-2" stroke-width="12" stroke-linecap="square"></path>
+                <g id="Group-3" transform="translate(315.000000, 0.000000)" stroke-width="20" stroke-linecap="square">
                     <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3"></path>
                 </g>
-                <g id="Group-4" transform="translate(1602.500000, 539.000000) scale(-1, 1) translate(-1602.500000, -539.000000) translate(1601.000000, 0.000000)" stroke-linecap="square" stroke-width="20" stroke="#222629">
+                <g id="Group-4" transform="translate(1600.500000, 539.000000) scale(-1, 1) translate(-1600.500000, -539.000000) translate(1599.000000, 0.000000)" stroke-linecap="square" stroke-width="20">
                     <g id="Group-3">
                         <path d="M1.5,0.5 L1.5,1077.00105" id="Line-3"></path>
                     </g>
                 </g>
-                <g id="Group-2" transform="translate(1742.000000, 479.000000)" stroke-width="12" stroke="#D8D8D8">
+                <g id="Group-2" transform="translate(1742.000000, 479.000000)" stroke-width="12">
                     <polygon id="Path-6" points="0 0 0 131 118 131 118 0"></polygon>
                     <polygon id="Path-6" points="0 60 0 191 118 191 118 60"></polygon>
                 </g>
-                <path d="M1780.84066,612.908185 L1780.84066,665.77527" id="Path-7" stroke="#D8D8D8" stroke-width="12"></path>
-                <path d="M1818.84066,612.908185 L1818.84066,665.77527" id="Path-7" stroke="#D8D8D8" stroke-width="12"></path>
-                <path d="M1766.5,406.5 L1880.6096,406.5" id="Line-5" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M1756.5,806.5 L1800.34632,806.5" id="Line-5" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M1846.5,806.5 L1853.0192,806.5" id="Line-5" stroke="#D8D8D8" stroke-width="12" stroke-linecap="square"></path>
-                <path d="M1839.14097,741.990556 C1876.69633,741.990556 1907.14097,711.545919 1907.14097,673.990556 C1907.14097,636.435193 1876.69633,605.990556 1839.14097,605.990556 C1836.75148,605.990556 1834.39078,606.113803 1832.06487,606.354287 C1799.90815,609.679091 1777.71805,630.796473 1769.10692,657.424546" id="Oval-2" stroke="#D8D8D8" stroke-width="12" transform="translate(1838.123944, 673.990556) rotate(97.000000) translate(-1838.123944, -673.990556) "></path>
+                <path d="M1780.84066,612.908185 L1780.84066,665.77527" id="Path-7" stroke-width="12"></path>
+                <path d="M1818.84066,612.908185 L1818.84066,665.77527" id="Path-7" stroke-width="12"></path>
+                <path d="M1766.5,406.5 L1880.6096,406.5" id="Line-5" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M1756.5,806.5 L1800.34632,806.5" id="Line-5" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M1846.5,806.5 L1853.0192,806.5" id="Line-5" stroke-width="12" stroke-linecap="square"></path>
+                <path d="M1839.14097,741.990556 C1876.69633,741.990556 1907.14097,711.545919 1907.14097,673.990556 C1907.14097,636.435193 1876.69633,605.990556 1839.14097,605.990556 C1836.75148,605.990556 1834.39078,606.113803 1832.06487,606.354287 C1799.90815,609.679091 1777.71805,630.796473 1769.10692,657.424546" id="Oval-2" stroke-width="12" transform="translate(1838.123944, 673.990556) rotate(97.000000) translate(-1838.123944, -673.990556) "></path>
             </g>
         </g>
     </g>

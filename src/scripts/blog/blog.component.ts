@@ -33,6 +33,7 @@ export class BlogComponent implements OnInit {
   searchTerm = '';
   tag: any = '';
   categoryName = '';
+  tagName = '';
   category = '';
 
   noPostsAfterFetch = false;
@@ -52,6 +53,7 @@ export class BlogComponent implements OnInit {
   setSearchProperties(data: any): void {
     this.searchTerm = data['search'] ? data['search'] : '';
     this.tag = data['tag'] ? data['tag'] : '';
+    this.tagName = this.tag;
     this.category = data['category'] && data['category'] !== 'all' ? data['category'] : '';
     this.categoryName = this.category;
     this.inSearch = this.searchTerm.trim().length > 0 || this.tag !== '' || this.category !== '';
@@ -99,7 +101,9 @@ export class BlogComponent implements OnInit {
     for (const post of this.blogPosts) {
       if (post.classification.isFeature) {
         this.featuredBlogPost = post;
-        this.excludedPostIds = [post.id];
+        if (!this.inSearch) {
+          this.excludedPostIds = [post.id];
+        }
         break;
       }
     }
@@ -133,6 +137,7 @@ export class BlogComponent implements OnInit {
             for (const response of d) {
               if (response instanceof Tag) {
                 this.tag = response.id;
+                this.tagName = response.name;
               }
               if (response instanceof Category) {
                 this.category = response.id;
@@ -172,6 +177,10 @@ export class BlogComponent implements OnInit {
       navExtras.queryParams['category'] = this.categoryName;
     }
 
+    if (this.tagName !== '') {
+      navExtras.queryParams['tag'] = this.tagName;
+    }
+
     this.router.navigate(navArray, navExtras);
   }
 
@@ -188,6 +197,10 @@ export class BlogComponent implements OnInit {
 
     if (this.searchTerm !== '') {
       navExtras.queryParams['search'] = this.searchTerm;
+    }
+
+    if (this.tagName !== '') {
+      navExtras.queryParams['tag'] = this.tagName;
     }
 
     this.router.navigate(navArray, navExtras);

@@ -59,17 +59,20 @@ export class PostWithOptions {
     public showRoleDate: boolean;
     public showRoleTitle: boolean;
     public showRoleOrganisation: boolean;
+    public isExpanded: boolean;
 
     constructor(
         post: Post,
         showRoleDate: boolean,
         showRoleTitle: boolean,
-        showRoleOrganisation: boolean
+        showRoleOrganisation: boolean,
+        isExpanded: boolean
     ) {
         this.post = post;
         this.showRoleDate = showRoleDate;
         this.showRoleTitle = showRoleTitle;
         this.showRoleOrganisation = showRoleOrganisation;
+        this.isExpanded = isExpanded;
     }
 }
 

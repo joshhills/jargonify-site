@@ -34,7 +34,7 @@
             </div>
             <div *ngIf="section.posts" class="o-portfolio-list">
                 <ng-container *ngFor="let postWithOptions of section.posts">
-                    <blog-item *ngIf="postWithOptions.post.type == PostType.BLOG" [blogPost]="postWithOptions.post" [isExpanded]="false" [showDate]="false" [showPicture]="true" [showRoleDate]="postWithOptions.showRoleDate" [showRoleTitle]="postWithOptions.showRoleTitle" [showRoleOrganisation]="postWithOptions.showRoleOrganisation"></blog-item>
+                    <blog-item *ngIf="postWithOptions.post.type == PostType.BLOG" [blogPost]="postWithOptions.post" [isExpanded]="postWithOptions.isExpanded" [showDate]="false" [showPicture]="true" [showRoleDate]="postWithOptions.showRoleDate" [showRoleTitle]="postWithOptions.showRoleTitle" [showRoleOrganisation]="postWithOptions.showRoleOrganisation"></blog-item>
                     <div *ngIf="postWithOptions.post.type == PostType.ANECDOTE" class="m-blog-item-anecdote">
                         {{postWithOptions.post.text}}
                     </div>

@@ -14,7 +14,7 @@ import { PortfolioLayoutPost,
     EndorsementPortfolioSection,
     PostWithOptions,
     ImageCarouselSection} from '../models/portfolio-layout-post';
-import { Post, PostType } from '../models/post';
+import { Post, PostType, PostSection, TextPostSection, PostSectionType, ImagePostSection, ImageCarouselPostSection } from '../models/post';
 import { EndorsementPost, ContactType } from '../models/endorsement-post';
 import { AnecdotePost } from '../models/anecdote-post';
 import { Classification } from '../models/classification';
@@ -311,7 +311,8 @@ export class WordpressAPIPostService implements PostService {
                                 data,
                                 post['show_role_date'],
                                 post['show_role_title'],
-                                post['show_role_organisation']
+                                post['show_role_organisation'],
+                                post['is_expanded']
                             ));
                         }
                     );
@@ -327,6 +328,7 @@ export class WordpressAPIPostService implements PostService {
                                 null,
                                 post['anecdote']
                             ),
+                            null,
                             null,
                             null,
                             null
@@ -572,6 +574,120 @@ export class WordpressAPIPostService implements PostService {
             responsibilities
         );
 
+        // Get the content.
+        const postSections: PostSection[] = [];
+
+        if (blob['acf']['content']) {
+            for (const layout of blob['acf']['content']) {
+                switch (layout['acf_fc_layout']) {
+                    case 'text_block':
+                        postSections.push(
+                            new TextPostSection(PostSectionType.TEXT, layout['content'])
+                        );
+                        break;
+                    case 'image_block':
+                        const image: any = {
+                            urlSmall: null,
+                            urlMedium: null,
+                            urlLarge: null,
+                            urlFull: null,
+                            srcSet: '',
+                            altText: null,
+                            title: null,
+                            caption: null
+                        };
+
+                        if (layout['image']['sizes']['medium']) {
+                            image.urlSmall = layout['image']['sizes']['medium'];
+                            image.srcSet += `${image.urlSmall} 300w, `;
+                        }
+
+                        if (layout['image']['sizes']['medium_large']) {
+                            image.urlMedium = layout['image']['sizes']['medium_large'];
+                            image.srcSet += `${image.urlMedium} 400w, `;
+                        }
+
+                        if (layout['image']['sizes']['large']) {
+                            image.urlLarge = layout['image']['sizes']['large'];
+                            image.srcSet += `${image.urlLarge} 1024w, `;
+                        }
+
+                        if (layout['image']['url']) {
+                            image.urlFull = layout['image']['url'];
+                            image.srcSet += `${image.urlFull} 1920w`;
+                        }
+
+                        image.title = layout['image']['title'];
+                        image.altText = layout['image']['alt'];
+                        image.caption = layout['image']['caption'];
+
+                        postSections.push(
+                            new ImagePostSection(
+                                PostSectionType.IMAGE,
+                                image
+                            )
+                        );
+                        break;
+                    case 'image_carousel':
+                        const isAnimated = layout['is_animated'];
+                        const items: ImageWithCaption[] = [];
+
+                        for (const item of layout['items']) {
+                            // Create the image.
+                            const caption2: string = item['caption'];
+
+                            const image2: any = {
+                                urlSmall: null,
+                                urlMedium: null,
+                                urlLarge: null,
+                                urlFull: null,
+                                srcSet: '',
+                                altText: null,
+                                title: null,
+                                caption: null
+                            };
+
+                            if (item['image']['sizes']['medium']) {
+                                image2.urlSmall = item['image']['sizes']['medium'];
+                                image2.srcSet += `${image2.urlSmall} 300w, `;
+                            }
+
+                            if (item['image']['sizes']['medium_large']) {
+                                image2.urlMedium = item['image']['sizes']['medium_large'];
+                                image2.srcSet += `${image2.urlMedium} 400w, `;
+                            }
+
+                            if (item['image']['sizes']['large']) {
+                                image2.urlLarge = item['image']['sizes']['large'];
+                                image2.srcSet += `${image2.urlLarge} 1024w, `;
+                            }
+
+                            if (item['image']['url']) {
+                                image2.urlFull = item['image']['url'];
+                                image2.srcSet += `${image2.urlFull} 1920w`;
+                            }
+
+                            image2.title = item['image']['title'];
+                            image2.altText = item['image']['alt'];
+                            image2.caption = item['image']['caption'];
+
+                            items.push(new ImageWithCaption(image2, caption2));
+                        }
+
+                        postSections.push(
+                            new ImageCarouselPostSection(
+                                PostSectionType.IMAGE_CAROUSEL,
+                                new ImageCarousel(
+                                    isAnimated,
+                                    items
+                                )
+                            )
+                        );
+                        break;
+                }
+            }
+        }
+
         return new BlogPost(
             PostType.BLOG,
             blob['id'],
@@ -580,7 +696,7 @@ export class WordpressAPIPostService implements PostService {
             blob['title']['rendered'],
             blob['excerpt']['rendered'],
             featureImage,
-            blob['content']['rendered'],
+            postSections,
             tags,
             categories,
             related,

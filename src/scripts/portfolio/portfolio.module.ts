@@ -17,6 +17,9 @@ import { PortfolioCarouselComponent } from './portfolio-carousel.component';
     RouterModule,
     LazyLoadImageModule,
     BlogModule
+  ],
+  exports: [
+    PortfolioCarouselComponent
   ]
 })
 export class PortfolioModule {}
