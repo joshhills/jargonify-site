@@ -43,7 +43,7 @@ export class PortfolioComponent implements OnInit {
             if (landedId !== null) {
               idToGet = landedId;
             } else {
-              idToGet = '81'; // Hard-coded fallback
+              idToGet = 'default'; // Hard-coded fallback
             }
             this.getPortfolioLayout(idToGet);
           }

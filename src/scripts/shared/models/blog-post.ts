@@ -3,6 +3,7 @@ import { Classification } from './classification';
 import { RoleMetadata } from './role-metadata';
 import { Tag } from './tag';
 import { Category } from './category';
+import { Video } from './video';
 
 export class BlogPost extends Post {
     title: string;
@@ -14,6 +15,7 @@ export class BlogPost extends Post {
     related: BlogPost[];
     classification: Classification;
     roleMetadata: RoleMetadata;
+    featuredVideo: Video;
 
     constructor(
         type: PostType,
@@ -28,7 +30,8 @@ export class BlogPost extends Post {
         categories: Category[],
         related: BlogPost[],
         classification: Classification,
-        roleMetadata: RoleMetadata
+        roleMetadata: RoleMetadata,
+        featuredVideo: Video
     ) {
         super(type, id, dateCreated, dateEdited);
 
@@ -41,5 +44,6 @@ export class BlogPost extends Post {
         this.related = related;
         this.classification = classification;
         this.roleMetadata = roleMetadata;
+        this.featuredVideo = featuredVideo;
     }
 }

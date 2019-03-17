@@ -1,5 +1,5 @@
 .l-blog {
-    &__error {
+    &__error, &__searching {
         display: block;
         padding: $spacing-medium + $spacing-small;
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WordpressAPIPostService } from '../shared/services/post.service';
@@ -15,10 +15,17 @@ import { PostSectionType } from '../shared/models/post';
   templateUrl: '../../templates/post/post.component.html',
   providers: [
     WordpressAPIPostService
-  ]
+  ],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PostComponent implements OnInit, OnDestroy {
+export class PostComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('cover') cover: ElementRef;
+  @ViewChild('pvideo') set ft(pvideo: ElementRef) {
+    if (pvideo) {
+      pvideo.nativeElement.muted = true;
+      pvideo.nativeElement.play().catch();
+    }
+  }
 
   private PostSectionType: any = PostSectionType;
 
@@ -42,9 +49,14 @@ export class PostComponent implements OnInit, OnDestroy {
     private domSanitizer: DomSanitizer
   ) {}
 
+  ngOnChanges(changes: any) {
+    console.log(changes);
+  }
+
   ngOnInit() {
     this.route.params.subscribe(
       params => {
+        console.log('1');
         if (params['id']) {
           this.getBlogPost(params['id']);
         }
@@ -52,6 +64,7 @@ export class PostComponent implements OnInit, OnDestroy {
     );
     this.historyService.isNavigatedWithinApp().subscribe(
       res => {
+        console.log('2');
         this.backEnabled = res;
       }
     );
@@ -68,6 +81,7 @@ export class PostComponent implements OnInit, OnDestroy {
   getBlogPost(id: string): void {
     this.postService.getBlogPost(id).subscribe(
       res => {
+        console.log('3');
         this.post = res;
 
         // Set cookie.

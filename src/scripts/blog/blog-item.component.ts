@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BlogPost } from '../shared/models/blog-post';
 import { CookieService } from 'ngx-cookie-service';
 import { WindowService } from '../shared/services/window.service';
@@ -18,6 +18,15 @@ export class BlogItemComponent implements OnInit {
   @Input() showRoleDate = false;
   @Input() showRoleTitle = false;
   @Input() showRoleOrganisation = false;
+
+  @ViewChild('video') video: ElementRef;
+  @ViewChild('video') set ft(video: ElementRef) {
+    if (video && this.isExpanded) {
+      video.nativeElement.muted = true;
+      video.nativeElement.play().catch();
+    }
+  }
+
   read = false;
   editedSinceLastRead = false;
 
@@ -75,5 +84,19 @@ export class BlogItemComponent implements OnInit {
       .replace(/-+/g, '-');
 
     return str;
+  }
+
+  mouseEnter(): void {
+    if (this.video) {
+      this.video.nativeElement.muted = true;
+      this.video.nativeElement.currentTime = 0;
+      this.video.nativeElement.play().catch();
+    }
+  }
+
+  mouseLeave(): void {
+    if (this.video) {
+      this.video.nativeElement.pause();
+    }
   }
 }

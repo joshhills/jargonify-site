@@ -30,6 +30,10 @@
         z-index: 0;
     }
 
+    &__video {
+        @include image-cover;
+    }
+
     &__text {
         box-sizing: border-box;
         padding: $spacing-large;

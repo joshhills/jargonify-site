@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { ImageCarousel } from '../shared/models/image-carousel';
-import { WindowService } from '../shared/services/window.service';
+import { ImageCarousel } from '../models/image-carousel';
+import { WindowService } from '../services/window.service';
 
 @Component({
-    selector: 'portfolio-carousel',
-    templateUrl: '../../templates/portfolio/portfolio-carousel.component.html'
+    selector: 'image-carousel',
+    templateUrl: '../../../templates/shared/image-carousel.component.html'
 })
-export class PortfolioCarouselComponent implements OnInit {
+export class ImageCarouselComponent implements OnInit {
 
     constructor(
         public windowService: WindowService,
@@ -15,7 +15,7 @@ export class PortfolioCarouselComponent implements OnInit {
         this.windowService = windowService;
     }
 
-    public TIMER_DURATION = 7000;
+    public TIMER_DURATION = 13000;
     private ELEMENT_STYLE = 'grow-width ' + this.TIMER_DURATION + 'ms infinite linear';
 
     @Input() imageCarousel: ImageCarousel;

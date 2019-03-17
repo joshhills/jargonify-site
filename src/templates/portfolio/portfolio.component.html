@@ -34,8 +34,8 @@
             </div>
             <div *ngIf="section.posts" class="o-portfolio-list">
                 <ng-container *ngFor="let postWithOptions of section.posts">
-                    <blog-item *ngIf="postWithOptions.post.type == PostType.BLOG" [blogPost]="postWithOptions.post" [isExpanded]="postWithOptions.isExpanded" [showDate]="false" [showPicture]="true" [showRoleDate]="postWithOptions.showRoleDate" [showRoleTitle]="postWithOptions.showRoleTitle" [showRoleOrganisation]="postWithOptions.showRoleOrganisation"></blog-item>
-                    <div *ngIf="postWithOptions.post.type == PostType.ANECDOTE" class="m-blog-item-anecdote">
+                    <blog-item *ngIf="postWithOptions && postWithOptions.post.type == PostType.BLOG" [blogPost]="postWithOptions.post" [isExpanded]="postWithOptions.isExpanded" [showDate]="false" [showPicture]="true" [showRoleDate]="postWithOptions.showRoleDate" [showRoleTitle]="postWithOptions.showRoleTitle" [showRoleOrganisation]="postWithOptions.showRoleOrganisation"></blog-item>
+                    <div *ngIf="postWithOptions && postWithOptions.post.type == PostType.ANECDOTE" class="m-blog-item-anecdote">
                         {{postWithOptions.post.text}}
                     </div>
                 </ng-container>
@@ -68,7 +68,7 @@
             </div>
         </ng-container>
         <ng-container *ngIf="section.type === PortfolioSectionType.IMAGE_CAROUSEL">
-            <portfolio-carousel [imageCarousel]="section.imageCarousel"></portfolio-carousel>
+            <image-carousel [imageCarousel]="section.imageCarousel"></image-carousel>
         </ng-container>
     </ng-container>
 </div>

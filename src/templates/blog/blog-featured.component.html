@@ -5,11 +5,16 @@
         <p [innerHTML]="featuredBlogPost.summary"></p>
         <a class="a-link a-link--light" [routerLink]="['/post', featuredBlogPost.id, slug]">Read more</a>
     </div>
-    <img    class="m-blog-item-featured__image"
+    <img    *ngIf="featuredBlogPost.featureImage.urlFull && !(featuredBlogPost.featuredVideo.webm || featuredBlogPost.featuredVideo.mp4)"
+            class="m-blog-item-featured__image"
             src="{{featuredBlogPost.featureImage.urlSmall}}"
             [lazyLoad]="featuredBlogPost.featureImage.srcSet"
             [useSrcset]="true"
             [offset]="100"
             [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
             alt="{{featuredBlogPost.featureImage.altText}}" />
+    <video #fvideo *ngIf="featuredBlogPost.featuredVideo.mp4 || featuredBlogPost.featuredVideo.webm" class="m-blog-item-featured__video" poster="{{featuredBlogPost.featureImage.urlFull}}" preload="auto" muted autoplay loop playsinline disablePictureInPicture>
+        <source type="video/mp4" src="{{featuredBlogPost.featuredVideo.mp4}}">
+        <source type="video/webm" src="{{featuredBlogPost.featuredVideo.webm}}">
+    </video>
 </div>

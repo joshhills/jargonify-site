@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { BlogPost } from '../shared/models/blog-post';
 import { WindowService } from '../shared/services/window.service';
 
@@ -8,6 +8,12 @@ import { WindowService } from '../shared/services/window.service';
 })
 export class BlogFeaturedComponent implements OnInit, OnChanges {
   @Input() featuredBlogPost: BlogPost;
+  @ViewChild('fvideo') set ft(video: ElementRef) {
+    if (video) {
+      video.nativeElement.muted = true;
+      video.nativeElement.play().catch();
+    }
+  }
 
   slug = '';
 

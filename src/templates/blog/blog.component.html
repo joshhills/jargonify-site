@@ -21,61 +21,71 @@
                 [offset]="100000"
                 alt="Blog image of me writing." />
     </div>
-    <!-- Posts Error Feedback -->
-    <div class="l-blog__error" *ngIf="!inSearch && noPostsAfterFetch">
+    <div *ngIf="handlingChange" class="l-blog__searching">
         <p class="a-subheader">
-            Uh-oh, doesn't look like there are any posts.
+            Searching...
         </p>
     </div>
-    <!-- Search Error Feedback -->
-    <div class="l-blog__error" *ngIf="inSearch && noPostsAfterFetch">
-        <ng-container>
+    <ng-container *ngIf="!handlingChange">
+        <!-- Posts Error Feedback -->
+        <div class="l-blog__error" *ngIf="!inSearch && noPostsAfterFetch">
             <p class="a-subheader">
-                It doesn't look like I've written
-                <ng-container *ngIf="searchTerm !== ''"> about that</ng-container>
-                <ng-container *ngIf="searchTerm === ''"> anything</ng-container> yet
+                Uh-oh, doesn't look like there are any posts.
+            </p>
+        </div>
+        <!-- Search Error Feedback -->
+        <div class="l-blog__error" *ngIf="inSearch && noPostsAfterFetch">
+            <ng-container>
+                <p class="a-subheader">
+                    It doesn't look like I've written
+                    <ng-container *ngIf="searchTerm !== ''"> about that</ng-container>
+                    <ng-container *ngIf="searchTerm === ''"> anything</ng-container> yet
+                    <ng-container *ngIf="categoryName !== ''"> under category <em>'{{categoryName}}'</em></ng-container>
+                    <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>
+                </p>
+                <p>
+                    Is <em>'{{searchTerm}}'</em> something I should look into?
+                </p>
+                <a routerLink="/about">
+                    Contact
+                </a>&nbsp;
+                <a href="/blog">
+                    Clear
+                </a>
+            </ng-container>
+        </div>
+        <!-- Search Success Feedback -->
+        <div class="l-blog__feedback" *ngIf="inSearch && !noPostsAfterFetch">
+            <p class="a-subheader">
+                {{numPosts}} result<ng-container *ngIf="numPosts > 1">s</ng-container> found
+                <ng-container *ngIf="searchTerm.trim() !== ''"> for <em>'{{searchTerm}}'</em></ng-container>
                 <ng-container *ngIf="categoryName !== ''"> under category <em>'{{categoryName}}'</em></ng-container>
-                <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>
+                <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>...
             </p>
-            <p>
-                Is <em>'{{searchTerm}}'</em> something I should look into?
-            </p>
-            <a routerLink="/about">
-                Contact
-            </a>&nbsp;
-            <a routerLink="/blog">
+            <a href="/blog" style="display: inline-block">
                 Clear
             </a>
-        </ng-container>
-    </div>
-    <!-- Search Success Feedback -->
-    <div class="l-blog__feedback" *ngIf="inSearch && !noPostsAfterFetch">
-        <p class="a-subheader">
-            {{numPosts}} result<ng-container *ngIf="numPosts > 1">s</ng-container> found
-            <ng-container *ngIf="searchTerm.trim() !== ''"> for <em>'{{searchTerm}}''</em></ng-container>
-            <ng-container *ngIf="categoryName !== ''"> under category <em>'{{categoryName}}'</em></ng-container>
-            <ng-container *ngIf="tag !== ''"> with tag <em>'{{tagName}}'</em></ng-container>...
-        </p>
-    </div>
+        </div>
+    </ng-container>
     <!-- Featured Post -->
-    <blog-featured *ngIf="featuredBlogPost && !inSearch && currentPage == 0" [featuredBlogPost]="featuredBlogPost"></blog-featured>
+    <blog-featured *ngIf="featuredBlogPost && !inSearch && currentPage == 0 && !handlingChange" [featuredBlogPost]="featuredBlogPost"></blog-featured>
     <!-- Posts -->
-    <blog-list *ngIf="blogPosts && blogPosts.length > 0" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds" [currentPage]="currentPage" [fresh]="currentPage == 0 && !inSearch"></blog-list>
+    <blog-list *ngIf="blogPosts && blogPosts.length > 0 && !handlingChange" [blogPosts]="blogPosts" [excludedPostIds]="excludedPostIds" [currentPage]="currentPage" [fresh]="currentPage == 0 && !inSearch"></blog-list>
     <!-- Information -->
     <div class="m-inset m-inset--dark">
         <div class="m-inset__contents m-inset__contents--left">
             <p>
-                I try to post once a week, with various recurring ideas - from personal challenges, to hackathons,
-                to tutorials or anecdotes, all with the intention of pushing myself to share what I learn.
+                I try to post often, on various recurring themes - from personal challenges, to hackathon retrospectives,
+                tutorials and anecdotes. It's all very free-form and home-brewed.
             </p>
             <p>
-                Soon, there might be a mailing list and progressive web-app technologies to push updates to your device.
-                For now, just remember to check back if you're interested. Thanks!
+                Posts outlined with dashes represent atomic tidbits of knowledge logged during a piece of work.
+                Those with multiple cards are in a series.
             </p>
         </div>
         <div class="m-inset__contents m-inset__contents--right">
             <p class="a-subheader">
-                Want to stay up to date?
+                Stay up to date!
             </p>
         </div>
     </div>

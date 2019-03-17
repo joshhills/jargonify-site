@@ -7,6 +7,7 @@ import { combineLatest, Subscription, Observable, forkJoin } from 'rxjs';
 import { WindowService } from '../shared/services/window.service';
 import { Tag } from '../shared/models/tag';
 import { Category } from '../shared/models/category';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'blog',
@@ -35,6 +36,7 @@ export class BlogComponent implements OnInit {
   categoryName = '';
   tagName = '';
   category = '';
+  handlingChange = true;
 
   noPostsAfterFetch = false;
 
@@ -43,7 +45,8 @@ export class BlogComponent implements OnInit {
     private router: Router,
     private appConfiguration: AppConfiguration,
     private postService: WordpressAPIPostService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private location: Location
   ) {}
 
   setPageProperties(data: any): void {
@@ -53,8 +56,10 @@ export class BlogComponent implements OnInit {
   setSearchProperties(data: any): void {
     this.searchTerm = data['search'] ? data['search'] : '';
     this.tag = data['tag'] ? data['tag'] : '';
+    this.tag = this.tag.replace(' ', '-').replace('%20', '-');
     this.tagName = this.tag;
     this.category = data['category'] && data['category'] !== 'all' ? data['category'] : '';
+    this.category = this.category.replace(' ', '-').replace('%20', '-');
     this.categoryName = this.category;
     this.inSearch = this.searchTerm.trim().length > 0 || this.tag !== '' || this.category !== '';
   }
@@ -87,12 +92,16 @@ export class BlogComponent implements OnInit {
 
       this.noPostsAfterFetch = this.blogPosts.length === 0;
 
-      if (this.currentPage === 0) {
+      if (this.currentPage === 0 && !this.inSearch) {
         this.fetchFeaturedBlogPost();
+      } else {
+        this.excludedPostIds = [];
+        this.handlingChange = false;
       }
     },
     err => {
       this.noPostsAfterFetch = true;
+      this.handlingChange = false;
     });
   }
 
@@ -107,6 +116,7 @@ export class BlogComponent implements OnInit {
         break;
       }
     }
+    this.handlingChange = false;
   }
 
   ngOnInit() {
@@ -115,95 +125,123 @@ export class BlogComponent implements OnInit {
       this.route.queryParams
     ).subscribe(
       data => {
-        this.setPageProperties(data[0]);
-        this.setSearchProperties(data[1]);
-
-        if (this.currentPage === 0 && !this.inSearch) {
-          this.scrollToTopOfPage();
-        }
-
-        const tagAndCategoryOperations: any[] = [];
-
-        if (this.tag !== '' && isNaN(parseInt(this.tag, 10))) {
-          tagAndCategoryOperations.push(this.postService.getTag(this.tag));
-        }
-
-        if (this.category !== '' && isNaN(parseInt(this.category, 10))) {
-          tagAndCategoryOperations.push(this.postService.getCategory(this.category));
-        }
-
-        if (tagAndCategoryOperations.length > 0) {
-          forkJoin(tagAndCategoryOperations).subscribe((d) => {
-            for (const response of d) {
-              if (response instanceof Tag) {
-                this.tag = response.id;
-                this.tagName = response.name;
-              }
-              if (response instanceof Category) {
-                this.category = response.id;
-                this.categoryName = response.name;
-              }
-            }
-
-            if (this.tag !== '' && isNaN(parseInt(this.tag, 10))
-            || this.category !== '' && isNaN(parseInt(this.category, 10))) {
-              this.numPosts = 0;
-              this.noPostsAfterFetch = true;
-              this.numPages = 0;
-              return;
-            }
-
-            this.fetchBlogPostProperties();
-          });
-        } else {
-          this.fetchBlogPostProperties();
-        }
+        this.initPage(data[0], data[1]);
       }
     );
   }
 
-  searchTermChangedEvent(term: string): void {
-    const navArray: any[] = ['/blog'];
+  initPage(params: any, queryParams: any): void {
+    this.setPageProperties(params);
+    this.setSearchProperties(queryParams);
 
-    const navExtras = {
-      queryParams: {}
-    };
+    if (this.currentPage === 0 && !this.inSearch) {
+      this.scrollToTopOfPage();
+    }
+
+    const tagAndCategoryOperations: any[] = [];
+
+    if (this.tag !== '' && isNaN(parseInt(this.tag, 10))) {
+      tagAndCategoryOperations.push(this.postService.getTag(this.tag));
+    }
+
+    if (this.category !== '' && isNaN(parseInt(this.category, 10))) {
+      tagAndCategoryOperations.push(this.postService.getCategory(this.category));
+    }
+
+    if (tagAndCategoryOperations.length > 0) {
+      forkJoin(tagAndCategoryOperations).subscribe((d) => {
+        for (const response of d) {
+          if (response instanceof Tag) {
+            this.tag = response.id;
+            this.tagName = response.name;
+          }
+          if (response instanceof Category) {
+            this.category = response.id;
+            this.categoryName = response.name;
+          }
+        }
+
+        if (this.tag !== '' && isNaN(parseInt(this.tag, 10))
+        || this.category !== '' && isNaN(parseInt(this.category, 10))) {
+          this.numPosts = 0;
+          this.noPostsAfterFetch = true;
+          this.numPages = 0;
+          return;
+        }
+
+        this.fetchBlogPostProperties();
+      });
+    } else {
+      this.fetchBlogPostProperties();
+    }
+  }
+
+  searchTermChangedEvent(term: string): void {
+    this.handlingChange = true;
+
+    let queryString = '';
+    const queryParams = {};
 
     if (term.trim().length > 0) {
-      navExtras.queryParams['search'] = term;
+      queryParams['search'] = term;
+      queryString += `?search=${term}`;
     }
 
     if (this.categoryName !== '') {
-      navExtras.queryParams['category'] = this.categoryName;
+      queryParams['category'] = this.categoryName;
+      if (queryString === '') {
+        queryString += `?category=${this.categoryName}`;
+      } else {
+        queryString += `&category=${this.categoryName}`;
+      }
     }
 
     if (this.tagName !== '') {
-      navExtras.queryParams['tag'] = this.tagName;
+      queryParams['tag'] = this.tagName;
+      if (queryString === '') {
+        queryString += `?tag=${this.tagName}`;
+      } else {
+        queryString += `&tag=${this.tagName}`;
+      }
     }
 
-    this.router.navigate(navArray, navExtras);
+    const url = `/blog${queryString}`;
+    this.location.go(url);
+    this.initPage({}, queryParams);
   }
 
   categoryChangedEvent(term: string): void {
-    const navArray: any[] = ['/blog'];
+    this.handlingChange = true;
 
-    const navExtras = {
-      queryParams: {}
-    };
-
-    if (term.trim().length > 0) {
-      navExtras.queryParams['category'] = term;
-    }
+    let queryString = '';
+    const queryParams = {};
 
     if (this.searchTerm !== '') {
-      navExtras.queryParams['search'] = this.searchTerm;
+      queryParams['search'] = this.searchTerm;
+      queryString += `?search=${this.categoryName}`;
+    }
+
+    if (term.trim().length > 0) {
+      queryParams['category'] = term;
+      if (queryString === '') {
+        queryString += `?category=${term}`;
+      } else {
+        queryString += `&category=${term}`;
+      }
     }
 
     if (this.tagName !== '') {
-      navExtras.queryParams['tag'] = this.tagName;
+      queryParams['tag'] = this.tagName;
+      if (queryString === '') {
+        queryString += `?tag=${this.tagName}`;
+      } else {
+        queryString += `&tag=${this.tagName}`;
+      }
     }
 
-    this.router.navigate(navArray, navExtras);
+    const url = `/blog${queryString}`;
+    this.location.go(url);
+    this.initPage({}, queryParams);
   }
 
   scrollToTopOfPage(): void {

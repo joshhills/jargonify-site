@@ -5,21 +5,19 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { BlogModule } from '../blog/blog.module';
-import { PortfolioCarouselComponent } from './portfolio-carousel.component';
+import { ImageCarouselComponent } from '../shared/components/image-carousel.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    PortfolioComponent,
-    PortfolioCarouselComponent
+    PortfolioComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     LazyLoadImageModule,
-    BlogModule
-  ],
-  exports: [
-    PortfolioCarouselComponent
+    BlogModule,
+    SharedModule
   ]
 })
 export class PortfolioModule {}

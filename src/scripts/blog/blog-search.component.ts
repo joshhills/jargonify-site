@@ -19,7 +19,7 @@ export class BlogSearchComponent implements OnInit {
   constructor(
     private route: ActivatedRoute
   ) {
-    const searchTermStream = this.searchTerm.pipe(debounceTime(300)).pipe(distinctUntilChanged());
+    const searchTermStream = this.searchTerm.pipe(debounceTime(400)).pipe(distinctUntilChanged());
 
     searchTermStream.subscribe(
       input =>

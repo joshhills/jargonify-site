@@ -20,7 +20,7 @@
                 </li>
             </ul>
         </div>
-        <img    *ngIf="post.featureImage.urlFull"
+        <img    *ngIf="post.featureImage.urlFull && !(post.featuredVideo.webm || post.featuredVideo.mp4)"
                 class="m-cover__image"
                 src="{{post.featureImage.urlSmall}}"
                 [lazyLoad]="post.featureImage.srcSet"
@@ -28,33 +28,37 @@
                 [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
                 [offset]="100"
                 alt="{{post.featureImage.altText}}" />
+        <video #pvideo *ngIf="post.featuredVideo.mp4 || post.featuredVideo.webm" class="m-cover__video" poster="{{post.featureImage.urlFull}}" preload="auto" muted autoplay loop playsinline disablePictureInPicture>
+            <source type="video/mp4" src="{{post.featuredVideo.mp4}}">
+            <source type="video/webm" src="{{post.featuredVideo.webm}}">
+            <a href="{{post.featuredVideo.mp4}}">{{post.featuredVideo.mp4}}</a>
+        </video>
     </div>
     <div class="o-post-list">
-        <ng-container *ngFor="let section of post.contents" class="o-post-list__contents">
-            <ng-container *ngIf="section.type === PostSectionType.TEXT">
-                <div *ngIf="section.content.trim() != ''" class="o-post-list__contents" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(section.content)"></div>
-                <div *ngIf="section.content.trim() == ''" class="o-post-list__contents">
-                    <p>
-                        This article is under construction! Try again later...
-                    </p>
-                </div>
-            </ng-container>
-            <ng-container *ngIf="section.type === PostSectionType.IMAGE">
-                <div class="o-post-list__contents">
+        <div class="o-post-list__contents">
+            <ng-container *ngFor="let section of post.contents" class="o-post-list__contents">
+                <ng-container *ngIf="section.type === PostSectionType.TEXT">
+                    <div *ngIf="section.content.trim() != ''" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(section.content)"></div>
+                    <div *ngIf="section.content.trim() == ''">
+                        <p>
+                            This article is under construction! Try again later...
+                        </p>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="section.type === PostSectionType.IMAGE">
                     <img    src="{{section.image.urlSmall}}"
+                            class="img-space"
                             [lazyLoad]="section.image.srcSet"
                             [useSrcset]="true"
                             [offset]="100"
                             [scrollTarget]="this.windowService.getNativeWindow().document.getElementById('bleed')"
                             alt="{{section.image.altText}}" />
-                </div>
+                </ng-container>
+                <ng-container *ngIf="section.type === PostSectionType.IMAGE_CAROUSEL">
+                    <image-carousel [imageCarousel]="section.imageCarousel"></image-carousel>
+                </ng-container>
             </ng-container>
-            <ng-container *ngIf="section.type === PostSectionType.IMAGE_CAROUSEL">
-                <div class="o-post-list__contents">
-                    <portfolio-carousel [imageCarousel]="section.imageCarousel"></portfolio-carousel>
-                </div>
-            </ng-container>
-        </ng-container>
+        </div>
         <div *ngIf="post.related.length > 0" class="o-post-list__related m-inset m-inset--dark">
             <div class="m-inset__contents">
                 <h2>
@@ -66,14 +70,17 @@
             </div>
         </div>
         <div class="o-post-list__footer">
-            <p class="o-post-list__scroll">
+            <div class="o-post-list__actions">
                 <a class="a-link a-link--light" [routerLink]="" (click)="scrollToTop()">
                     Scroll Up
                 </a>
-            </p>
-            <p class="o-post-list__social">
-                <ng-container *ngIf="post.dateEdited !== dateCreated">Last edited {{post.dateEdited | date: 'fullDate'}}.</ng-container> Want to share this post? <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
-            </p>
+                <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
+            </div>
+            <ng-container *ngIf="post.dateEdited !== dateCreated">
+                <div class="o-post-list__edited">
+                    <p>Edited {{post.dateEdited | date: 'fullDate'}}.</p>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

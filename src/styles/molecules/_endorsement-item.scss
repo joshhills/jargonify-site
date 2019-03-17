@@ -1,9 +1,9 @@
 $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
 
 .m-endorsement-item {
-    background-color: $tint;
+    background-color: $chrome;
     
-    border: $border-size solid $tint;
+    border: $border-size dashed $paper;
     margin: 0 $spacing-small;
     max-width: $endorsement-item-width;
     overflow: hidden;
@@ -33,6 +33,7 @@ $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size
         @include image-lazyload;
 
         float: left;
+        margin-left: $spacing-small;
         height: 100%;
         object-fit: cover;
         position: absolute;

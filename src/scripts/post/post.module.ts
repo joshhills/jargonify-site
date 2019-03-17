@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PostComponent } from './post.component';
 import { BlogModule } from '../blog/blog.module';
-import { PortfolioCarouselComponent } from '../portfolio/portfolio-carousel.component';
+import { ImageCarouselComponent } from '../shared/components/image-carousel.component';
 import { PortfolioModule } from '../portfolio/portfolio.module';
 
 @NgModule({

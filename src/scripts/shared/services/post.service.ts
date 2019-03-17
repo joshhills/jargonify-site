@@ -22,6 +22,7 @@ import { RoleMetadata } from '../models/role-metadata';
 import { ImageCarousel, ImageWithCaption } from '../models/image-carousel';
 import { Tag } from '../models/tag';
 import { Category } from '../models/category';
+import { Video } from '../models/video';
 
 export interface PostService {
     baseUrl: string;
@@ -307,20 +308,19 @@ export class WordpressAPIPostService implements PostService {
                     // Get blog post.
                     this.getBlogPost(post['blog']).subscribe(
                         data => {
-                            posts.splice(i, 0, new PostWithOptions(
+                            posts[i] = new PostWithOptions(
                                 data,
                                 post['show_role_date'],
                                 post['show_role_title'],
                                 post['show_role_organisation'],
                                 post['is_expanded']
-                            ));
+                            );
                         }
                     );
                     break;
                 case 'anecdote':
                     // Make new anecdote post.
-                    posts.splice(i, 0,
-                        new PostWithOptions(
+                    posts[i] = new PostWithOptions(
                             new AnecdotePost(
                                 PostType.ANECDOTE,
                                 null,
@@ -332,8 +332,7 @@ export class WordpressAPIPostService implements PostService {
                             null,
                             null,
                             null
-                        )
-                    );
+                        );
                     break;
             }
         }
@@ -495,14 +494,14 @@ export class WordpressAPIPostService implements PostService {
                     }
                 )
                 .subscribe(res => {
-                    tags.push(new Tag(res['id'], res['name']));
+                    tags.push(new Tag(res['id'], res['slug']));
                 });
             }
         } else {
             for (const term of blob['_embedded']['wp:term']) {
                 for (const tag of term) {
                     if (tag['taxonomy'] === 'post_tag') {
-                        tags.push(new Tag(tag['id'], tag['name']));
+                        tags.push(new Tag(tag['id'], tag['slug']));
                     }
                 }
             }
@@ -525,14 +524,14 @@ export class WordpressAPIPostService implements PostService {
                     }
                 )
                 .subscribe(res => {
-                    tags.push(new Category(res['id'], res['name']));
+                    tags.push(new Category(res['id'], res['slug']));
                 });
             }
         } else {
             for (const term of blob['_embedded']['wp:term']) {
                 for (const category of term) {
                     if (category['taxonomy'] === 'category') {
-                        categories.push(new Category(category['id'], category['name']));
+                        categories.push(new Category(category['id'], category['slug']));
                     }
                 }
             }
@@ -688,6 +687,11 @@ export class WordpressAPIPostService implements PostService {
             }
         }
 
+        const featuredVideo = new Video(
+            blob['acf']['mp4'],
+            blob['acf']['webm']
+        );
+
         return new BlogPost(
             PostType.BLOG,
             blob['id'],
@@ -701,7 +705,8 @@ export class WordpressAPIPostService implements PostService {
             categories,
             related,
             classification,
-            roleMetadata
+            roleMetadata,
+            featuredVideo
         );
     }
 

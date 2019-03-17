@@ -4,13 +4,14 @@
         <g id="Desktop" transform="translate(-8.000000, 0.000000)" stroke="#D8D8D8">
             <g id="Portfolio-Background">
                 <g id="Icons" transform="translate(347.000000, 0.000000)">
-                    <g id="icon-lightbulb" transform="translate(285.000000, 0.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(285.000000, 0.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(379.000000, 0.000000)">
@@ -31,22 +32,24 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(379.000000, 94.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(411.000000, 126.000000) scale(1, -1) rotate(270.000000) translate(-411.000000, -126.000000) translate(379.000000, 94.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(285.000000, 188.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(317.000000, 220.000000) scale(1, -1) rotate(270.000000) translate(-317.000000, -220.000000) translate(285.000000, 188.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(379.000000, 188.000000)">
@@ -76,22 +79,24 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 94.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(191.000000, 94.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(97.000000, 188.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(97.000000, 188.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(191.000000, 188.000000)">
@@ -112,40 +117,44 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(0.000000, 282.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(0.000000, 282.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 282.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(223.000000, 314.000000) scale(1, -1) rotate(270.000000) translate(-223.000000, -314.000000) translate(191.000000, 282.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(285.000000, 376.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(285.000000, 376.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(97.000000, 376.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(129.000000, 408.000000) scale(1, -1) rotate(270.000000) translate(-129.000000, -408.000000) translate(97.000000, 376.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(0.000000, 376.000000)">
@@ -184,13 +193,14 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 470.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(191.000000, 470.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(97.000000, 564.000000)">
@@ -213,13 +223,14 @@
                     </g>
                 </g>
                 <g id="Icons" transform="translate(0.000000, 1009.000000)">
-                    <g id="icon-lightbulb" transform="translate(285.000000, 0.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(317.000000, 32.000000) scale(-1, -1) rotate(270.000000) translate(-317.000000, -32.000000) translate(285.000000, 0.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(379.000000, 0.000000)">
@@ -240,22 +251,24 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(379.000000, 94.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(411.000000, 126.000000) scale(-1, 1) translate(-411.000000, -126.000000) translate(379.000000, 94.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(285.000000, 188.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(317.000000, 220.000000) scale(-1, 1) translate(-317.000000, -220.000000) translate(285.000000, 188.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(379.000000, 188.000000)">
@@ -285,22 +298,24 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 94.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(223.000000, 126.000000) scale(-1, -1) rotate(270.000000) translate(-223.000000, -126.000000) translate(191.000000, 94.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(97.000000, 188.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(129.000000, 220.000000) scale(-1, -1) rotate(270.000000) translate(-129.000000, -220.000000) translate(97.000000, 188.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(191.000000, 188.000000)">
@@ -321,40 +336,44 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(0.000000, 282.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(32.000000, 314.000000) scale(-1, -1) rotate(270.000000) translate(-32.000000, -314.000000) translate(0.000000, 282.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 282.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(223.000000, 314.000000) scale(-1, 1) translate(-223.000000, -314.000000) translate(191.000000, 282.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(285.000000, 376.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(317.000000, 408.000000) scale(-1, -1) rotate(270.000000) translate(-317.000000, -408.000000) translate(285.000000, 376.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(97.000000, 376.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(129.000000, 408.000000) scale(-1, 1) translate(-129.000000, -408.000000) translate(97.000000, 376.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(0.000000, 376.000000)">
@@ -393,13 +412,14 @@
                             <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
                         </g>
                     </g>
-                    <g id="icon-lightbulb" transform="translate(191.000000, 470.000000)">
-                        <g transform="translate(13.000000, 5.000000)">
-                            <path d="M8.47233852,35.5927009 L8.47233852,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28.4723385,35.5927009 L28.4723385,39.9015961" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M26.8995862,35.585015 C32.8948438,32.4723938 37,26.1317181 37,18.8158614 C37,8.42414809 28.7172679,0 18.5,0 C8.28273213,0 0,8.42414809 0,18.8158614 C0,26.4735913 4.49779227,33.0628695 10.9530533,36" id="Oval" stroke-width="10"></path>
-                            <path d="M24.5937826,39.8425538 L12.1462,39.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
-                            <path d="M28,53.8425538 L9.14620002,53.8425538" id="Line" stroke-width="10" stroke-linecap="square"></path>
+                    <g id="icon-guide-arrow" transform="translate(223.000000, 502.000000) scale(-1, -1) rotate(270.000000) translate(-223.000000, -502.000000) translate(191.000000, 470.000000)" stroke-linecap="square">
+                        <g transform="translate(28.000000, 26.000000) scale(-1, 1) translate(-28.000000, -26.000000) translate(3.000000, 4.000000)">
+                            <path d="M49,0 L49,35.0142828" id="Line" stroke-width="8"></path>
+                            <path d="M6,35 L42,35" id="Line" stroke-width="8"></path>
+                            <g id="Group" transform="translate(4.000000, 35.000000) rotate(-90.000000) translate(-4.000000, -35.000000) translate(-5.000000, 31.000000)" stroke-width="8">
+                                <path d="M10,0 L17.8245553,7.82455532" id="Line"></path>
+                                <path d="M10,0 L0.916172578,7.82455532" id="Line"></path>
+                            </g>
                         </g>
                     </g>
                     <g id="icon-lightbulb" transform="translate(97.000000, 564.000000)">
