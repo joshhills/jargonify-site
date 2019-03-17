@@ -31,7 +31,7 @@
             <source type="video/mp4" src="{{blogPost.featuredVideo.mp4}}">
             <source type="video/webm" src="{{blogPost.featuredVideo.webm}}">
         </video>
-        <img    *ngIf="showPicture || isExpanded"
+        <img    *ngIf="(showPicture || isExpanded) && !(blogPost.featuredVideo.mp4 || blogPost.featuredVideo.webm)"
                 [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}"
                 [defaultImage]="blogPost.featureImage.urlSmall"
                 [lazyLoad]="blogPost.featureImage.srcSet"

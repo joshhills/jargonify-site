@@ -85,7 +85,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   mouseEnter(): void {
-    if (this.video) {
+    if (this.video && !this.isExpanded) {
       this.video.nativeElement.muted = true;
       this.video.nativeElement.currentTime = 0;
       this.video.nativeElement.play().catch();
@@ -93,7 +93,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   mouseLeave(): void {
-    if (this.video) {
+    if (this.video && !this.isExpanded) {
       this.video.nativeElement.pause();
     }
   }
