@@ -28,6 +28,7 @@ export class BlogComponent implements OnInit {
 
   currentPage = 0;
   numPosts = 0;
+  numPostsInAll = 0;
   numPages = 1;
 
   inSearch = false;
@@ -76,7 +77,7 @@ export class BlogComponent implements OnInit {
       [this.category]
     ).subscribe(data => {
       this.numPosts = data;
-      this.numPages = Math.ceil((data - 1) // TODO: Might be incorrect due to featured.
+      this.numPages = Math.ceil((data - 1)
         / (this.appConfiguration.MAX_BLOG_POSTS_PER_PAGE + 1));
     });
 
@@ -91,6 +92,16 @@ export class BlogComponent implements OnInit {
       this.blogPosts = data;
 
       this.noPostsAfterFetch = this.blogPosts.length === 0;
+
+      if (this.noPostsAfterFetch && this.category !== '') {
+        this.postService.getNumBlogPosts(
+          this.searchTerm,
+          [],
+          []
+        ).subscribe(data2 => {
+          this.numPostsInAll = data2;
+        });
+      }
 
       if (this.currentPage === 0 && !this.inSearch) {
         this.fetchFeaturedBlogPost();

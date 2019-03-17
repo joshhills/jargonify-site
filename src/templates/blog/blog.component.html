@@ -46,6 +46,9 @@
                 <p>
                     Is <em>'{{searchTerm}}'</em> something I should look into?
                 </p>
+                <a *ngIf="numPostsInAll > 0" routerLink="/blog" [queryParams]="{search: searchTerm}">
+                    Search in 'all' ({{numPostsInAll}})
+                </a>&nbsp;
                 <a routerLink="/about">
                     Contact
                 </a>&nbsp;
@@ -86,6 +89,9 @@
         <div class="m-inset__contents m-inset__contents--right">
             <p class="a-subheader">
                 Stay up to date!
+            </p>
+            <p class="a-subheader">
+                <i class="far fa-bookmark"></i>
             </p>
         </div>
     </div>

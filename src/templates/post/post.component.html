@@ -3,13 +3,13 @@
         <div class="m-cover__text m-cover__text--light">
             <p class="a-subsubheader">
                 <a *ngIf="backEnabled" class="a-link a-link--light a-subsubheader a-breadcrumb" [routerLink]="" (click)="back()">
-                    &lt;- Back
+                    <i class="fas fa-backspace" style="padding-right: 0.5rem"></i> Back
                 </a>
                 Posted {{post.dateCreated | date: 'fullDate'}} 
                 <ng-container *ngIf="post.categories.length > 0">
                     under <a class="a-link a-link--light" routerLink="/blog" [queryParams]="{'category': post.categories[0].name.toLowerCase()}">{{post.categories[0].name | lowercase}}</a>
                 </ng-container>
-                &#9900;
+                <i class="fas fa-glasses" style="padding: 0 0.5rem"></i>
                 {{ post.contents | readtime }} minute read
             </p>
             <p class="a-header" [innerHTML]="post.title"></p>
@@ -72,9 +72,12 @@
         <div class="o-post-list__footer">
             <div class="o-post-list__actions">
                 <a class="a-link a-link--light" [routerLink]="" (click)="scrollToTop()">
-                    Scroll Up
+                    <i style="padding-right: 0.5rem" class="fas fa-arrow-up"></i>Scroll Up
                 </a>
-                <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">{{copyMsg}}</a>
+                <a class="a-link a-link--light" [routerLink]="" ngxClipboard [cbContent]="this.windowService.getNativeWindow().location.href" (cbOnSuccess)="copyMsg = 'Link copied'">
+                    <i class="fas fa-link" style="padding-right: 0.5rem"></i>
+                    {{copyMsg}}
+                </a>
             </div>
             <ng-container *ngIf="post.dateEdited !== dateCreated">
                 <div class="o-post-list__edited">

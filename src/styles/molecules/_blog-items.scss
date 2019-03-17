@@ -55,6 +55,7 @@ $blog-item-size: 17rem;
     &__text {
         @include container-full;
 
+        backface-visibility: hidden;
         padding: $spacing-small;
         position: absolute;
         z-index: 2;
@@ -160,6 +161,7 @@ $blog-item-size: 17rem;
     &__text {
         @include half-right;
 
+        backface-visibility: hidden;
         box-sizing: border-box;
         padding: $spacing-large;
         position: relative;
@@ -274,6 +276,7 @@ $blog-item-size: 17rem;
     &__text {
         @include two-thirds-left;
 
+        backface-visibility: hidden;
         box-sizing: border-box;
         padding: $spacing-large;
 
