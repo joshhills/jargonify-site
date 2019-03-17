@@ -9,7 +9,7 @@ export class ReadTime implements PipeTransform {
 
         for (const section of content) {
             if (section.type === PostSectionType.TEXT) {
-                numWords += (section as TextPostSection).content.trim().split(/\s+/).length;
+                numWords += (section as TextPostSection).content['changingThisBreaksApplicationSecurity'].trim().split(/\s+/).length;
             }
         }
 

@@ -12,7 +12,7 @@
                 &#9900;
                 {{ post.contents | readtime }} minute read
             </p>
-            <p class="a-header" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(post.title)"></p>
+            <p class="a-header" [innerHTML]="post.title"></p>
             <p class="a-subheader" [innerHTML]="post.summary"></p>
             <ul class="m-tags">
                 <li class="m-tags__item" *ngFor="let tag of post.tags">
@@ -38,8 +38,8 @@
         <div class="o-post-list__contents">
             <ng-container *ngFor="let section of post.contents" class="o-post-list__contents">
                 <ng-container *ngIf="section.type === PostSectionType.TEXT">
-                    <div *ngIf="section.content.trim() != ''" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(section.content)"></div>
-                    <div *ngIf="section.content.trim() == ''">
+                    <div [innerHTML]="section.content"></div>
+                    <div *ngIf="!section.content">
                         <p>
                             This article is under construction! Try again later...
                         </p>

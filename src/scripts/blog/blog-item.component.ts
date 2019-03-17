@@ -2,7 +2,6 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BlogPost } from '../shared/models/blog-post';
 import { CookieService } from 'ngx-cookie-service';
 import { WindowService } from '../shared/services/window.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'blog-item',
@@ -34,8 +33,7 @@ export class BlogItemComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
-    private windowService: WindowService,
-    private domSanitizer: DomSanitizer
+    private windowService: WindowService
   ) {
   }
 

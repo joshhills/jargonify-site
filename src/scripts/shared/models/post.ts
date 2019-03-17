@@ -1,5 +1,6 @@
 import { Entity } from './entity';
 import { ImageCarousel, ImageWithCaption } from './image-carousel';
+import { SafeHtml } from '@angular/platform-browser';
 
 export abstract class Post extends Entity {
     public type: PostType;
@@ -55,11 +56,11 @@ export class ImagePostSection extends PostSection {
 }
 
 export class TextPostSection extends PostSection {
-    public content: string;
+    public content: SafeHtml;
 
     constructor(
         type: PostSectionType,
-        content: string
+        content: SafeHtml
     ) {
         super(type);
         this.content = content;

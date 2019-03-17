@@ -13,7 +13,7 @@
             <p class="a-subsubheader" *ngIf="showRoleDate && !blogPost.roleMetadata.isCurrent && blogPost.roleMetadata.startDate">
                 {{blogPost.roleMetadata.startDate}} <ng-container *ngIf="blogPost.roleMetadata.endDate">- {{blogPost.roleMetadata.endDate}}</ng-container>
             </p>
-            <a [ngClass]="{'m-blog-item__text__title': !isExpanded, 'm-blog-item-expanded__text__title': isExpanded, 'a-subheader': true}" [routerLink]="['/post', blogPost.id, slug]" [innerHTML]="showRoleTitle && blogPost.roleMetadata.title ? domSanitizer.bypassSecurityTrustHtml(blogPost.roleMetadata.title) : domSanitizer.bypassSecurityTrustHtml(blogPost.title)">
+            <a [ngClass]="{'m-blog-item__text__title': !isExpanded, 'm-blog-item-expanded__text__title': isExpanded, 'a-subheader': true}" [routerLink]="['/post', blogPost.id, slug]" [innerHTML]="showRoleTitle && blogPost.roleMetadata.title ? blogPost.roleMetadata.title : blogPost.title">
             </a>
             <p class="a-subsubheader" *ngIf="showRoleOrganisation && blogPost.roleMetadata.organisation">
                 {{blogPost.roleMetadata.organisation}}

@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse, HttpHeaders, HttpParams } from '@angular/comm
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, flatMap } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
 
 import { BlogPost } from '../models/blog-post';
@@ -61,7 +62,7 @@ export class WordpressAPIPostService implements PostService {
     baseUrl: string;
     headers: HttpHeaders;
 
-    constructor(private appConfiguration: AppConfiguration, private http: HttpClient) {
+    constructor(private appConfiguration: AppConfiguration, private http: HttpClient, private domSanitizer: DomSanitizer) {
         this.baseUrl = environment.apiUrl;
         this.headers = new HttpHeaders().set('Accept', 'application/json');
     }
@@ -581,7 +582,7 @@ export class WordpressAPIPostService implements PostService {
                 switch (layout['acf_fc_layout']) {
                     case 'text_block':
                         postSections.push(
-                            new TextPostSection(PostSectionType.TEXT, layout['content'])
+                            new TextPostSection(PostSectionType.TEXT, this.domSanitizer.bypassSecurityTrustHtml(layout['content']))
                         );
                         break;
                     case 'image_block':

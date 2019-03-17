@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WordpressAPIPostService } from '../shared/services/post.service';
@@ -7,7 +7,6 @@ import { BlogPost } from '../shared/models/blog-post';
 import { MetaService } from '@ngx-meta/core';
 import { CookieService } from 'ngx-cookie-service';
 import { WindowService } from '../shared/services/window.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { PostSectionType } from '../shared/models/post';
 
 @Component({
@@ -15,10 +14,9 @@ import { PostSectionType } from '../shared/models/post';
   templateUrl: '../../templates/post/post.component.html',
   providers: [
     WordpressAPIPostService
-  ],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  ]
 })
-export class PostComponent implements OnInit, OnDestroy, OnChanges {
+export class PostComponent implements OnInit, OnDestroy {
   @ViewChild('cover') cover: ElementRef;
   @ViewChild('pvideo') set ft(pvideo: ElementRef) {
     if (pvideo) {
@@ -45,18 +43,12 @@ export class PostComponent implements OnInit, OnDestroy, OnChanges {
     private historyService: HistoryService,
     private readonly meta: MetaService,
     private cookieService: CookieService,
-    private windowService: WindowService,
-    private domSanitizer: DomSanitizer
+    private windowService: WindowService
   ) {}
-
-  ngOnChanges(changes: any) {
-    console.log(changes);
-  }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log('1');
         if (params['id']) {
           this.getBlogPost(params['id']);
         }
@@ -64,7 +56,6 @@ export class PostComponent implements OnInit, OnDestroy, OnChanges {
     );
     this.historyService.isNavigatedWithinApp().subscribe(
       res => {
-        console.log('2');
         this.backEnabled = res;
       }
     );
@@ -81,7 +72,6 @@ export class PostComponent implements OnInit, OnDestroy, OnChanges {
   getBlogPost(id: string): void {
     this.postService.getBlogPost(id).subscribe(
       res => {
-        console.log('3');
         this.post = res;
 
         // Set cookie.
