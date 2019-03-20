@@ -6,11 +6,11 @@
         "/about*",
         "/live/cms/wp-json*"
     ],
-    "stripPrefix": "dist/",
-    "root": "dist",
+    "stripPrefix": "dist/browser/",
+    "root": "dist/browser",
     "staticFileGlobs": [
-        "dist/index.html",
-        "dist/**/*.{js,html,css,png,jpg,svg}"
+        "dist/browser/index.html",
+        "dist/browser/**/*.{js,html,css,png,jpg,svg}"
     ],
     "runtimeCaching": [
         {

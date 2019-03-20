@@ -28,8 +28,8 @@
         </div>
         <video #video *ngIf="(showPicture || isExpanded) && (blogPost.featuredVideo.mp4 || blogPost.featuredVideo.webm)" [ngClass]="{'m-blog-item__video': !isExpanded, 'm-blog-item-expanded__video': isExpanded}"
             preload="none" loop muted playsinline disablePictureInPicture>
-            <source type="video/mp4" src="{{blogPost.featuredVideo.mp4}}">
-            <source type="video/webm" src="{{blogPost.featuredVideo.webm}}">
+            <source type="video/mp4" src="{{blogPost.featuredVideo.mp4.url}}">
+            <source type="video/webm" src="{{blogPost.featuredVideo.webm.url}}">
         </video>
         <img    *ngIf="(showPicture || isExpanded) && (!isExpanded || !(blogPost.featuredVideo.mp4 || blogPost.featuredVideo.webm))"
                 [ngClass]="{'m-blog-item__image': !isExpanded, 'm-blog-item-expanded__image': isExpanded}"

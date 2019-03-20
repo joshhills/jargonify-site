@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WordpressAPIPostService } from '../shared/services/post.service';
@@ -19,7 +19,7 @@ import { PostSectionType } from '../shared/models/post';
 export class PostComponent implements OnInit, OnDestroy {
   @ViewChild('cover') cover: ElementRef;
   @ViewChild('pvideo') set ft(pvideo: ElementRef) {
-    if (pvideo) {
+    if (pvideo && pvideo.nativeElement.play) {
       pvideo.nativeElement.muted = true;
       pvideo.nativeElement.play().catch();
     }
@@ -90,25 +90,51 @@ export class PostComponent implements OnInit, OnDestroy {
         this.meta.setTitle(postTitle);
         this.meta.setTag('twitter:title', postTitle);
 
+        // Url
+        this.meta.setTag('twitter:url', this.router.url);
+
         // Description overrides.
         if (this.post.summary) {
-          const p = document.createElement('p');
-          p.innerHTML = this.post.summary;
-          const summary: string = p.innerText;
+          const summary: string = this.post.summary.replace(/(&nbsp;|<([^>]+)>)/ig, '').replace(/(\r\n|\n|\r)/gm, '');
           this.meta.setTag('description', summary);
+          this.meta.setTag('og:description', summary);
           this.meta.setTag('twitter:description', summary);
+        } // TODO: Else snip from content?..
+
+        // Media overrides.
+        if (this.post.featuredVideo.mp4 || this.post.featuredVideo.webm) {
+          this.meta.setTag('twitter:card', 'player');
+          if (this.post.featuredVideo.mp4.url) {
+            this.meta.setTag('og:video', this.post.featuredVideo.mp4.url);
+            this.meta.setTag('twitter:player', this.post.featuredVideo.mp4.url);
+            this.meta.setTag('twitter:player:width', this.post.featuredVideo.mp4.width.toString());
+            this.meta.setTag('twitter:player:height', this.post.featuredVideo.mp4.height.toString());
+          } else {
+            this.meta.setTag('og:video', this.post.featuredVideo.webm.url);
+            this.meta.setTag('twitter:player', this.post.featuredVideo.webm.url);
+            this.meta.setTag('twitter:player:width', this.post.featuredVideo.webm.width.toString());
+            this.meta.setTag('twitter:player:height', this.post.featuredVideo.webm.height.toString());
+          }
         }
 
-        // Image overrides.
-        if (this.post.featureImage.urlMedium) {
-          this.meta.setTag('og:image', this.post.featureImage.urlMedium);
-          this.meta.setTag('twitter:image:src', this.post.featureImage.urlMedium);
+        if (this.post.featureImage.urlFull) {
+          this.meta.setTag('image', this.post.featureImage.urlFull);
+          this.meta.setTag('og:image', this.post.featureImage.urlFull);
+          if (this.post.featureImage.altText) {
+            this.meta.setTag('og:image:alt', this.post.featureImage.altText);
+          }
+          this.meta.setTag('twitter:image:src', this.post.featureImage.urlFull);
         }
 
         // Additional new tags.
+        this.meta.setTag('article:section', this.post.categories[0].name);
         this.meta.setTag('article:published_time', this.post.dateCreated);
         this.meta.setTag('article:modified_time', this.post.dateCreated);
-        this.meta.setTag('article:tag', this.post.tags.join(' '));
+        const tagNames: string[] = [];
+        for (const tag of this.post.tags) {
+          tagNames.push(tag.name);
+        }
+        this.meta.setTag('article:tag', tagNames.join(' '));
       },
       err => {
         this.router.navigate(['/error']);

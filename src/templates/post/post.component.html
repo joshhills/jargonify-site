@@ -11,8 +11,12 @@
                 </ng-container>
                 <i class="fas fa-glasses" style="padding: 0 0.5rem"></i>
                 {{ post.contents | readtime }} minute read
+                <ng-container *ngIf="post.classification.isCollection">
+                    <i class="fas fa-layer-group" style="padding: 0 0.5rem"></i>
+                    in series
+                </ng-container>
             </p>
-            <p class="a-header" [innerHTML]="post.title"></p>
+            <h1 class="a-header" [innerHTML]="post.title"></h1>
             <p class="a-subheader" [innerHTML]="post.summary"></p>
             <ul class="m-tags">
                 <li class="m-tags__item" *ngFor="let tag of post.tags">
@@ -29,21 +33,20 @@
                 [offset]="100"
                 alt="{{post.featureImage.altText}}" />
         <video #pvideo *ngIf="post.featuredVideo.mp4 || post.featuredVideo.webm" class="m-cover__video" poster="{{post.featureImage.urlFull}}" preload="auto" muted autoplay loop playsinline disablePictureInPicture>
-            <source type="video/mp4" src="{{post.featuredVideo.mp4}}">
-            <source type="video/webm" src="{{post.featuredVideo.webm}}">
-            <a href="{{post.featuredVideo.mp4}}">{{post.featuredVideo.mp4}}</a>
+            <source type="video/mp4" src="{{post.featuredVideo.mp4.url}}">
+            <source type="video/webm" src="{{post.featuredVideo.webm.url}}">
         </video>
     </div>
     <div class="o-post-list">
         <div class="o-post-list__contents">
+            <div *ngIf="!post.contents || post.contents.length === 0 || (post.contents[0].type === PostSectionType.TEXT && post.contents[0].content.changingThisBreaksApplicationSecurity.trim() === '')">
+                <p>
+                    This article is under construction! Try again later...
+                </p>
+            </div>
             <ng-container *ngFor="let section of post.contents" class="o-post-list__contents">
                 <ng-container *ngIf="section.type === PostSectionType.TEXT">
                     <div [innerHTML]="section.content"></div>
-                    <div *ngIf="!section.content">
-                        <p>
-                            This article is under construction! Try again later...
-                        </p>
-                    </div>
                 </ng-container>
                 <ng-container *ngIf="section.type === PostSectionType.IMAGE">
                     <img    src="{{section.image.urlSmall}}"

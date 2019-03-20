@@ -23,7 +23,7 @@ import { RoleMetadata } from '../models/role-metadata';
 import { ImageCarousel, ImageWithCaption } from '../models/image-carousel';
 import { Tag } from '../models/tag';
 import { Category } from '../models/category';
-import { Video } from '../models/video';
+import { Video, VideoSource } from '../models/video';
 
 export interface PostService {
     baseUrl: string;
@@ -688,9 +688,27 @@ export class WordpressAPIPostService implements PostService {
             }
         }
 
+        let mp4: VideoSource;
+        if (blob['acf']['mp4']) {
+            mp4 = new VideoSource(
+                blob['acf']['mp4']['url'],
+                blob['acf']['mp4']['width'],
+                blob['acf']['mp4']['height']
+            );
+        }
+
+        let webm: VideoSource;
+        if (blob['acf']['webm']) {
+            webm = new VideoSource(
+                blob['acf']['webm']['url'],
+                blob['acf']['webm']['width'],
+                blob['acf']['webm']['height']
+            );
+        }
+
         const featuredVideo = new Video(
-            blob['acf']['mp4'],
-            blob['acf']['webm']
+            mp4,
+            webm
         );
 
         return new BlogPost(

@@ -27,7 +27,7 @@ import { AppConfiguration } from '../app/app.configuration';
 @NgModule({
   imports: [
     // Angular Modules
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     HttpClientModule,
     // External Modules

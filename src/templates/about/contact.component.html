@@ -1,6 +1,6 @@
-<p *ngIf="!sent" class="a-header">
+<h1 *ngIf="!sent" class="a-header">
     Contact
-</p>
+</h1>
 <div *ngIf="sent">
     <p class="a-header">
         Thanks!
@@ -11,7 +11,7 @@
 </div>
 <form *ngIf="!sent" autocomplete="off">
     <div>
-        <input type="text" [ngClass]="{'a-error': (name.invalid && name.dirty) || errors.name}" placeholder="Name" maxlength="30" name="name" [(ngModel)]="contactDetails.name" required #name="ngModel" />
+        <input type="text" [ngClass]="{'a-error': (name.invalid && name.dirty) || errors.name}" placeholder="Name" maxlength="30" name="name" [(ngModel)]="contactDetails.name" required #name="ngModel" aria-label="name" />
         <!-- Client-side error -->
         <div *ngIf="name.invalid && name.dirty">
             <p class="a-small a-error a-error--close" *ngIf="name.errors.required">Name cannot be blank (who are you?)</p>
@@ -21,7 +21,7 @@
         <!-- Server-side error -->
         <p class="a-small a-error a-error--close" *ngIf="!name.invalid && errors.name">{{errors.name}}</p>
         
-        <input type="text" [ngClass]="{'a-error': (email.invalid && email.dirty) || errors.email}" maxlength="30" placeholder="Email" name="email" [(ngModel)]="contactDetails.email" required #email="ngModel"/>
+        <input type="text" [ngClass]="{'a-error': (email.invalid && email.dirty) || errors.email}" maxlength="30" placeholder="Email" name="email" [(ngModel)]="contactDetails.email" required #email="ngModel" aria-label="email"/>
         <!-- Client-side error -->
         <div *ngIf="email.invalid && email.dirty">
             <p class="a-small a-error a-error--close" *ngIf="email.errors.required">Email cannot be blank</p>
@@ -30,7 +30,7 @@
         <!-- Server-side error -->
         <p class="a-small a-error a-error--close" *ngIf="!email.invalid && errors.email">{{errors.email}}</p>
         
-        <textarea [ngClass]="{'a-error': (message.invalid && message.dirty) || errors.message}" rows="5" placeholder="Message" name="message" maxlength="2000" [(ngModel)]="contactDetails.message" required #message="ngModel"></textarea>
+        <textarea [ngClass]="{'a-error': (message.invalid && message.dirty) || errors.message}" rows="5" placeholder="Message" name="message" maxlength="2000" [(ngModel)]="contactDetails.message" required #message="ngModel" aria-label="message"></textarea>
         <!-- Client-side error -->
         <div *ngIf="message.invalid && message.dirty">
             <p class="a-small a-error a-error--close" *ngIf="message.errors.required">Message cannot be blank (don't be shy!)</p>
@@ -41,14 +41,14 @@
         <p class="a-small a-error a-error--close" *ngIf="!message.invalid && errors.message">{{errors.message}}</p>
     </div>
     <div class="m-inline-group m-inline-group--full">
-        <button *ngIf="!sent" [disabled]="name.invalid || email.invalid || message.invalid" class="a-button" (click)="submit()">Send</button>
-        <a class="a-link" href="https://linkedin.com/in/joshuahills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-linkedin"></i>LinkedIn</a>
-        <a class="a-link" href="https://github.com/joshhills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-github"></i>Github</a>
-        <a class="a-link" href="https://twitter.com/joshmarcushills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-twitter"></i>Twitter</a>
+        <button *ngIf="!sent" [disabled]="name.invalid || email.invalid || message.invalid" class="a-button" (click)="submit()" aria-label="send">Send</button>
+        <a class="a-link" href="https://linkedin.com/in/joshuahills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-linkedin"></i>LinkedIn</a>
+        <a class="a-link" href="https://github.com/joshhills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-github"></i>Github</a>
+        <a class="a-link" href="https://twitter.com/joshmarcushills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-twitter"></i>Twitter</a>
     </div>
 </form>
 <div *ngIf="sent" class="m-inline-group m-inline-group--full">
-    <a class="a-link" href="https://linkedin.com/in/joshuahills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-linkedin"></i>LinkedIn</a>
-    <a class="a-link" href="https://github.com/joshhills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-github"></i>Github</a>
-    <a class="a-link" href="https://twitter.com/joshmarcushills" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-twitter"></i>Twitter</a>
+    <a class="a-link" href="https://linkedin.com/in/joshuahills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-linkedin"></i>LinkedIn</a>
+    <a class="a-link" href="https://github.com/joshhills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-github"></i>Github</a>
+    <a class="a-link" href="https://twitter.com/joshmarcushills" rel="noopener" target="_blank"><i style="padding-right: 0.5rem" class="fab fa-twitter"></i>Twitter</a>
 </div>

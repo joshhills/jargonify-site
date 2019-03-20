@@ -9,7 +9,7 @@ import { WindowService } from '../shared/services/window.service';
 export class BlogFeaturedComponent implements OnInit, OnChanges {
   @Input() featuredBlogPost: BlogPost;
   @ViewChild('fvideo') set ft(video: ElementRef) {
-    if (video) {
+    if (video && video.nativeElement.play) {
       video.nativeElement.muted = true;
       video.nativeElement.play().catch();
     }

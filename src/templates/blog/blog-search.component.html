@@ -1,9 +1,9 @@
 <div class="m-search-bar">
     <i class="fa fa-search m-search-bar__search-icon"></i>
-    <input class="m-search-bar__input" type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" placeholder="Find something in..." />
+    <input class="m-search-bar__input" type="text" (keyup)="searchTerm.next($event.target.value)" value="{{prePopulatedSearchTerm}}" placeholder="Find something in..." aria-label="search" />
     <div class="m-search-bar__category-wrapper">
         <i class="fa fa-caret-down m-search-bar__category-icon"></i>
-        <select class="m-search-bar__category" (change)="category.next($event.target.value)">
+        <select class="m-search-bar__category" (change)="category.next($event.target.value)" aria-label="category">
             <option value="all">
                 All
             </option>

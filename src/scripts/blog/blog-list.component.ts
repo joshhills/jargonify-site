@@ -44,6 +44,8 @@ export class BlogListComponent implements OnChanges, OnInit {
     }
 
     scrollToTopOfBlogList(): void {
-      this.blogList.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      if (this.blogList.nativeElement.scrollIntoView) {
+        this.blogList.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      }
     }
 }

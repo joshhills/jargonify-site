@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef, Inject } from '@angular/core';
 import { ImageCarousel } from '../models/image-carousel';
 import { WindowService } from '../services/window.service';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'image-carousel',
@@ -10,7 +12,8 @@ export class ImageCarouselComponent implements OnInit {
 
     constructor(
         public windowService: WindowService,
-        private ref: ChangeDetectorRef
+        private ref: ChangeDetectorRef,
+        @Inject(PLATFORM_ID) private platformId
     ) {
         this.windowService = windowService;
     }
@@ -26,7 +29,7 @@ export class ImageCarouselComponent implements OnInit {
     private interval: any;
 
     ngOnInit(): void {
-        if (this.imageCarousel.isAnimated) {
+        if (isPlatformBrowser(this.platformId) && this.imageCarousel.isAnimated && this.progressBar.nativeElement) {
             this.progressBar.nativeElement.style.animation = this.ELEMENT_STYLE;
             this.interval = setInterval(this.advanceTimer.bind(this), this.TIMER_DURATION);
         }
@@ -35,13 +38,13 @@ export class ImageCarouselComponent implements OnInit {
     setIndex(index: number, resetTimer: boolean) {
         this.index = index;
         if (resetTimer) {
-            if (this.interval) {
+            if (isPlatformBrowser(this.platformId) && this.interval && this.progressBar.nativeElement) {
                 clearInterval(this.interval);
                 this.progressBar.nativeElement.style.animation = '';
                 this.ref.detectChanges();
             }
 
-            if (this.imageCarousel.isAnimated) {
+            if (isPlatformBrowser(this.platformId) && this.imageCarousel.isAnimated) {
                 this.interval = setInterval(this.advanceTimer.bind(this), this.TIMER_DURATION);
                 this.progressBar.nativeElement.style.animation = this.ELEMENT_STYLE;
             }

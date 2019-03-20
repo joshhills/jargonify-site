@@ -134,6 +134,7 @@ $blog-item-size: 17rem;
         max-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size * 4;
         overflow: hidden;
         position: relative;
+        min-height: $blog-item-size;
 
         &:after {
             position: absolute;

@@ -2,9 +2,9 @@
     <!-- Cover w/ Search Bar -->
     <div class="m-cover m-cover--center" #cover>
         <div class="m-cover__text m-cover__text--right m-cover__text--light">
-            <p class="a-header">
+            <h1 class="a-header">
                 Blog
-            </p>
+            </h1>
             <p class="a-subheader">
                     Technological tattle, design documents and miscellaneous musings written during
                     various projects.
@@ -46,7 +46,7 @@
                 <p>
                     Is <em>'{{searchTerm}}'</em> something I should look into?
                 </p>
-                <a *ngIf="numPostsInAll > 0" routerLink="/blog" [queryParams]="{search: searchTerm}">
+                <a *ngIf="numPostsInAll > 0" href="/blog?search={{searchTerm}}">
                     Search in 'all' ({{numPostsInAll}})
                 </a>&nbsp;
                 <a routerLink="/about">

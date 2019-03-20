@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/browser",
             "index": "src/templates/index.html",
             "main": "src/scripts/main.ts",
             "polyfills": "src/scripts/polyfills.ts",
@@ -103,6 +103,14 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/scripts/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
           }
         }
       }

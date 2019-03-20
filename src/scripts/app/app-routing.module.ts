@@ -42,8 +42,10 @@ const appRoutes: Routes = [
       data: {
         meta: {
           title: 'Jargonify - Blog',
-          description: 'Personal tech blog by Josh Hills',
-          'og:image': '/static/images/social/blog-preview.jpg'
+          description: 'Design and technology blog by Josh Hills',
+          image: 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'twitter:image:src': 'https://jargonify.com/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -54,8 +56,10 @@ const appRoutes: Routes = [
       data: {
         meta: {
           title: 'Jargonify - Blog', // TODO: Incorporate page number
-          description: 'Personal tech blog by Josh Hills',
-          'og:image': '/static/images/social/blog-preview.jpg'
+          description: 'Design and technology blog by Josh Hills',
+          image: 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'twitter:image:src': 'https://jargonify.com/static/images/social/blog-preview.jpg'
         }
       }
     },
@@ -110,8 +114,10 @@ const appRoutes: Routes = [
       data: {
         meta: {
           title: 'Jargonify - Portfolio',
-          description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/static/images/social/portfolio-preview.jpg'
+          description: 'Professional tech portfolio by Josh Hills',
+          image: 'https://jargonify.com/static/images/social/portfolio-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/portfolio-preview.jpg',
+          'twitter:image:src': '/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -122,8 +128,10 @@ const appRoutes: Routes = [
       data: {
         meta: {
           title: 'Jargonify - Portfolio',
-          description: 'Personal tech portfolio by Josh Hills',
-          'og:image': '/static/images/social/portfolio-preview.jpg'
+          description: 'Professional tech portfolio by Josh Hills',
+          image: 'https://jargonify.com/static/images/social/portfolio-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/portfolio-preview.jpg',
+          'twitter:image:src': 'https://jargonify.com/static/images/social/portfolio-preview.jpg'
         }
       }
     },
@@ -135,7 +143,9 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
-          'og:image': '/static/images/social/blog-preview.jpg',
+          image: 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'twitter:image:src': 'https://jargonify.com/static/images/social/blog-preview.jpg',
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'
@@ -150,7 +160,9 @@ const appRoutes: Routes = [
         meta: {
           title: 'Jargonify - Blog Post',
           description: 'Blog post by Josh Hills',
-          'og:image': '/static/images/social/blog-preview.jpg',
+          image: 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'og:image': 'https://jargonify.com/static/images/social/blog-preview.jpg',
+          'twitter:image:src': 'https://jargonify.com/static/images/social/blog-preview.jpg',
           'og:type': 'article',
           'article:section': 'Technology',
           'article:author': 'Josh Hills'

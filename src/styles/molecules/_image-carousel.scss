@@ -38,7 +38,7 @@ $image-carousel-size: 38rem;
 
         max-width: calc(50% - 6rem);
 
-        @include breakpoint(phone) {
+        @include breakpoint(tablet) {
             max-width: calc(100% - 6rem);
         }
 

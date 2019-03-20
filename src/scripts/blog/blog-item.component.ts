@@ -20,7 +20,7 @@ export class BlogItemComponent implements OnInit {
 
   @ViewChild('video') video: ElementRef;
   @ViewChild('video') set ft(video: ElementRef) {
-    if (video && this.isExpanded) {
+    if (video && video.nativeElement.play && this.isExpanded) {
       video.nativeElement.muted = true;
       video.nativeElement.play().catch();
     }
@@ -85,7 +85,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   mouseEnter(): void {
-    if (this.video && !this.isExpanded) {
+    if (this.video && this.video.nativeElement.play && !this.isExpanded) {
       this.video.nativeElement.muted = true;
       this.video.nativeElement.currentTime = 0;
       this.video.nativeElement.play().catch();
@@ -93,7 +93,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   mouseLeave(): void {
-    if (this.video && !this.isExpanded) {
+    if (this.video && this.video.nativeElement.play && !this.isExpanded) {
       this.video.nativeElement.pause();
     }
   }
