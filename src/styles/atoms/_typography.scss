@@ -30,7 +30,7 @@ body {
 
     color: $ink;
     font-size: 15pt;
-    line-height: 18pt;
+    line-height: 22pt;
 }
 
 h1,
@@ -52,7 +52,7 @@ h2,
     @include subheader;
 
     font-size: 26pt;
-    line-height: 30pt;
+    line-height: 34pt;
     margin-bottom: $spacing-medium;
 }
 
@@ -69,7 +69,7 @@ p {
     @include paragraph;
 
     font-size: 15pt;
-    line-height: 18pt;
+    line-height: 23pt;
     margin-bottom: $spacing-medium;
 }
 
@@ -100,6 +100,7 @@ pre {
     margin-bottom: $spacing-medium;
     overflow: scroll;
     padding: $spacing-small;
+    line-height: 18pt;
 }
 
 hr {
