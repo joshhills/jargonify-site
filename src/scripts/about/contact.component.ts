@@ -34,7 +34,7 @@ export class ContactComponent {
 
         this.submitted = true;
 
-        const requestUrl = `${this.baseUrl}/static/email/send.php`;
+        const requestUrl = `${this.baseUrl}/live/site/dist/browser/static/email/send.php`;
         const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
         const data = `name=${this.contactDetails.name}&email=${this.contactDetails.email}&message=${this.contactDetails.message}`;

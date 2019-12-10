@@ -24,7 +24,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/static",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/opensearch.xml"
             ],
             "styles": [
               "src/styles/style.scss"
@@ -89,7 +90,8 @@
             "scripts": [],
             "assets": [
               "src/static",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/opensearch.xml"
             ]
           }
         },

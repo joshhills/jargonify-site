@@ -3,7 +3,7 @@ $endorsement-item-width: $blog-item-size * 3 + $spacing-small * 4 + $border-size
 .m-endorsement-item {
     background-color: $chrome;
     
-    border: $border-size dashed $paper;
+    border: $border-size solid $chrome;
     margin: 0 $spacing-small;
     max-width: $endorsement-item-width;
     overflow: hidden;
